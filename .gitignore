@@ -1,0 +1,24 @@
+#apple temp files
+*.DS_Store
+
+#webstorm temp files
+*.idea
+
+#nodejs modules
+*node_modules/
+
+#output dist files
+*dist/
+*bin/dist.zip
+
+*.sublime-project
+*.sublime-workspace
+
+*.out
+*.swp
+*.log
+
+#all built files
+*.built.js
+
+

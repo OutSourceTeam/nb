@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="169px" height="172px" viewBox="0 0 169 172" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Skype</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Skype" sketch:type="MSLayerGroup">
+            <g id="layer1" transform="translate(0.358000, 0.656000)" sketch:type="MSShapeGroup">
+                <path d="M92.982,46.133 C92.982,71.517 72.178,92.096 46.515,92.096 C20.852,92.096 0.048,71.517 0.048,46.133 C0.048,20.749 20.852,0.171 46.515,0.171 C72.178,0.171 92.982,20.749 92.982,46.133 L92.982,46.133 Z" id="path24965" fill="#00C3FF"></path>
+                <path d="M167.734,124.42 C167.734,149.804 146.929,170.382 121.267,170.382 C95.603,170.382 74.799,149.804 74.799,124.42 C74.799,99.035 95.603,78.458 121.267,78.458 C146.929,78.458 167.734,99.035 167.734,124.42 L167.734,124.42 Z" id="path24965-8" fill="#00C3FF"></path>
+                <path d="M164.703,84.014 C164.703,129.203 128.974,165.836 84.901,165.836 C40.828,165.836 5.099,129.203 5.099,84.014 C5.099,38.825 40.828,2.192 84.901,2.192 C128.974,2.192 164.703,38.825 164.703,84.014 L164.703,84.014 Z" id="path24989" fill="#00C3FF"></path>
+                <path d="M117.731,52.699 C108.681,43.357 98.046,38.193 85.406,36.536 C73.822,35.961 58.19,41.265 57.121,55.729 C56.205,71.425 65.87,76.776 86.416,81.993 C104.179,86.633 120.815,89.703 119.751,107.246 C119.374,122.993 104.133,130.036 87.426,129.47 C70.877,128.712 60.349,120.333 54.091,112.297" id="path24997" stroke="#FFFFFF" stroke-width="23"></path>
+            </g>
+        </g>
+    </g>
+</svg>
