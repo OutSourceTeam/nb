@@ -21,7 +21,8 @@ require.config({
         'browser' : 'packages/browser/check',
         'poly' : 'packages/poly/poly.0.5.1.min',
         'less' : 'packages/less/1.7.0/less.min',
-        'text': 'packages/require-text/2.0.14/text'
+        'text': 'packages/require-text/2.0.14/text',
+        'common':'modules/common'
     },
     map: {
         '*': {
