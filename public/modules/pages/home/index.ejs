@@ -19,6 +19,7 @@
 		v\:shape { width: 100%; display: inline-block; height: 100%; behavior: url(#default#VML) }
 	</style>
 	<title>NewBalance</title>
+	<link rel="stylesheet" href="/packages/swiper/idangerous.swiper.css">
 	<script src="../../../packages/requirejs/2.1.17/require.min.js"></script>
 	<!-- build:template
 	<script src="../../../modules/mix.built.js"></script>
@@ -29,6 +30,25 @@
 </head>
 <body>
 	<%- include('../../common/header/index') %>
+	<div class="swiper-container">
+    <!-- Additional required wrapper -->
+	    <div class="swiper-wrapper">
+	        <!-- Slides -->
+	        <div class="swiper-slide" style="background-image:url(/uploads/banner01.png);" ></div>
+	        <div class="swiper-slide" style="background-image:url(/uploads/banner02.png);" ></div>
+	        <div class="swiper-slide" style="background-image:url(/uploads/banner03.png);" ></div>
+	        <div class="swiper-slide" style="background-image:url(/uploads/banner04.png);" ></div>
+	    </div>
+	    <!-- If we need pagination -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- If we need navigation buttons -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	    
+	    <!-- If we need scrollbar -->
+	    <div class="swiper-scrollbar"></div>
+	</div>
 	<%- include('../../common/footer/index') %>
 </body>
 </html>
