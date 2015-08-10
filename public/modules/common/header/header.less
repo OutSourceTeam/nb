@@ -1,7 +1,65 @@
-@import '../global';
-.Global_HEADER{
-}
+@headerbackground:#232323;
+
+@hover_meun:#e7e7e7;
 .header{
-  background: #232323;
+  background: @headerbackground;
   height: 72px;
+  font-size: 13px;
+  .logo{
+    background: url("../../../images/nbLogo.png") no-repeat;
+    width: 170px;
+    height: 72px;
+    display: inline-block;
+    float: left;
+  }
+  .header_meun{
+    display: inline-block;
+    float: left;
+    li{
+      float: left;
+      width: 70px;
+      height: 72px;
+      line-height: 72px;
+      color: #fff;
+      position: relative;
+      text-align: center;
+    }
+
+  }
+  .hover_meun {
+    background: @hover_meun;
+    color: @headerbackground !important;
+    cursor: pointer;
+    &:before,&:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  &:before {
+    border-top: 72px solid transparent;
+    border-right: 35px solid @hover_meun;
+    left: -35px;
+  }
+  &:after {
+    border-bottom: 72px solid transparent;
+    border-left: 35px solid @hover_meun;
+    right: -34px;
+
+  }
+}
+  .search{
+    float: left;
+    margin-left: 315px;
+    height: 72px;
+    line-height: 72px;
+    input{
+      height: 43px;
+      border: 1px solid #646464;
+      width: 412px;
+      background: @hover_meun;
+      position: relative;
+    }
+  }
+
 }
