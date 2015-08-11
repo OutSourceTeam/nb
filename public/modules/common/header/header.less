@@ -3,12 +3,12 @@
 @hover_meun:#e7e7e7;
 .header{
   background: @headerbackground;
-  height: 72px;
+  height: 56px;
   font-size: 13px;
   .logo{
     background: url("../../../images/nbLogo.png") no-repeat;
     width: 170px;
-    height: 72px;
+    height: 56px;
     display: inline-block;
     float: left;
   }
@@ -18,8 +18,8 @@
     li{
       float: left;
       width: 70px;
-      height: 72px;
-      line-height: 72px;
+      height: 56px;
+      line-height: 56px;
       color: #fff;
       position: relative;
       text-align: center;
@@ -37,29 +37,111 @@
     height: 0;
   }
   &:before {
-    border-top: 72px solid transparent;
-    border-right: 35px solid @hover_meun;
-    left: -35px;
+    border-top: 56px solid transparent;
+    border-right: 28px solid @hover_meun;
+    left: -28px;
   }
   &:after {
     border-bottom: 72px solid transparent;
-    border-left: 35px solid @hover_meun;
-    right: -34px;
+    border-left: 28px solid @hover_meun;
+    right: -28px;
 
   }
 }
-  .search{
-    float: left;
-    margin-left: 315px;
-    height: 72px;
-    line-height: 72px;
-    input{
-      height: 43px;
-      border: 1px solid #646464;
-      width: 412px;
-      background: @hover_meun;
+  .search-box{
+    display: inline-block;
+    position: relative;
+    width: 410px;
+    height: 56px;
+    top: 0;
+    padding-right: 48px;
+    padding-left: 15px;
+    overflow: hidden;
+    left: 315px;
+    text-align: right;
+    .search-container {
       position: relative;
-    }
-  }
+      max-width: 410px;
+      height: 36px;
+      top: 10px;
+      margin-left: 18px;
+      background: @hover_meun;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      &::before {
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        position: absolute;
+        content: "";
+        border-width: 0 0 36px 18px;
+        border-color: transparent transparent @hover_meun transparent;
+        left: -18px;
+        top: 0;
+      }
+      &::after {
+        display:block;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        position: absolute;
+        content: "";
+        border-width: 36px 18px 0 0;
+        border-color: @hover_meun transparent transparent transparent;
+        right: -18px;
+        top: 0;
+      }
+      form {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+      input {
+        font-size: 13px;
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 48px;
+        background: @hover_meun;
+        color: @headerbackground;
+        border: none;
+        height: 36px;
+        line-height: normal;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: .2px;
+        border-width: 1px 0 0 1px;
+        width: 100%;
+        outline: none;
+      }
+      button {
+        display: inline-block;
+        right: 15px;
+        position: absolute;
+        top: 0;
+        height: 36px;
+        line-height: 36px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+      }
 
+    }
+
+  }
+   .findstore{
+     display: inline-block;
+     position: relative;
+     top: 0;
+     left: 365px;
+     height: 56px;
+     line-height: 56px;
+     width: 100px;
+     overflow: hidden;
+     text-align: right;
+     background: red;
+   }
 }
