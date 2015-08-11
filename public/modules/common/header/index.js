@@ -3,9 +3,11 @@ define(['less!./header'],function() {
     (function () {
 
         $('.header_meun li').hover(function () {
-            $(this).addClass('hover_meun');
+            $(this).children('span').addClass('hover_meun');
+            $(this).children('.category_expand').show()
         }, function () {
-            $(this).removeClass('hover_meun');
+            $(this).children('span').removeClass('hover_meun');
+            $(this).children('.category_expand').hide()
         })
 
 

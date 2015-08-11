@@ -1,10 +1,16 @@
 @headerbackground:#232323;
-
 @hover_meun:#e7e7e7;
+@hover_childmeun:#f7f7f7;
+@fontcolor:#000;
+@mcolor:#545454;
+.margin_btm{
+  margin-bottom: 10px;
+}
 .header{
   background: @headerbackground;
   height: 56px;
   font-size: 13px;
+  position: relative;
   .logo{
     background: url("../../../images/nbLogo.png") no-repeat;
     width: 170px;
@@ -13,16 +19,27 @@
     float: left;
   }
   .header_meun{
-    display: inline-block;
     float: left;
+    position: static;
+    overflow: visible;
+    height: 56px;
+    display: inline-block;
+    width: auto;
+    ul{
+      display: inline-block;
+    }
     li{
       float: left;
-      width: 70px;
-      height: 56px;
-      line-height: 56px;
       color: #fff;
-      position: relative;
       text-align: center;
+      display: inline-block;
+      span{
+        width: 70px;
+        height: 56px;
+        line-height: 56px;
+        display: inline-block;
+        position: relative;
+      }
     }
 
   }
@@ -132,7 +149,7 @@
     }
 
   }
-   .findstore{
+  .findstore{
      display: inline-block;
      position: relative;
      top: 0;
@@ -144,4 +161,67 @@
      text-align: right;
      background: red;
    }
+  .category_expand{
+    display: none;
+    top: 56px;
+    left: 0;
+    height: auto;
+    width: 100%;
+    cursor: default;
+    background: @hover_childmeun;
+    z-index: 2;
+    position: absolute;
+  }
+  .category_expand_inner{
+    max-width: 1020px;
+    background: @hover_childmeun;
+    background-size: 200px 200px;
+    display: table;
+    margin: 0 25%;
+  }
+  .row {
+    display: table-row;
+    text-align: left;
+  }
+  .cell {
+    display: table-cell;
+    width: 152px;
+    height: 268px;
+    padding-top: 20px;
+    hr{
+      .margin_btm;
+    }
+    .title{
+      font-size: 19px;
+      color: @fontcolor;
+      clear: both;
+      .margin_btm;
+    }
+    .category_content{
+      display:block;
+      float:left;
+      clear: both;
+      .margin_btm;
+       .left_content{
+         float: left;
+         color: @mcolor;
+       }
+      .right_content{
+        float: left;
+        padding-left: 30px;
+        li{
+          float: none;
+          display: block;
+          color: @mcolor;
+          height: 18px;
+          line-height: 18px;
+          text-align: left;
+        }
+      }
+
+    }
+  }
+  .cellp{
+    width: 70px!important;
+  }
 }
