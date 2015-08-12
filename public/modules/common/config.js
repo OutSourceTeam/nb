@@ -17,7 +17,7 @@ require.config({
     paths: {
         'vector' : 'packages/vector/svgvml',
         'jquery' : 'packages/jquery/jquery-1.11.3.min',
-        'swiper':'packages/swiper/idangerous.swiper.min',
+        'swiper':'packages/swiper/swiper.min',
         'browser' : 'packages/browser/check',
         'poly' : 'packages/poly/poly.0.5.1.min',
         'less' : 'packages/less/1.7.0/less.min',

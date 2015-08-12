@@ -7,6 +7,7 @@ html,body{
 }
 .homePage{
 	background-color: #ededed;
+	position: relative;
 	.topBannerSwiper{
 	    width: 100%;
 	    height: 475px;
@@ -15,6 +16,26 @@ html,body{
 	    	background-size: cover;
 	    	background-position: center center;
 	    	background-repeat: no-repeat;
+	    }
+	    .swiper-pagination{
+	    	color: #fff;
+	    	.swiper-pagination-bullet{
+	    		background-color: transparent;
+	    		opacity: 1;
+	    		width: auto;
+	    		height: auto;
+	    		margin: 0 0 0 5px;
+	    		&:before{
+	    			content: "\e614";
+	    		};
+	    	}
+	    	.swiper-pagination-bullet-active{
+	    		background-color: transparent;
+	    		opacity: 1;
+	    		&:before{
+	    			content: "\e615";
+	    		};
+	    	}
 	    }
 	}  
 	.noticeBox{
@@ -81,7 +102,7 @@ html,body{
 	.bottomNewsSwiper{
 
 		width: 1200px;
-		margin: 30px auto 0;
+		margin: 30px auto 35px;
 		height: 513px;
 		background-color: #1b1b1b;
 		font-size: 0;
@@ -89,6 +110,30 @@ html,body{
 			height: 100%;
 			.swiper-slide{
 				height: 100%;
+			}
+		}
+		.swiper-button-prev{
+			width: 37px;
+			height: 58px;
+			background-color: #fff;
+			background-image: none;
+			&:before{
+				font-size: 22px;
+			    position: absolute;
+			    left: 10px;
+			    top: 18px;
+			}
+		}
+		.swiper-button-next{
+			width: 37px;
+			height: 58px;
+			background-color: #fff;
+			background-image: none;
+			&:before{
+				font-size: 22px;
+			    position: absolute;
+			    right: 10px;
+			    top: 18px;
 			}
 		}
 		.leftImage{
@@ -113,7 +158,65 @@ html,body{
 			color: #fff;
 			padding: 75px 60px 0;
 			box-sizing: border-box;
-			font-size: 14px;
+			font-size: 20px;
+			.time{
+				text-decoration: underline;
+			}
+			.title{
+				margin-top: 20px;
+				font-size: 35px;
+				line-height: 45px;
+				font-weight: normal;
+			}
+			.info{
+				margin-top: 20px;
+				line-height: 25px;
+				max-height: 125px;
+				overflow: hidden;
+			}
+			.knowMore{
+				display: inline-block;
+				margin-top: 35px;
+				width: 142px;
+				height: 44px;
+				border: 2px solid #fff;
+				line-height: 40px;
+				color: #fff;
+				text-decoration: none;
+				text-align: center;
+			}
 		}
+	}
+}
+.pageCover{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+	&.show{
+		display: block;
+	}
+	.qrcodeBox{
+		width: 290px;
+	    height: 290px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    z-index: 1112;
+	    margin: -145px 0 0 -145px;
+	    &>img{
+	    	width: 100%;
+	    }
+	    .closeBtn{
+	    	position: absolute;
+	    	top: 0;
+	    	right: -40px;
+	    	font-size: 14px;
+	    	color: #fff;
+	    }
 	}
 }
