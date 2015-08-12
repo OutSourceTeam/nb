@@ -3,11 +3,15 @@ define(['less!./header'],function() {
     (function () {
 
         $('.header_meun li').hover(function () {
-            $(this).children('span').addClass('hover_meun');
-            $(this).children('.category_expand').show()
+            var $this =$(this);
+            $this.children('span').addClass('hover_meun');
+            $this.children('span').children('a').addClass('acolor');
+            $this.children('.category_expand').show()
         }, function () {
-            $(this).children('span').removeClass('hover_meun');
-            $(this).children('.category_expand').hide()
+            var $this =$(this);
+            $this.children('span').removeClass('hover_meun');
+            $this.children('span').children('a').removeClass('acolor');
+            //$this.children('.category_expand').hide()
         })
 
 

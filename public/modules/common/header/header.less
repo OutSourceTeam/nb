@@ -1,3 +1,4 @@
+//@import '../global';
 @headerbackground:#232323;
 @hover_meun:#e7e7e7;
 @hover_childmeun:#f7f7f7;
@@ -5,6 +6,9 @@
 @mcolor:#545454;
 .margin_btm{
   margin-bottom: 10px;
+}
+.acolor{
+  color: @fontcolor!important;
 }
 .header{
   background: @headerbackground;
@@ -17,6 +21,7 @@
     height: 56px;
     display: inline-block;
     float: left;
+
   }
   .header_meun{
     float: left;
@@ -25,6 +30,14 @@
     height: 56px;
     display: inline-block;
     width: auto;
+    a{
+      color: @hover_meun;
+      text-decoration: none;
+      &:hover{
+        color: @fontcolor;
+      }
+    }
+
     ul{
       display: inline-block;
     }
@@ -39,6 +52,13 @@
         line-height: 56px;
         display: inline-block;
         position: relative;
+        a{
+          width: 70px;
+          height: 56px;
+          line-height: 56px;
+          display: inline-block;
+          position: relative;
+        }
       }
     }
 
@@ -67,6 +87,7 @@
 }
   .search-box{
     display: inline-block;
+    float: 	left;
     position: relative;
     width: 410px;
     height: 56px;
@@ -190,17 +211,31 @@
     padding-top: 20px;
     hr{
       .margin_btm;
+      height:1px;
+      border:none;
+      border-top:1px solid @mcolor;
     }
     .title{
       font-size: 19px;
       color: @fontcolor;
       clear: both;
       .margin_btm;
+      a{
+        font-size: 16px;
+        color: @fontcolor
+      }
     }
     .category_content{
       display:block;
       float:left;
       clear: both;
+      a{
+        font-size: 13px;
+        color: @mcolor;
+        &:hover{
+          color: red;
+        }
+      }
       .margin_btm;
        .left_content{
          float: left;
@@ -209,16 +244,30 @@
       .right_content{
         float: left;
         padding-left: 30px;
+        ul{
+          display: inline-block;
+        }
         li{
+          clear: both;
           float: none;
           display: block;
           color: @mcolor;
-          height: 18px;
           line-height: 18px;
           text-align: left;
+          list-style: none!important;
         }
       }
 
+    }
+    .arrow_right {
+      width: 0px;
+      height: 0px;
+      border-bottom: 6px solid transparent;
+      border-top: 7px solid transparent;
+      border-left: 9px solid #2f2f2f;
+      font-size: 0px;
+      line-height: 0px;
+      margin-left: 5px;
     }
   }
   .cellp{
