@@ -273,6 +273,7 @@
       display:block;
       float:left;
       clear: both;
+      color: @mcolor;
       a{
         font-size: 13px;
         color: @mcolor;
@@ -283,22 +284,16 @@
       .margin_btm;
        .left_content{
          float: left;
-         color: @mcolor;
+         font-weight: bold;
        }
       .right_content{
         float: left;
         padding-left: 30px;
-        ul{
-          display: inline-block;
-        }
         li{
-          clear: both;
           float: none;
           display: block;
-          color: @mcolor;
           line-height: 18px;
           text-align: left;
-          list-style: none!important;
         }
       }
 
@@ -317,4 +312,10 @@
   .cellp{
     width: 70px!important;
   }
+}
+hr{
+  .margin_btm;
+  height:1px;
+  border:none;
+  border-top:1px solid @mcolor;
 }

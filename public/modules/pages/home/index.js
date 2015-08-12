@@ -2,6 +2,7 @@ define([
     'jquery',
     'swiper',
     'common/header/index',
+    'common/footer/index',
     'less!./home'
 ], function($, Swiper) {
     
