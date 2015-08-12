@@ -18,7 +18,7 @@
   position: relative;
   .logo{
     background:@logobc;
-    width: 170px;
+    width: 125px;
     height: 56px;
     display: inline-block;
     float: left;
@@ -47,6 +47,7 @@
     height: 56px;
     display: inline-block;
     width: auto;
+    padding-left: 23px;
     a{
       color: @hover_meun;
       text-decoration: none;
@@ -63,6 +64,7 @@
       color: #fff;
       text-align: center;
       display: inline-block;
+      cursor: pointer;
       span{
         width: 70px;
         height: 56px;
@@ -76,6 +78,14 @@
           display: inline-block;
           position: relative;
         }
+
+      }
+
+    }
+    .runguwen{
+      padding-left: 23px;
+      a:hover{
+        color: #fff;
       }
     }
 
@@ -112,7 +122,7 @@
     padding-right: 48px;
     padding-left: 15px;
     overflow: hidden;
-    left: 315px;
+    left: 233px;
     text-align: right;
     .search-container {
       position: relative;
@@ -191,13 +201,30 @@
      display: inline-block;
      position: relative;
      top: 0;
-     left: 365px;
+     left: 240px;
      height: 56px;
      line-height: 56px;
      width: 100px;
      overflow: hidden;
      text-align: right;
-     background: red;
+      float: left;
+     color: @hover_meun;
+    .icon-location{
+      font-size: 30px;
+      position: relative;
+      top: 6px;
+    }
+     a{
+       color: @hover_meun;
+       display: inline-block;
+       height: 56px;
+       line-height: 56px;
+       padding-left: 10px;
+       &:hover{
+         text-decoration: none;
+         color: #fff;
+       }
+     }
    }
   .category_expand{
     display: none;
@@ -215,7 +242,7 @@
     background: @hover_childmeun;
     background-size: 200px 200px;
     display: table;
-    margin: 0 25%;
+    margin: 0 auto;
   }
   .row {
     display: table-row;
