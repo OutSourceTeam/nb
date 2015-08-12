@@ -6,34 +6,27 @@ define([
 ], function($, Swiper) {
     
 	var topBannerSwiper = new Swiper ('.topBannerSwiper', {
-    // Optional parameters
-    direction: 'vertical',
-    loop: true,
-    
-    // If we need pagination
-    pagination: '.swiper-pagination',
-    
-    // Navigation arrows
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    
-    // And if we need scrollbar
-    scrollbar: '.swiper-scrollbar',
-  });
-  var bottomNewsSwiper = new Swiper ('.bottomNewsSwiper', {
-    // Optional parameters
-    direction: 'vertical',
-    loop: true,
-    
-    // If we need pagination
-    pagination: '.swiper-pagination',
-    
-    // Navigation arrows
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    
-    // And if we need scrollbar
-    scrollbar: '.swiper-scrollbar',
-  })       
-
-})
+        loop: true,
+        speed: 500,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function (index, className) {
+            var iconName = "icon-polygon-active";
+            return '<span class="' + className +" "+ iconName + '"></span>';
+        }
+      });
+      var bottomNewsSwiper = new Swiper ('.bottomNewsSwiper', {
+        loop: true,
+        speed: 500,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+      });
+    $('.weixin').on('click', function(ev){
+        $('.pageCover').addClass('show');
+        ev.stopPropagation();
+    });
+    $('.closeBtn').on('click', function(){
+        $('.pageCover').removeClass('show');
+        ev.stopPropagation();
+    });
+});

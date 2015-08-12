@@ -4,20 +4,6 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 	<meta charset="UTF-8">
-    <!--[if lt IE 9]>
-		<script src="/packages/html5shiv/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
-	<style>
-		/* for vml in ie8 */
-		v\:rect { display: inline-block; behavior: url(#default#VML) }
-		v\:image { display: inline-block; behavior: url(#default#VML) }
-		v\:fill { display: inline-block; behavior: url(#default#VML) }
-		v\:stroke { display: inline-block; behavior: url(#default#VML) }
-		o\:opacity2 { display: inline-block; behavior: url(#default#VML) }
-		dn\:defs { display: none }
-		v\:group { position: relative; text-indent: 0px; width: 100%; display: inline-block; height: 100%; behavior: url(#default#VML) }
-		v\:shape { width: 100%; display: inline-block; height: 100%; behavior: url(#default#VML) }
-	</style>
 	<title>NewBalance</title>
 	<link rel="stylesheet" href="/packages/swiper/idangerous.swiper.css">
 	<script src="../../../packages/requirejs/2.1.17/require.min.js"></script>
@@ -42,18 +28,11 @@
 		    </div>
 		    <!-- If we need pagination -->
 		    <div class="swiper-pagination"></div>
-		    
-		    <!-- If we need navigation buttons -->
-		    <div class="swiper-button-prev"></div>
-		    <div class="swiper-button-next"></div>
-		    
-		    <!-- If we need scrollbar -->
-		    <div class="swiper-scrollbar"></div>
 		</div>
 		<div class="noticeBox">
 			<span class="text">关注NewBalance中国</span>
-			<span class="weibo"></span>
-			<span class="weixin"></span>
+			<a class="weibo" href=""></a>
+			<a class="weixin" href="javascript:;"></a>
 		</div>
 		<div class="topicListBox">
 			<ul class="topicList">
@@ -108,11 +87,18 @@
 		        </div>
 		    </div>
 		    
-		    <div class="swiper-button-prev"></div>
-		    <div class="swiper-button-next"></div>
-		    
+		    <div class="swiper-button-prev icon-triangle-thin-left"></div>
+		    <div class="swiper-button-next icon-triangle-thin-right"></div>
 		</div>
+		
 		<%- include('../../common/footer/index') %>
 	</div>
+	<div class="pageCover">
+		<div class="qrcodeBox">
+			<img src="/images/qrcode.png">
+			<a class="icon-close-thin closeBtn" href="javascript:;"></a>
+		</div>
+	</div>
+	<div class="header-tab"></div>
 </body>
 </html>
