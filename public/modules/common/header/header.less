@@ -4,6 +4,7 @@
 @hover_childmeun:#f7f7f7;
 @fontcolor:#000;
 @mcolor:#545454;
+@logobc:#df1e3b;
 .margin_btm{
   margin-bottom: 10px;
 }
@@ -16,12 +17,28 @@
   font-size: 13px;
   position: relative;
   .logo{
-    background: url("../../../images/nbLogo.png") no-repeat;
+    background:@logobc;
     width: 170px;
     height: 56px;
     display: inline-block;
     float: left;
+    position: relative;
+    font-size: 46px;
+    color: white;
+    text-align: center;
+    line-height: 56px;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+    &:after {
+      border-bottom: 56px solid transparent;
+      border-left: 23px solid @logobc;
+      right: -23px;
 
+    }
   }
   .header_meun{
     float: left;
@@ -75,13 +92,13 @@
   }
   &:before {
     border-top: 56px solid transparent;
-    border-right: 28px solid @hover_meun;
-    left: -28px;
+    border-right: 23px solid @hover_meun;
+    left: -23px;
   }
   &:after {
-    border-bottom: 72px solid transparent;
-    border-left: 28px solid @hover_meun;
-    right: -28px;
+    border-bottom: 56px solid transparent;
+    border-left: 23px solid @hover_meun;
+    right: -23px;
 
   }
 }
