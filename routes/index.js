@@ -11,4 +11,7 @@ router.get('/home', function(req, res) {
     res.render('modules/pages/home/index');
 });
 
+router.get('/shopList', function(req, res) {
+    res.render('modules/pages/shopList/index');
+});
 module.exports = router;
