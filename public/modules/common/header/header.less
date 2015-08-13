@@ -192,6 +192,7 @@
         border: none;
         background: transparent;
         box-shadow: none;
+        cursor: pointer;
       }
 
     }
@@ -273,6 +274,7 @@
       display:block;
       float:left;
       clear: both;
+      color: @mcolor;
       a{
         font-size: 13px;
         color: @mcolor;
@@ -283,22 +285,16 @@
       .margin_btm;
        .left_content{
          float: left;
-         color: @mcolor;
+         font-weight: bold;
        }
       .right_content{
         float: left;
         padding-left: 30px;
-        ul{
-          display: inline-block;
-        }
         li{
-          clear: both;
           float: none;
           display: block;
-          color: @mcolor;
           line-height: 18px;
           text-align: left;
-          list-style: none!important;
         }
       }
 
@@ -316,5 +312,65 @@
   }
   .cellp{
     width: 70px!important;
+  }
+}
+hr{
+  .margin_btm;
+  height:1px;
+  border:none;
+  border-top:1px solid @mcolor;
+}
+.header-tab{
+  position: fixed;
+  top: 0;
+  display: none;
+  width: 100%;
+  z-index: 100000;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  .icon-triangle-hollow-top {
+    font-size: 12px;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    width: 86px;
+    height: 34px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    -ms-pointer-events: all;
+    pointer-events: all;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  a:before {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: block;
+    position: absolute;
+    left: -1.19117647px;
+    top: -54.38235294px;
+    width: 88.38235294px;
+    height: 88.38235294px;
+    font-size: 88.38235294px;
+    overflow: hidden;
+    color: #232323;
+  }
+
+
+
+   a span {
+    top: 10px;
+     position: relative;
   }
 }

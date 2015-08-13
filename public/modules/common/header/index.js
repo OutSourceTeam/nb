@@ -17,6 +17,25 @@ define(['less!./header'],function() {
         })
 
 
+        $(window).scroll(function () {
+            toTop()
+        });
+
+        $('#headerToTop').on('click', function () {
+            $(window).scrollTop(0);
+        })
+
+        function toTop(){
+            var body_scoll = $(window).scrollTop();
+
+            if(body_scoll>=55){
+                $('.header-tab').css({'top':'0px'}).slideDown().addClass('toTop');
+            }else{
+                $('.header-tab').css({'top':'-34px'}).slideUp().removeClass('toTop');
+            }
+        }
+        toTop()
+
     })()
 
 

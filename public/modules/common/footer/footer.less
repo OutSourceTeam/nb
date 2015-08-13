@@ -1,0 +1,53 @@
+@mcolor:#545454;
+.tablecontainer{
+  display: table;
+  margin: 0 auto;
+}
+.row {
+  display: table-row;
+}
+.cell {
+  display: table-cell;
+}
+.footer{
+  height: 240px;
+  font-size: 13px;
+  position: relative;
+  margin-top: 40px;
+  padding-top: 40px;
+  background: #fff;
+  text-align: center;
+  .aboutus{
+    height: 160px;
+    li{
+      text-align: left;
+      line-height: 26px;
+      font-weight: 400;
+    }
+    .cell {
+      padding-right: 100px;
+    }
+    .textright{
+      li{
+        text-align: right;
+      }
+    }
+    .ultop{
+      position: absolute;
+      top: 220px;
+    }
+    .floatleft{
+      li{
+        float: left;
+      }
+    }
+  }
+
+  a{
+    color: #000;
+    text-decoration: none;
+    &:hover{
+      color: red;
+    }
+  }
+}
