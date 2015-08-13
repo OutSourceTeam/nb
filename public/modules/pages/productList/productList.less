@@ -124,59 +124,61 @@ html, body {
       .protitle {
         height: 317px;
         background: #fff;
-        .marigntoppope{
+        .marigntoppope {
           padding-top: 40px;
         }
-        .popeswiper{
+        .popeswiper {
           width: 430px;
           display: table-cell;
         }
-        .popeBannerSwiper{
+        .popeBannerSwiper {
           width: 318px;
           height: 192px;
           margin-right: 70px;
-          .swiper-slide{
+          .swiper-slide {
             height: 100%;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
           }
-          .swiper-pagination{
+          .swiper-pagination {
             color: #fff;
-            .swiper-pagination-bullet{
+            .swiper-pagination-bullet {
               background-color: transparent;
               opacity: 1;
               width: auto;
               height: auto;
               margin: 0 0 0 5px;
-              &:before{
+              &:before {
                 content: "\e614";
-              };
+              }
+            ;
             }
-            .swiper-pagination-bullet-active{
+            .swiper-pagination-bullet-active {
               background-color: transparent;
               opacity: 1;
-              &:before{
+              &:before {
                 content: "\e615";
-              };
+              }
+            ;
             }
           }
-          .swiper-button-prev{
+          .swiper-button-prev {
             width: 37px;
             height: 58px;
             background-image: none;
-            &:before{
+            &:before {
               font-size: 22px;
               position: absolute;
               left: 10px;
               top: 18px;
             }
           }
-          .swiper-button-next{
+          .swiper-button-next {
             width: 37px;
             height: 58px;
             background-image: none;
-            &:before{
+            &:before {
               font-size: 22px;
               position: absolute;
               right: 10px;
@@ -184,25 +186,25 @@ html, body {
             }
           }
         }
-        .poperemark{
+        .poperemark {
           width: 610px;
           position: absolute;
           top: 60px;
-          .remarktitle{
+          .remarktitle {
             font-size: 24px;
             font-weight: bold;
             text-align: left;
-            span{
+            span {
               position: absolute;
               right: 0;
             }
           }
-          .remarkcontent{
+          .remarkcontent {
             color: #313131;
             line-height: 30px;
           }
-          .remarkmore{
-            span{
+          .remarkmore {
+            span {
               position: relative;
               left: 410px;
             }
@@ -218,7 +220,7 @@ html, body {
           }
         }
       }
-      .popeclosed{
+      .popeclosed {
         text-align: right;
         color: #000;
         font-size: 30px;
@@ -226,53 +228,55 @@ html, body {
         height: 0px;
         cursor: pointer;
       }
-      .popebananer{
+      .popebananer {
         height: 443px;
-        .popebigBannerSwiper{
+        .popebigBannerSwiper {
           width: 100%;
           height: 443px;
-          .swiper-slide{
+          .swiper-slide {
             height: 100%;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
           }
-          .swiper-pagination{
+          .swiper-pagination {
             color: #fff;
-            .swiper-pagination-bullet{
+            .swiper-pagination-bullet {
               background-color: transparent;
               opacity: 1;
               width: auto;
               height: auto;
               margin: 0 0 0 5px;
-              &:before{
+              &:before {
                 content: "\e614";
-              };
+              }
+            ;
             }
-            .swiper-pagination-bullet-active{
+            .swiper-pagination-bullet-active {
               background-color: transparent;
               opacity: 1;
-              &:before{
+              &:before {
                 content: "\e615";
-              };
+              }
+            ;
             }
           }
-          .swiper-button-prev{
+          .swiper-button-prev {
             width: 37px;
             height: 58px;
             background-image: none;
-            &:before{
+            &:before {
               font-size: 22px;
               position: absolute;
               left: 10px;
               top: 18px;
             }
           }
-          .swiper-button-next{
+          .swiper-button-next {
             width: 37px;
             height: 58px;
             background-image: none;
-            &:before{
+            &:before {
               font-size: 22px;
               position: absolute;
               right: 10px;
@@ -281,7 +285,22 @@ html, body {
           }
         }
       }
-
+      .popeloading {
+        position: relative;
+        height: 180px;
+        background-color: @probgcolor;
+        span{
+          width: 118px;
+          height: 118px;
+          position: absolute;
+          margin: 30px 0;
+          left: 50%;
+          background: transparent url(../../../images/loader-f1f1f1.gif) no-repeat center center;
+        }
+      }
+      .popedone{
+        display: none;
+      }
     }
   }
   .quickview-arrow {

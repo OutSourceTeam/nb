@@ -40,6 +40,8 @@ define([
         prevButton: '#bigprev'
     });
 
+    var ispropopeshou=false,ispopeloading=false,ispopedone=false;
+
     $('.showpope').each(function (index,item) {
         var $item = $(item)
         $item.on('click', function () {
@@ -49,8 +51,38 @@ define([
             var $propope = $this.find('.propope');
 
             var quickview = $propope.find('.quickview-arrow');
-            quickview.css('left',pos)
-            $propope.slideToggle()
+            var popeloading = $propope.find('.popeloading');
+            var popedone = $propope.find('.popedone');
+            quickview.css('left',pos);
+
+            setTimeout(function () {
+                if(ispopeloading){
+                    ispopeloading=false
+                    popeloading.show();
+                }else{
+                    ispopeloading=true
+                    popeloading.hide();
+                }
+
+                if(!ispopedone){
+                    ispopedone=true
+                    popedone.fadeIn();
+                }else{
+                    ispopedone=false
+                    popedone.fadeOut();
+                }
+
+            },1000);
+
+             if(!ispropopeshou){
+                 ispropopeshou=true
+                 $propope.slideDown();
+             }else{
+                 ispropopeshou=false
+                 $propope.slideUp();
+             }
+
+
 
             console.log(pos)
 
