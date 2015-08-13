@@ -9,6 +9,7 @@ define([
 	var topBannerSwiper = new Swiper ('.topBannerSwiper', {
         loop: true,
         speed: 500,
+        autoplay: 5000,
         pagination: '.swiper-pagination',
         paginationClickable: true,
         paginationBulletRender: function (index, className) {

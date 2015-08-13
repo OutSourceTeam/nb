@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<meta charset="UTF-8">
+	<title>NewBalance-shopList</title>
+	<link rel="stylesheet" href="/packages/swiper/idangerous.swiper.css">
+	<script src="../../../packages/requirejs/2.1.17/require.min.js"></script>
+	
+	<!-- build:template
+	<script src="../../../modules/mix.built.js"></script>
+	<script src="../../../modules/pages/home/built.js"></script>
+	/build -->
+	<script src="../../../modules/common/config.js" baseUrl='../../../' main='modules/pages/shopList/index'></script>
+
+</head>
+<body>
+	<div class="shopListPage">
+		<%- include('../../common/header/index') %>
+		<div class="pageMain">
+			<div class="container">
+				<div class="searchBox">
+					<h1 class="title">
+						<span class="text">查找门店</span>
+						<span class="map_small"></span>
+					</h1>
+					<select class="province">
+						<option>省份</option>
+						<option>四川省</option>
+						<option>福建省</option>
+					</select>
+					<select class="city">
+						<option>城市</option>
+						<option>成都市</option>
+						<option>绵阳市</option>
+					</select>
+
+					<ul class="typeList">
+						<li>
+							<span class="icon-shop icon"></span>
+							<span class="text">正价店</span>
+							<a class="icon-close" href="javascript:;"></a>
+						</li>
+						<li>
+							<span class="icon-house icon"></span>
+							<span class="text">工厂店</span>
+							<a class="icon-close" href="javascript:;"></a>
+						</li>
+						<li>
+							<span class="icon-kids icon"></span>
+							<span class="text">童鞋店</span>
+							<a class="icon-close" href="javascript:;"></a>
+						</li>
+					<ul>
+					<div class="searchBtn">搜索</div>
+				</div>
+				<div class="rightBox">
+					<ul class="shopList">
+						<li class="shopInfos">
+							<span class="name">北京京顺路工厂店</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance专柜</span>
+							<span class="icon-shoe-right icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京世茂天街店222</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance专柜</span>
+							<span class="icon-kids icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京世茂天街店</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 </span>
+							<span class="icon-villa icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京京顺路工厂店</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance</span>
+							<span class="icon-shoe-right icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京世茂天街店222</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance专柜</span>
+							<span class="icon-kids icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京世茂天街店</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance专柜</span>
+							<span class="icon-villa icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京京顺路工厂店</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance</span>
+							<span class="icon-shoe-right icon"></span>
+						</li>
+						<li class="shopInfos">
+							<span class="name">北京世茂天街店222</span>
+							<span class="address">北京市朝阳点京顺路111号世界一层f1-48 New Balance专柜</span>
+							<span class="icon-kids icon"></span>
+						</li>
+					</ul>
+					<div class="pagination">
+						<div class="totalCounts">
+							<span>共</span>
+							<span class="count">456</span>
+							<span>条结果</span>
+						</div>
+						<ul class="pageNumList">
+							<li class="pageNum">1</li>
+							<li class="pageNum active">2</li>
+							<li class="pageNum">3</li>
+							<li class="pageNum">4</li>
+							<li class="pageNum">5</li>
+						</ul>
+						<div class="btns">
+							<a class="icon-triangle-left icon" href="javascript:;"></a>
+							<a class="icon-triangle-right icon" href="javascript:;"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%- include('../../common/footer/index') %>
+	</div>
+</body>
+</html>
