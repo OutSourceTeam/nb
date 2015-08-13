@@ -2,6 +2,7 @@ define([
     'jquery',
     'selectric',
     'common/header/index',
+    'common/footer/index',
     'less!./shopList'
 ], function($) {
     $('select').selectric({
