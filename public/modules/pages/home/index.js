@@ -8,7 +8,7 @@ define([
     
 	var topBannerSwiper = new Swiper ('.topBannerSwiper', {
         loop: true,
-        speed: 500,
+        speed: 300,
         autoplay: 5000,
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -19,7 +19,7 @@ define([
       });
       var bottomNewsSwiper = new Swiper ('.bottomNewsSwiper', {
         loop: true,
-        speed: 500,
+        speed: 300,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
       });

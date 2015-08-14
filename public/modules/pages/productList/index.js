@@ -12,33 +12,34 @@ define([
             $(this).find('.gonnemeun').hide();
         })
 
-    })()
+    })();
 
-    var popeBannerSwiper = new Swiper ('.popeBannerSwiper', {
-        loop: true,
-        speed: 500,
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        paginationBulletRender: function (index, className) {
-            var iconName = "icon-polygon-active";
-            return '<span class="' + className +" "+ iconName + '"></span>';
-        },
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
-    });
+    // var popeBannerSwiper = new Swiper ('.popeBannerSwiper', {
+    //     loop: true,
+    //     speed: 500,
+    //     pagination: '.swiper-pagination',
+    //     paginationClickable: true,
+    //     paginationBulletRender: function (index, className) {
+    //         var iconName = "icon-polygon-active";
+    //         return '<span class="' + className +" "+ iconName + '"></span>';
+    //     },
+    //     nextButton: '.swiper-button-next',
+    //     prevButton: '.swiper-button-prev'
+    // });
 
-    var popebigBannerSwiper = new Swiper ('.popebigBannerSwiper', {
-        loop: true,
-        speed: 500,
-        pagination: '#bigpagination',
-        paginationClickable: true,
-        paginationBulletRender: function (index, className) {
-            var iconName = "icon-polygon-active";
-            return '<span class="' + className +" "+ iconName + '"></span>';
-        },
-        nextButton: '#bignext',
-        prevButton: '#bigprev'
-    });
+    
+    // var popebigBannerSwiper = new Swiper ('.popebigBannerSwiper', {
+    //     loop: true,
+    //     speed: 500,
+    //     pagination: '.popebigBannerSwiper .swiper-pagination',
+    //     paginationClickable: true,
+    //     paginationBulletRender: function (index, className) {
+    //         var iconName = "icon-polygon-active";
+    //         return '<span class="' + className +" "+ iconName + '"></span>';
+    //     },
+    //     nextButton: '.popebigBannerSwiper .swiper-button-next',
+    //     prevButton: '.popebigBannerSwiper .swiper-button-next'
+    // });
 
     var ispropopeshou=false,ispopeloading=false,ispopedone=false;
 
@@ -75,10 +76,7 @@ define([
                      $propope.slideUp();
                  }
 
-             }
-
-
-
+            }
             setTimeout(function () {
                 if(ispopeloading){
                     ispopeloading=false
@@ -96,11 +94,25 @@ define([
                     ispopedone=false
                     popedone.fadeOut();
                 }
-
+                var popeBannerSwiper = new Swiper('#infoSwiper', {
+                    loop: true,
+                    speed: 300,
+                    nextButton: '#infoSwiper .swiper-button-next',
+                    prevButton: '#infoSwiper .swiper-button-prev'
+                });
+                var popebigBannerSwiper = new Swiper('#imageSwiper', {
+                    loop: true,
+                    speed: 300,
+                    pagination: '#imageSwiper .swiper-pagination',
+                    paginationClickable: true,
+                    paginationBulletRender: function (index, className) {
+                        var iconName = "icon-circle2";
+                        return '<span class="' + className +" "+ iconName + '"><span class="path1"></span><span class="path2"></span></span>';
+                    },
+                    nextButton: '#imageSwiper .swiper-button-next',
+                    prevButton: '#imageSwiper .swiper-button-prev'
+                });
             },1000);
-
-
-
         })
 
     })
