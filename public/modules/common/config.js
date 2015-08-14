@@ -25,6 +25,7 @@ require.config({
         'common':'modules/common',
         'pages':'modules/pages',
         'selectric':'packages/selectric/jquery.selectric',
+        'pagination': 'packages/pagination/jquery.twbsPagination.min'
     },
     map: {
         '*': {

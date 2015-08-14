@@ -151,7 +151,7 @@ html,body{
 				border-bottom: none;
 			}
 		}
-		.pagination{
+		.paginationBox{
 			padding: 10px 20px;
 			margin-top: 25px;
 			background-color: rgba(255,255,255,0.6);
@@ -166,27 +166,44 @@ html,body{
 			}
 			.pageNumList{
 				.common;
-				width: 465px;
+				width: 540px;
+				position: relative;
 				&>li{
 					display: inline-block;
-					width: 14px;
-					height: 14px;
-					line-height: 15px;
+					padding: 0 5px;
+					/*height: 20px;
+					line-height: 17px;*/
 					text-align: center;
-					margin-right: 2px;
+					margin-right: 3px;
+					&>a{
+						color: #000;
+						text-decoration: none;
+					}
 					&.active{
+						&>a{
+							color: #fff;
+						}
 						background-color: #000;
-						color: #fff;
+					}
+					&.first, &.last{
+						display: none;
+					}
+					&.prev{
+						position: absolute;
+						display: inline-block;
+						right: 30px;
+						font-size: 20px;
+					}
+					&.disabled a{
+						color: #bbb;
+					}
+					&.next{
+						position: absolute;
+						right: 0;
+						font-size: 20px;
 					}
 				}
-			}
-			.btns{
-				float: right;
-				.icon{
-					font-size: 20px;
-					margin-right: 10px;
-					color: #000;
-				}
+
 			}
 		}
 	}
