@@ -44,7 +44,8 @@ define([
 
     $('.showpope').each(function (index,item) {
         var $item = $(item)
-        $item.on('click', function () {
+        $item.on('click', function (e) {
+            if(ispropopeshou && e.target.className.indexOf('popeclosed')==-1)  return false;
             var $this = $(this)
             var pos = $this.offset();
             pos = $this.width()/2+pos.left;
@@ -53,7 +54,21 @@ define([
             var quickview = $propope.find('.quickview-arrow');
             var popeloading = $propope.find('.popeloading');
             var popedone = $propope.find('.popedone');
+            var popeclosed = $propope.find('.popeclosed');
             quickview.css('left',pos);
+
+             if(!ispropopeshou){
+                 ispropopeshou=true
+                 $propope.slideDown();
+
+             }else{
+
+                 if(e.target.className.indexOf('popeclosed')!=-1){
+                     ispropopeshou=false
+                     $propope.slideUp();
+                 }
+
+             }
 
             setTimeout(function () {
                 if(ispopeloading){
@@ -74,17 +89,7 @@ define([
 
             },1000);
 
-             if(!ispropopeshou){
-                 ispropopeshou=true
-                 $propope.slideDown();
-             }else{
-                 ispropopeshou=false
-                 $propope.slideUp();
-             }
 
-
-
-            console.log(pos)
 
         })
 
