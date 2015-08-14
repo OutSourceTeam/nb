@@ -73,19 +73,20 @@ html, body {
     }
   }
   .prolist {
-    margin-top: 20px;
     .cell {
-      height: 160px;
-      width: 265px;
+      height: 237px;
+      width: 264px;
+      display: inline-block;
       border: 1px solid @probgcolor;
       cursor: pointer;
+      vertical-align: top;
+      margin: 20px 0;
       .maiginbtn {
-        margin: 20px 0;
+
       }
       .imgpos {
         img {
-          position: relative;
-          left: 20px;
+          margin: 0 20px;
         }
       }
       .prono {
@@ -100,6 +101,21 @@ html, body {
       &:hover {
         border: 1px solid #545454;
       }
+    }
+    .adcell{
+      width: 542px;
+      .imgpos {
+        img {
+          margin: 0;
+        }
+      }
+      &:hover {
+        border: 1px solid @probgcolor;
+      }
+    }
+    .poscell{
+      position: relative;
+      top: -27px;
     }
     hr {
       color: #d7d7d7;

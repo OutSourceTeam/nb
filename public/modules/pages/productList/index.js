@@ -57,6 +57,12 @@ define([
             var popeclosed = $propope.find('.popeclosed');
             quickview.css('left',pos);
 
+            var row = $('<div class="row quickview-spacer" style="height:180px"></div>');
+
+            $this.parent('div').after(row)
+
+            var quickview = $('.quickview-spacer');
+
              if(!ispropopeshou){
                  ispropopeshou=true
                  $propope.slideDown();
@@ -64,11 +70,14 @@ define([
              }else{
 
                  if(e.target.className.indexOf('popeclosed')!=-1){
-                     ispropopeshou=false
+                     ispropopeshou=false;
+                     quickview.slideUp().remove();
                      $propope.slideUp();
                  }
 
              }
+
+
 
             setTimeout(function () {
                 if(ispopeloading){
@@ -82,6 +91,7 @@ define([
                 if(!ispopedone){
                     ispopedone=true
                     popedone.fadeIn();
+                    quickview.css('height',popedone.height())
                 }else{
                     ispopedone=false
                     popedone.fadeOut();
