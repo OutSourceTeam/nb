@@ -19,5 +19,8 @@ router.get('/productList', function(req, res) {
     res.render('modules/pages/productList/index');
 });
 
+router.get('/contactus', function(req, res) {
+    res.render('modules/pages/contactus/index');
+});
 
 module.exports = router;
