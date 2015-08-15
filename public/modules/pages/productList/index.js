@@ -14,33 +14,6 @@ define([
 
     })();
 
-    // var popeBannerSwiper = new Swiper ('.popeBannerSwiper', {
-    //     loop: true,
-    //     speed: 500,
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    //     paginationBulletRender: function (index, className) {
-    //         var iconName = "icon-polygon-active";
-    //         return '<span class="' + className +" "+ iconName + '"></span>';
-    //     },
-    //     nextButton: '.swiper-button-next',
-    //     prevButton: '.swiper-button-prev'
-    // });
-
-    
-    // var popebigBannerSwiper = new Swiper ('.popebigBannerSwiper', {
-    //     loop: true,
-    //     speed: 500,
-    //     pagination: '.popebigBannerSwiper .swiper-pagination',
-    //     paginationClickable: true,
-    //     paginationBulletRender: function (index, className) {
-    //         var iconName = "icon-polygon-active";
-    //         return '<span class="' + className +" "+ iconName + '"></span>';
-    //     },
-    //     nextButton: '.popebigBannerSwiper .swiper-button-next',
-    //     prevButton: '.popebigBannerSwiper .swiper-button-next'
-    // });
-
     var ispropopeshou=false,ispopeloading=false,ispopedone=false;
 
     $('.showpope').each(function (index,item) {
@@ -50,7 +23,7 @@ define([
             var $this = $(this)
             var pos = $this.offset();
             pos = $this.width()/2+pos.left;
-            var $propope = $this.find('.propope');
+            var $propope = $('.propope');
 
             var quickview = $propope.find('.quickview-arrow');
             var popeloading = $propope.find('.popeloading');
@@ -58,10 +31,10 @@ define([
             var popeclosed = $propope.find('.popeclosed');
             quickview.css('left',pos);
 
+            $this.find('.maiginbtn').append($propope);
+
             var row = $('<div class="row quickview-spacer" style="height:180px"></div>');
-
             $this.parent('div').after(row)
-
             var quickview = $('.quickview-spacer');
 
              if(!ispropopeshou){
@@ -72,8 +45,10 @@ define([
 
                  if(e.target.className.indexOf('popeclosed')!=-1){
                      ispropopeshou=false;
-                     quickview.slideUp().remove();
-                     $propope.slideUp();
+                     
+                     $propope.slideUp(function(){
+                        quickview.slideUp().remove();
+                     });
                  }
 
             }
@@ -89,7 +64,8 @@ define([
                 if(!ispopedone){
                     ispopedone=true
                     popedone.fadeIn();
-                    quickview.css('height',popedone.height())
+                    quickview.css('height',popedone.height());
+
                 }else{
                     ispopedone=false
                     popedone.fadeOut();

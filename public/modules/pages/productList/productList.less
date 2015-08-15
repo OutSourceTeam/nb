@@ -1,7 +1,8 @@
 @import '../../common/global';
 @import '../../common/font';
 @bgcolor: #232323;
-@probgcolor: #ededed;
+@probgcolor: #efefef;
+@borderColor: #ccc;
 html,
 body {
     font-size: 13px;
@@ -58,6 +59,7 @@ body {
             width: 75px;
             z-index: 2;
             display: none;
+            list-style: none;
             li {
                 padding-right: 0;
                 display: block;
@@ -71,17 +73,18 @@ body {
                     }
                 }
             }
+            
         }
     }
     .prolist {
         .cell {
             height: 237px;
-            width: 264px;
+            width: 270px;
             display: inline-block;
             border: 1px solid @probgcolor;
             cursor: pointer;
             vertical-align: top;
-            margin: 20px 0;
+            margin: 40px 0 20px;
             .maiginbtn {}
             .imgpos {
                 img {
@@ -98,7 +101,7 @@ body {
                 padding-bottom: 10px;
             }
             &:hover {
-                border: 1px solid #545454;
+                border: 1px solid @borderColor;
             }
         }
         .adcell {
@@ -133,8 +136,8 @@ body {
             margin: 0 auto;
             width: 100%;
             left: 0;
-            border-top: 1px solid #545454;
-            border-bottom: 1px solid #545454;
+            border-top: 1px solid @borderColor;
+            border-bottom: 1px solid @borderColor;
             margin-top: 30px;
             .protitle {
                 height: 317px;
@@ -344,7 +347,7 @@ body {
         bottom: 100%;
         left: 50%;
         border: solid transparent;
-        border-bottom-color: #545454;
+        border-bottom-color: @borderColor;
         border-width: 11px 10px;
     }
 }
