@@ -25,7 +25,7 @@ define([
         $('.pageCover').addClass('show');
         ev.stopPropagation();
     });
-    $('.closeBtn').on('click', function(){
+    $('.closeBtn').on('click', function(ev){
         $('.pageCover').removeClass('show');
         ev.stopPropagation();
     });
