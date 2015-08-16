@@ -16,4 +16,7 @@ define([
             console.log(page);
         }
     });
+    $('.typeLink').on('click', function(ev){
+        $(this).toggleClass('active');
+    })
 });

@@ -11,7 +11,7 @@ define([
         $(this).find('.gonnemeun').show();
     }, function () {
         $(this).find('.gonnemeun').hide();
-    })
+    });
 
     var ispropopeshou = false, ispopeloading = false, ispopedone = false;
 
@@ -21,7 +21,7 @@ define([
             if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1)  return false;
             var $this = $(this)
             var phtml = shouPope();
-            $this.append(phtml);
+            $this.find('.maiginbtn').append(phtml);
             var pos = $this.offset();
             pos = $this.width() / 2 + pos.left;
             var $propope = $this.find('.propope');
@@ -32,9 +32,7 @@ define([
             quickview.css('left', pos);
 
             var row = $('<div class="row quickview-spacer" style="height:180px"></div>');
-
             $this.parent('div').after(row)
-
             var quickview = $('.quickview-spacer');
 
             if (!ispropopeshou) {
@@ -42,13 +40,11 @@ define([
                 $propope.slideDown();
 
             } else {
-
                 if (e.target.className.indexOf('popeclosed') != -1) {
                     ispropopeshou = false;
                     quickview.slideUp().remove();
                     $propope.slideUp().remove();
                 }
-
             }
             setTimeout(function () {
                 if (ispopeloading) {
@@ -88,7 +84,7 @@ define([
             }, 1000);
         })
 
-    })
+    });
 
     function shouPope() {
 

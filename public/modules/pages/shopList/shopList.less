@@ -84,12 +84,17 @@ html,body{
 		}
 		.typeList{
 			margin-top: 25px;
-			&>li{
+			.typeLink{
 				height: 25px;
 				line-height: 25px;
+				display: block;
 				color: #fff;
 				background-color: #b2b2b2;
 				margin-bottom: 5px; 
+				text-decoration: none;
+				&.active{
+					background-color: #666666;
+				}
 				.icon{
 					width: 42px;
 					display: inline-block;
@@ -107,6 +112,8 @@ html,body{
 			}
 		}
 		.searchBtn{
+			display: block;
+			text-decoration: none;
 			height: 32px;
 			line-height: 32px;
 			margin-top: 10px;
