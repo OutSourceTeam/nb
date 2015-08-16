@@ -1,9 +1,9 @@
 define([
     'jquery',
-    'selectric',
-    'pagination',
-    'common/header/index',
-    'common/footer/index',
+    '../../../packages/selectric/jquery.selectric',
+    '../../../packages/pagination/jquery.twbsPagination.min',
+    '../../common/header/index',
+    '../../common/footer/index',
     'less!./shopList'
 ], function($, TwbsPagination) {
     $('select').selectric({});

@@ -1,8 +1,8 @@
 define([
     'jquery',
     'swiper',
-    'common/header/index',
-    'common/footer/index',
+    '../../common/header/index',
+    '../../common/footer/index',
     'less!./productList'
 ], function ($, Swiper) {
 

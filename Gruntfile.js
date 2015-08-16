@@ -107,7 +107,7 @@ module.exports = function (grunt) {
 			    paths: {
 			        'jquery' : 'packages/jquery/jquery-1.11.3.min',
         			'vector' : 'packages/vector/svgvml',
-			        'swiper':'packages/swiper/idangerous.swiper.min',
+			        'swiper':'packages/swiper/swiper.min',
 			        'browser' : 'packages/browser/check',
         			'poly' : EMPTY,
 			    	'less': 'packages/require-less/0.1.5/less',
