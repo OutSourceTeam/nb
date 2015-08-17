@@ -6,22 +6,28 @@ define([
     'less!./productList'
 ], function ($, Swiper) {
 
-
     $('#features').hover(function () {
         $(this).find('.gonnemeun').show();
     }, function () {
         $(this).find('.gonnemeun').hide();
     });
 
-    var ispropopeshou = false, ispopeloading = false, ispopedone = false;
+    var ispropopeshou = false, 
+        ispopeloading = false, 
+        ispopedone = false, 
+        prevTop;
 
-    $('.showpope').each(function (index, item) {
-        var $item = $(item)
-        $item.on('click', function (e) {
+    $('.product').each(function (index, item) {
+        var $item = $(item);
+        var prevHeight = $item.height();
+
+        $item.on('click', {prevHeight : prevHeight}, function (e) {
+            var prevHeight = e.data.prevHeight;
+            
             if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1)  return false;
             var $this = $(this)
             var phtml = shouPope();
-            $this.find('.maiginbtn').append(phtml);
+            $this.append(phtml);
             var pos = $this.offset();
             pos = $this.width() / 2 + pos.left;
             var $propope = $this.find('.propope');
@@ -31,19 +37,27 @@ define([
             var popeclosed = $propope.find('.popeclosed');
             quickview.css('left', pos);
 
-            var row = $('<div class="row quickview-spacer" style="height:180px"></div>');
-            $this.parent('div').after(row)
-            var quickview = $('.quickview-spacer');
-
             if (!ispropopeshou) {
-                ispropopeshou = true
-                $propope.slideDown();
+                ispropopeshou = true;
+                prevTop = $(window).scrollTop();
+                $propope.css('display','block');
+                var offsetTop = Math.abs($propope.offset().top - 100);
+                var timing = 300;
+
+                $("body, html").animate({scrollTop : offsetTop}, timing);
+
+                $this.animate({'height': prevHeight + 200}, timing);
+                $propope.animate({'height': 200}, timing);
 
             } else {
                 if (e.target.className.indexOf('popeclosed') != -1) {
                     ispropopeshou = false;
-                    quickview.slideUp().remove();
-                    $propope.slideUp().remove();
+                    var timing = 200;
+                    $propope.animate({height: 0},timing,function(){
+                        $propope.remove();
+                    });
+                    $this.animate({'height': prevHeight}, timing);
+                    $("body, html").animate({scrollTop : prevTop}, timing);
                 }
             }
             setTimeout(function () {
@@ -58,7 +72,7 @@ define([
                 if (!ispopedone) {
                     ispopedone = true
                     popedone.fadeIn();
-                    quickview.css('height', popedone.height())
+                    $this.css('height', prevHeight + popedone.height());
                 } else {
                     ispopedone = false
                     popedone.fadeOut();
@@ -82,8 +96,7 @@ define([
                     prevButton: '#imageSwiper .swiper-button-prev'
                 });
             }, 1000);
-        })
-
+        });
     });
 
     function shouPope() {
