@@ -6,7 +6,8 @@ define([
     '../../common/footer/index',
     'less!./shopList'
 ], function($, TwbsPagination) {
-    $('select').selectric({});
+
+    selectCity()
     var aa = $('.pageNumList').twbsPagination({
         totalPages: 35,
         visiblePages: 7,
@@ -19,4 +20,90 @@ define([
     $('.typeLink').on('click', function(ev){
         $(this).toggleClass('active');
     })
+
+
+
+
+    var selectedCity ='上海';
+
+   var  map = new BMap.Map("mapview-container");
+
+    var $mapcontainer= $('.map-container')
+    var $closeMapBtn= $('.close-map-btn')
+    var $viewMapBtn= $('.view-map-btn')
+    var $mapviewcontainer= $('#mapview-container');
+
+    $viewMapBtn.on('click',function(e){
+        e.preventDefault();
+        var addr = $(this).prev().text();
+        $mapviewcontainer.css({
+            width:$mapcontainer.prev('ul').width(),
+            height:$mapcontainer.prev('ul').height()
+        })
+        addMarker(addr);
+        $mapcontainer.fadeIn(500,function(){
+            $closeMapBtn.fadeIn();
+        });
+    });
+
+    $closeMapBtn.on('click',function(e){
+        e.preventDefault();
+        $closeMapBtn.fadeOut(500,function(){$mapcontainer.fadeOut();});
+    });
+
+    function addMarker(addr){
+
+        myGeo = new BMap.Geocoder();
+        var point;
+
+        myGeo.getPoint(addr,function(point){
+            if(point){
+                point = point;
+                map.centerAndZoom(point, 18);
+                addMarker(point,1)
+            }
+            else{
+                alert('该地址无法在地图上显示');
+            }
+        },selectedCity);
+
+        function addMarker(point, index){  // 创建图标对象
+            var myIcon = new BMap.Icon("../../images/location_mark.png", new BMap.Size(26, 38), {
+                offset: new BMap.Size(10, 25),
+                imageOffset: new BMap.Size(0,0)   // 设置图片偏移
+            });
+            var marker = new BMap.Marker(point, {icon: myIcon});
+            map.addOverlay(marker);
+        }
+    }
+
+
+    function selectCity(){
+
+        var $province = $('#province').selectric(),$provincecity= $('#provincecity').selectric();
+        $.getJSON('../../../packages/selectric/city.min.js',function(json){
+            city_json=json;
+            var temp_html='';
+            $.each(city_json.citylist,function(i,prov){
+                temp_html+="<option value='"+prov.p+"'>"+prov.p+"</option>";
+            });
+            $('#province').append(temp_html)
+            $province.selectric('refresh');
+        });
+
+
+
+
+        $province.on('change', function() {
+
+            ///var prov_id=prov_obj.get(0).selectedIndex;
+
+            console.log($(this).val());
+
+        });
+        $provincecity.on('change', function() {
+            console.log($(this).val());
+        });
+    }
+
 });

@@ -126,6 +126,7 @@ html,body{
 		display: inline-block;
 		width: 800px;
 		margin-left: 88px;
+	    position: relative;
 		.common{
 			display: inline-block;
 			line-height: 20px;
@@ -152,11 +153,33 @@ html,body{
 					width: 40px;
 					text-align: center;
 					.common;
+				  &:hover{
+					cursor: pointer;
+					color: red;
+				  }
 				}
 			}
 			li:last-child{
 				border-bottom: none;
 			}
+		}
+	    .map-container{
+		  position: absolute;
+		  display: none;
+		  top: 0;
+		  .rd-btn {
+			display: block;
+			width: 65px;
+			height: 20px;
+			text-align: center;
+			color: #000;
+			line-height: 20px;
+			background: #f3eb31;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			z-index: 10;
+		  }
 		}
 		.paginationBox{
 			padding: 10px 20px;
