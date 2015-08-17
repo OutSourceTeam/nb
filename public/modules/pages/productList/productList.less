@@ -46,6 +46,7 @@ body {
                 text-decoration: none;
                 color: #FFFFFF;
                 .icon-up,
+                .icon-down,
                 .icon-arrow-down {
                     padding-left: 10px;
                 }
@@ -187,7 +188,7 @@ body {
                             }
                         }
                         .popBannerBox {
-                            padding: 0 40px;
+                            padding: 0 40px 30px;
                             display: inline-block;
                             position: relative;
                         }
@@ -225,6 +226,22 @@ body {
                                     position: absolute;
                                     right: 10px;
                                     top: 18px;
+                                }
+                            }
+                            .swiper-pagination{
+                                position: absolute;
+                                bottom: 0;
+                                .swiper-pagination-bullet{
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 50%;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    opacity: 1;
+                                    background-color: transparent;
+                                }
+                                .swiper-pagination-bullet-active{
+                                    border: 2px solid #000;
                                 }
                             }
                         }
