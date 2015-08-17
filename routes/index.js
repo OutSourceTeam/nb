@@ -23,4 +23,7 @@ router.get('/contactus', function(req, res) {
     res.render('modules/pages/contactus/index');
 });
 
+router.get('/mobile/home', function(req, res) {
+    res.render('modules/pages/m_home/index');
+});
 module.exports = router;
