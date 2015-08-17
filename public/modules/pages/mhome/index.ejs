@@ -18,11 +18,62 @@
 	<script src="../../../modules/common/footer/built.js"></script>
 	/build -->
 	<script src="../../../modules/common/config.js" baseUrl='../../../' main='modules/pages/mhome/index'></script>
-
 </head>
 <body>
 	<div class="homePage">
 		<%- include('../../common/mheader/index') %>
+		<div class="swiper-container topBannerSwiper">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_banner.png">
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_banner.png">
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_banner.png">
+		        </div>
+		    </div>
+		    <div class="swiper-pagination"></div>
+		</div>
+		<ul class="topicList">
+			<li class="topic">
+				<a class="topicLink" href="">
+					<img src="../../../images/m_topicImage.png"/>
+				</a>
+			</li>
+			<li class="topic">
+				<a class="topicLink" href="">
+					<img src="../../../images/m_topicImage02.png"/>
+				</a>
+			</li>
+			<li class="topic">
+				<a class="topicLink" href="">
+					<img src="../../../images/m_topicImage.png"/>
+				</a>
+			</li>
+			<li class="topic">
+				<a class="topicLink" href="">
+					<img src="../../../images/m_topicImage02.png"/>
+				</a>
+			</li>
+		</ul>
+		<div class="swiper-container bottomNewsSwiper">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<image class="leftImage" src="../../../images/swiper_left01.png">
+		        	<div class="rightBox">
+		        		<p class="time">2015.7.2</p>
+		        		<h1 class="title">New Balance Always In Beta 全新品牌平台正式发布</h1>
+		        		<p class="info">今天，在北京，全球知名的专业运动品牌New Balance以一场盛大的Always In Beta全新品牌沟通平台发布会，宣告了品牌发展新纪元的到来。New Balance也借此机会，正式宣布进军综合体育领域，同时还震撼推出了全新vazee疾风系列跑鞋。</p>
+		        		<a class="knowMore" href="">了解更多</a>
+		        	</div>
+		        </div>
+		    </div>
+		    
+		    <div class="swiper-button-prev icon-triangle-thin-left"></div>
+		    <div class="swiper-button-next icon-triangle-thin-right"></div>
+		</div>
 	</div>
 </body>
 </html>
