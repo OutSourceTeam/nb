@@ -23,7 +23,6 @@ define([
 
 
 
-
     var selectedCity ='上海';
 
    var  map = new BMap.Map("mapview-container");
@@ -35,7 +34,7 @@ define([
 
     $viewMapBtn.on('click',function(e){
         e.preventDefault();
-        var addr = $(this).prev().text();
+        var addr = $(this).next().text();
         $mapviewcontainer.css({
             width:$mapcontainer.prev('ul').width(),
             height:$mapcontainer.prev('ul').height()
@@ -95,9 +94,6 @@ define([
 
 
         $province.on('change', function() {
-
-            ///var prov_id=prov_obj.get(0).selectedIndex;
-
             console.log($(this).val());
 
         });
