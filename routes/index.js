@@ -23,4 +23,9 @@ router.get('/contactus', function(req, res) {
     res.render('modules/pages/contactus/index');
 });
 
+
+router.get('/mhome', function(req, res) {
+    res.render('modules/pages/mhome/index');
+});
+
 module.exports = router;
