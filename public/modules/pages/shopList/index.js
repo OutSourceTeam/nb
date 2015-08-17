@@ -67,7 +67,7 @@ define([
         },selectedCity);
 
         function addMarker(point, index){  // 创建图标对象
-            var myIcon = new BMap.Icon("../../images/location_mark.png", new BMap.Size(26, 38), {
+            var myIcon = new BMap.Icon("../../../images/location_mark.png", new BMap.Size(26, 38), {
                 offset: new BMap.Size(10, 25),
                 imageOffset: new BMap.Size(0,0)   // 设置图片偏移
             });
@@ -80,7 +80,7 @@ define([
     function selectCity(){
 
         var $province = $('#province').selectric(),$provincecity= $('#provincecity').selectric();
-        $.getJSON('../../../packages/selectric/city.min.js',function(json){
+        $.getJSON('../../../../packages/selectric/city.min.js',function(json){
             city_json=json;
             var temp_html='';
             $.each(city_json.citylist,function(i,prov){
