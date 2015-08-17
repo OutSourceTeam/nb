@@ -16,7 +16,17 @@ define([
         ispopeloading = false, 
         ispopedone = false, 
         prevTop;
-
+    $('.chilemeun li').on('click', function(){
+        var $icon = $(this).find('.iconSort');
+        if ($icon.hasClass('icon-up')){
+            $icon.removeClass('icon-up').addClass('icon-down');
+            //do something
+        } else{
+            $icon.removeClass('icon-down').addClass('icon-up');
+            //do something
+        }
+    });
+    
     $('.product').each(function (index, item) {
         var $item = $(item);
         var prevHeight = $item.height();
@@ -77,11 +87,22 @@ define([
                     ispopedone = false
                     popedone.fadeOut();
                 }
+                var paginationImages = [
+                    '../../../images/paginationImg01.png',
+                    '../../../images/paginationImg01.png',
+                    '../../../images/paginationImg01.png',
+                    '../../../images/paginationImg01.png',
+                ]
                 var popeBannerSwiper = new Swiper('#infoSwiper', {
                     loop: true,
                     speed: 300,
+                    pagination: '#infoSwiper .swiper-pagination',
+                    paginationClickable: true,
                     nextButton: '#infoSwiper .swiper-button-next',
-                    prevButton: '#infoSwiper .swiper-button-prev'
+                    prevButton: '#infoSwiper .swiper-button-prev',
+                    paginationBulletRender: function (index, className) {
+                        return '<span class="' + className + '" style="background-image: url(' + paginationImages[index]+ ')"></span>';
+                    },
                 });
                 var popebigBannerSwiper = new Swiper('#imageSwiper', {
                     loop: true,
@@ -114,6 +135,7 @@ define([
             '<div class="swiper-slide" style="background-image:url(../../../images/protitleimg.png);"></div>' +
             '<div class="swiper-slide" style="background-image:url(../../../images/protitleimg.png);"></div>' +
             '</div>' +
+            '<div class="swiper-pagination"></div>' +
             '<div class="swiper-button-prev icon-arrow-left"></div>' +
             '<div class="swiper-button-next icon-arrow-right"></div>' +
             '</div>' +

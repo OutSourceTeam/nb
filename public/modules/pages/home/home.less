@@ -1,5 +1,6 @@
 @import '../../common/global';
 @import '../../common/font';
+
 html,body{
 	font-size:62.5%;
 	width: 100%;
@@ -53,14 +54,17 @@ html,body{
 			width: 23px;
 			height: 18px;
 			margin-left: 17px;
+			&:hover{
+				background-position: 0px -18px;
+			}
 		}
 		.weibo{
 			.icon;
-			background: url(../../../images/icon_weibo.png) center center no-repeat;
+			background: url(../../../images/icon_weibo.png) 0px 0px no-repeat;
 		}
 		.weixin{
 			.icon;
-			background: url(../../../images/icon_weixin.png) center center no-repeat;
+			background: url(../../../images/icon_weixin.png) 0px 0px no-repeat;
 		}
 	}
 	.topicListBox{
@@ -76,31 +80,36 @@ html,body{
 				position: relative;
 				margin: 28px 0 0 28px;
 				.topicLink{
-					display: inline-block;
-					position: absolute;
-					bottom: 29px;
-					left: 32px;
-					width: 148px;
-					height: 45px;
-					line-height: 45px;
-					text-align: center;
-					background-color: rgba(30, 30, 30, 0.6);
-					color: #fff;
-					font-size: 18px;
-					.icon-triangle-right{
-						margin-left: 10px;
+					display: block;
+					height: 100%;
+					text-decoration: none;
+					.topicText{
 						display: inline-block;
-						font-size: 12px;
+						position: absolute;
+						bottom: 29px;
+						left: 32px;
+						width: 148px;
+						height: 45px;
+						line-height: 45px;
+						text-align: center;
+						background-color: rgba(30, 30, 30, 0.6);
+						color: #fff;
+						font-size: 18px;
+						.icon-triangle-right{
+							margin-left: 10px;
+							display: inline-block;
+							font-size: 12px;
+						}
 					}
-					&:hover{
+					/*&:hover{
 						text-decoration: none;
-					}
+					}*/
 				}
+				
 			}
 		}
 	}
 	.bottomNewsSwiper{
-
 		width: 1200px;
 		margin: 30px auto 35px;
 		height: 513px;
@@ -220,4 +229,36 @@ html,body{
 	    	text-decoration: none;
 	    }
 	}
+}
+@media screen and (max-width: 1400px) {
+    .homePage{
+    	.topicListBox{
+    		width: 1070px;
+    		.topicList{
+    			&>li{
+    				width: 521px;
+					height: 284px;
+    			}
+    		}
+    	}
+    	.bottomNewsSwiper{
+	    	width: 1070px;
+	    	height: 456px;
+	    	.leftImage{
+	    		width: 521px;
+	    		height: 456px;
+	    	}
+	    	.rightBox{
+	    		width: 549px;
+	    		font-size: 18px;
+	    		padding: 45px 50px 0;
+	    		.title{
+					margin-top: 15px;
+					font-size: 30px;
+					line-height: 40px;
+					font-weight: normal;
+				}
+	    	}
+	    }
+    }
 }
