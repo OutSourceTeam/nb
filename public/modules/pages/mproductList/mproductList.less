@@ -1,0 +1,73 @@
+@import '../../common/base';
+@import '../../common/common';
+
+@import '../../common/font';
+html,body{
+	width: 100%;
+	height: 100%;
+}
+*{
+	box-sizing: border-box;
+}
+.paddingImage{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.productListPage{
+	.headBox{
+		position: relative;
+		width: 100%;
+		padding-top: 40%;
+		overflow: hidden;
+		&>img{
+			.paddingImage;
+		}
+	}
+	.productListBox{
+		.listTitle{
+			font-size: 1.6rem;
+			letter-spacing: 0.4rem;
+			line-height: 45px;
+			padding-left: 25px;
+		}
+		.productList{
+			margin-top: 15px;
+			border-top: 1px solid #727779;
+			padding: 0 15px;
+			font-size: 0;
+			.product{
+				width: 50%;
+				display: inline-block;
+				padding:  11px 5px 37px;
+				font-size: 1.2rem;
+				text-align: center;
+
+				.imageBox{
+					width: 80%;
+					display: inline-block;
+					position: relative;
+					padding-top: 46%;
+					overflow: hidden;
+					&>img{
+						.paddingImage;
+					}
+				}
+				.title{
+					margin-top: 8px;
+					line-height: 1.7rem;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+				.subTitle{
+					color: #bbbdb2;
+					margin-top: 7px;
+					line-height: 1.7rem;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}
