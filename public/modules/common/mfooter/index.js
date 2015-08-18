@@ -1,0 +1,3 @@
+define(['less!./mfooter'],function() {
+   
+})
