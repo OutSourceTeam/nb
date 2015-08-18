@@ -32,7 +32,7 @@ define([
         var prevHeight = $item.height();
 
         $item.on('click', {prevHeight : prevHeight}, function (e) {
-            var prevHeight = e.data.prevHeight;
+            var prevHeight = e.data.prevHeight+20;
             
             if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1)  return false;
             var $this = $(this)
@@ -140,7 +140,7 @@ define([
             '<div class="swiper-button-next icon-arrow-right"></div>' +
             '</div>' +
             '</div>' +
-            '<div class="buyingGuide"></div>' +
+            '<div><a class="buyingGuide" href="http://shoeadvisor.newbalance.com.cn" target="_blank">&nbsp;</a></div>' +
             '</div>' +
             '<div class="popeswiper right">' +
             '<div class="poperemark">' +
