@@ -78,28 +78,44 @@ define([
 
 
     function selectCity(){
-
-        var $province = $('#province').selectric(),$provincecity= $('#provincecity').selectric();
-        $.getJSON('../../../../packages/selectric/city.min.js',function(json){
+        var $province = $('#province'),$provincecity= $('#provincecity');
+            $province.selectric();
+            $provincecity.selectric();
+        $.getJSON('../../../packages/selectric/city.min.js',function(json){
             city_json=json;
             var temp_html='';
             $.each(city_json.citylist,function(i,prov){
                 temp_html+="<option value='"+prov.p+"'>"+prov.p+"</option>";
             });
-            $('#province').append(temp_html)
+            $province.append(temp_html)
             $province.selectric('refresh');
+
+            $province.on('change', function() {
+                var prov_id=$province.get(0).selectedIndex-1;
+                $provincecity.empty();
+                var city_html='';
+                $.each(city_json.citylist[prov_id].c,function(i,city){
+                    if(i===0){
+                        selectedCity =city.n;
+                    }
+                    city_html+="<option value='"+city.n+"'>"+city.n+"</option>";
+                });
+                $provincecity.append(city_html)
+                $provincecity.selectric('refresh');
+
+
+            });
+            $provincecity.on('change', function() {
+                selectedCity = $(this).val();
+            });
+
+
         });
 
 
 
 
-        $province.on('change', function() {
-            console.log($(this).val());
 
-        });
-        $provincecity.on('change', function() {
-            console.log($(this).val());
-        });
     }
 
 });

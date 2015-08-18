@@ -83,44 +83,25 @@ body {
         margin: 0 auto;
         padding-bottom: 70px;
         .productList {
-            margin: -20px 0 0 -30px;
+            margin: 0 0 0 -30px;
             font-size: 0;
             .product{
-                width: 245px;
+                /*width: 245px;
+                height: 237px;*/
                 display: inline-block;
-                margin: 90px 0 0 30px;
+                margin: 20px 0 0 30px;
                 cursor: pointer;
                 vertical-align: top;
                 font-size: 13px;
-                &.adcell {
-                    width: 542px;
-                    margin-top: 40px;
-                    margin-left: 0px;
-                    .maiginbtn {
-                        .imgpos {
-                            width: 540px;
-                            height: 235px;
-                            overflow: hidden;
-                            img {
-                                width: 100%;
-                            }
-                        }
-                        &:hover {
-                            border: 1px solid @probgcolor;
-                        }
-                    }
-                }
-                &.poscell {
-                    position: relative;
-                    top: -27px;
-                }
+                
                 .maiginbtn {
                     border: 1px solid @probgcolor;
-                    
+                    width: 245px;
+                    height: 237px;
                     .imgpos {
                         width: 225px;
                         height: 124px;
-                        margin: 0 auto;
+                        margin: 45px auto 0;
                         overflow: hidden;
                         img {
                             width: 100%;
@@ -139,7 +120,29 @@ body {
                         border: 1px solid @borderColor;
                     }
                 }
-                
+                &.adcell {
+                    width: 542px;
+                    margin: 20px -15px 0 23px;
+                    .maiginbtn {
+                        width: 100%;
+                        .imgpos {
+                            width: 540px;
+                            height: 235px;
+                            margin: 0 auto;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        &:hover {
+                            border: 1px solid @probgcolor;
+                        }
+                    }
+                }
+                &.poscell {
+                    position: relative;
+                    top: -27px;
+                }
                 hr {
                     color: #d7d7d7;
                     height: 1px;
@@ -147,8 +150,9 @@ body {
                     width: 195px;
                     position: relative;
                     left: 25px;
-                    display: inline-block;
                     border-top: 1px solid #d7d7d7;
+                    margin: 0 0 5px 0;
+                    padding: 0;
                 }
                 .propope {
                     position: absolute;
