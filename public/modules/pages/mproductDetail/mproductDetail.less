@@ -1,0 +1,109 @@
+@import '../../common/base';
+@import '../../common/common';
+
+@import '../../common/font';
+.productDetailPage{
+	.topBannerSwiper{
+		.swiper-wrapper{
+			.swiper-slide{
+				width: 100%;
+				padding-top: 53%;
+				overflow: hidden;
+				position: relative;
+				&>img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+				}
+			}
+
+		}
+		.swiper-pagination{
+			.swiper-pagination-bullet{
+				width: 8px;
+				height: 8px;
+				margin: 0 5px;
+				background-color: #fff;
+				opacity: 1;
+				vertical-align: middle;
+			}
+			.swiper-pagination-bullet-active{
+				background-color: #000;
+				border: 1px solid #fff;
+				opacity: 1;
+			}
+		}
+	}
+	.middleBox{
+		font-size: 1.6rem;
+		padding: 10px 18px;
+		&>p{
+			margin-top: 15px;
+		}
+	}
+	.infoTextBox{
+		font-size: 1.2rem;
+		padding: 16px 18px;
+		border-top: 1px solid #b2b2b2;
+		overflow: hidden;
+		.infos{
+			line-height: 25px;
+		}
+		.knewMore{
+			margin-top: 13px;
+			width: 104px;
+			height: 33px;
+			line-height: 33px;
+			background-color: #e5e5e3;
+			float: right;
+			text-align: center;
+			text-decoration: none;
+			color: #000;
+		}
+	}
+	.buyLinkBox{
+		border-top: 1px solid #b2b2b2;
+		padding: 0 18px;
+		height: 80px;
+		.display(flex);
+		.align-items();
+		.text{
+			font-size: 1.6rem;
+			width: 98px;
+			float: left;
+			display: block;
+			position: relative;
+			margin-right: 10px;
+			.icon{
+				margin-left: 10px;
+			}
+		}
+		.linkList{
+			.flex(1);
+			display: block;
+			overflow: hidden;
+			text-align: justify;
+			font-size: 0;
+			.link{
+				display: inline-block;
+				width: 50px;
+				height: 44px;
+				&>a{
+					display: block;
+					height: 100%;
+					overflow: hidden;
+					&>img{
+						width: 100%;
+					}
+				}
+			}
+			.justifyLine{
+				display: inline-block;
+				width: 100%;
+				height: 0;
+				overflow: hidden;
+			}
+		}
+	}
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="" name="description">
+	<meta content="" itemprop="image">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<title>NewBalance</title>
+	<link rel="stylesheet" href="../../../packages/swiper/idangerous.swiper.css">
+	<script src="../../../packages/requirejs/2.1.17/require.min.js"></script>
+	<!-- build:template
+	<script src="../../../modules/mix.built.js"></script>
+	<script src="../../../modules/pages/mproductList/built.js"></script>
+	<script src="../../../modules/common/header/built.js"></script>
+	<script src="../../../modules/common/footer/built.js"></script>
+	/build -->
+	<script src="../../../modules/common/config.js" baseUrl='../../../' main='modules/pages/mproductDetail/index'></script>
+</head>
+<body>
+	<div class="productDetailPage">
+		<%- include('../../common/mheader/index') %>
+		<div class="swiper-container topBannerSwiper">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_detailBanner01.png">
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_detailBanner01.png">
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="url(../../../images/m_detailBanner01.png">
+		        </div>
+		    </div>
+		    <div class="swiper-pagination"></div>
+		</div>
+		<div class="middleBox">
+			<p class="enTitle title">FreshFoam Hierro</p>
+			<p class="chTitle title">较快配速缓震跑鞋</p>
+			<p class="price">￥1,600</p>
+			<ul class="colorList">
+				<li class=""></li>
+			</ul>
+		</div>
+		<div class="infoTextBox">
+			<p class="infos">拥有扇形结构的稳定系统，落地时候稳定性更佳。中底使用了REVlite科技，特点是更加轻量，而且能保证及时的弹力回馈。</p>
+			<a href="javascript:;" class="knewMore">了解详情</a>
+		</div>
+		<div class="buyLinkBox">
+			<div class="text">
+				<span>立即购买</span>
+				<span class="icon icon-triangle-hollow-right"></span>
+			</div>
+			<ul class="linkList">
+				<li class="link">
+					<a href="javascript:;">
+						<img src="../../../images/tianmao.png" />
+					</a>
+				</li>
+				<li class="link">
+					<a href="javascript:;">
+						<img src="../../../images/yhd.png" />
+					</a>
+				</li>
+				<li class="link">
+					<a href="javascript:;">
+						<img src="../../../images/jd.png" />
+					</a>
+				</li>
+				<li class="justifyLine"></li>
+			</ul>
+		</div>
+		<%- include('../../common/mfooter/index') %>
+	</div>
+</body>
+</html>

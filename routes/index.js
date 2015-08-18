@@ -27,4 +27,11 @@ router.get('/mhome', function(req, res) {
     res.render('modules/pages/mhome/index');
 });
 
+router.get('/mproductList', function(req, res) {
+    res.render('modules/pages/mproductList/index');
+});
+
+router.get('/mproductDetail', function(req, res) {
+    res.render('modules/pages/mproductDetail/index');
+});
 module.exports = router;
