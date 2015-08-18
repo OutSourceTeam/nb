@@ -11,9 +11,10 @@ define([
         autoplay: 5000,
         pagination: '.topBannerSwiper .swiper-pagination',
         paginationClickable: true,
-        // paginationBulletRender: function (index, className) {
-        //     var iconName = "icon-circle-active";
-        //     return '<span class="' + className +" "+ iconName + '"></span>';
-        // }
+      });
+	var bottomNewsSwiper = new Swiper ('.bottomNewsSwiper', {
+        loop: true,
+        nextButton: '.bottomNewsSwiper .swiper-button-next',
+        prevButton: '.bottomNewsSwiper .swiper-button-prev',
       });
 });
