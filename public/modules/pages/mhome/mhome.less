@@ -1,0 +1,146 @@
+@import '../../common/base';
+@import '../../common/common';
+
+@import '../../common/font';
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.sizingBox{
+	box-sizing: border-box;
+}
+.homePage{
+	.topBannerSwiper{
+		padding-bottom: 35px;
+		.swiper-wrapper{
+			.swiper-slide{
+				width: 100%;
+				padding-top: 60.6%;
+				overflow: hidden;
+				position: relative;
+				&>img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+				}
+			}
+
+		}
+		.swiper-pagination{
+			.swiper-pagination-bullet{
+				width: 12px;
+				height: 12px;
+				margin: 0 6px;
+				background-color: #a0a0a0;
+				opacity: 1;
+			}
+			.swiper-pagination-bullet-active{
+				background-color: #1b1b1b;
+				opacity: 1;
+			}
+		}
+	}
+	.topicList{
+		padding: 0 13px;
+		.sizingBox;
+		.topic{
+			margin-bottom: 13px;
+
+			.topicLink{
+				width: 100%;
+				padding-top: 54.6%;
+				overflow: hidden;
+				display: block;
+				position: relative;
+				&>img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+		
+	}
+	.bottomNewsSwiper{
+		.swiper-wrapper{
+			.swiper-slide{
+				.topImage{
+					display: block;
+					width: 100%;
+					padding-top: 65%;
+					overflow: hidden;
+					position: relative;
+					&>img{
+						width: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+				}
+				.bottomBox{
+					background-color: #1b1b1b;
+					color: #fff;
+					font-size: 1.2rem;
+					overflow: hidden;
+					padding: 30px 15px;
+					.time{
+						text-decoration: underline;
+					}
+					.title{
+						font-size: 1.7rem;
+					}
+					.info{
+						margin-top: 25px;
+					}
+					.knowMore{
+						margin-top: 16px;
+						display: block;
+						width: 71px;
+						height: 22px;
+						line-height: 22px;
+						text-align: center;
+						color: #fff;
+						border: 2px solid #fff;
+					}
+				}
+			}
+		}
+		.buttonBox{
+			width: 100%;
+			padding-top: 65%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			.swiper-button-prev{
+				width: 18px;
+				height: 30px;
+				left: 0;
+				background-color: #fff;
+				background-image: none;
+				&:before{
+					font-size: 10px;
+				    position: absolute;
+				    left: 4px;
+				    top: 9px;
+				}
+			}
+			.swiper-button-next{
+				width: 18px;
+				height: 30px;
+				right: 0;
+				background-color: #fff;
+				background-image: none;
+				&:before{
+					font-size: 10px;
+				    position: absolute;
+				    right: 4px;
+				    top: 9px;
+				}
+			}
+		}
+	}
+}
+
+
