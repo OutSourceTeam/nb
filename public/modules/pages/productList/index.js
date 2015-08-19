@@ -33,8 +33,12 @@ define([
 
         $item.on('click', {prevHeight : prevHeight}, function (e) {
             var prevHeight = e.data.prevHeight+20;
-            
-            if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1)  return false;
+
+            if(ispropopeshou && e.target.className == 'buyingGuide'){
+                return true;
+            } else if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1) {
+                return false;
+            }
             var $this = $(this)
             var phtml = shouPope();
             $this.append(phtml);
@@ -155,13 +159,13 @@ define([
             '<div class="remarkmore">' +
             '<a href="javascript:;">更多详情＞</a>' +
             '<span>' +
-            '<img src="../../../images/tianmao.png" alt=""/>' +
+            '<a href="javascript:;"><img src="../../../images/tianmao.png" border="0" alt=""/></a>' +
             '</span>' +
             '<span>' +
-            '<img src="../../../images/jd.png" alt=""/>' +
+            '<a href="javascript:;"><img src="../../../images/jd.png" border="0" alt=""/></a>' +
             '</span>' +
             '<span>' +
-            '<img src="../../../images/yhd.png" alt=""/>' +
+            '<a href="javascript:;"><img src="../../../images/yhd.png" border="0" alt=""/></a>' +
             '</span>' +
             '</div>' +
             '</div>' +
