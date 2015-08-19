@@ -8,7 +8,7 @@ var _baseUrl = _thisScript.getAttribute('baseUrl');
 require.config({
     baseUrl: _baseUrl,
     waitSeconds: 0,
-    deps:['poly', 'jquery', 'vector'].concat(globalDeps),
+    deps:['poly', 'jquery', 'vector','classList'].concat(globalDeps),
     shim:{
         "less" : {
             deps : ["poly"]
@@ -23,6 +23,7 @@ require.config({
         'less' : 'packages/less/1.7.0/less.min',
         'text': 'packages/require-text/2.0.14/text',
         'selectric':'packages/selectric/jquery.selectric',
+        'classList':'packages/classList/classList.min',
         'pagination': 'packages/pagination/jquery.twbsPagination.min'
     },
     map: {

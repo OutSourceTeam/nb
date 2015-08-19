@@ -111,11 +111,13 @@ module.exports = function (grunt) {
 			        'browser' : 'packages/browser/check',
         			'poly' : EMPTY,
 			    	'less': 'packages/require-less/0.1.5/less',
-			        'text': 'packages/require-text/2.0.14/text'
+			        'text': 'packages/require-text/2.0.14/text',
+			        'selectric':'packages/selectric/jquery.selectric',
+        			'classList':'packages/classList/classList.min'
 			    },
 				out:  'bin/dist/modules/mix.built.js',
 				include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
-							.concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
+							.concat(['jquery', 'swiper', 'less', 'vector', 'browser','classList']),
 				optimize: "none"
 			}
     	}
