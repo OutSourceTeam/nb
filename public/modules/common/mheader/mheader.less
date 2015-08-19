@@ -64,19 +64,80 @@
         .icon-shoe-hollow-left{
             font-size: 18px;
         }
-    }
-    .cm-header-icon{
-        display: inline-block;
-        text-align: center;
-        cursor: pointer;
-        font-size: 2.4rem;
-        color: #fff;
-        width: 50px;
-        height: 56px;
-        line-height: 56px;
-        &:active{
-            color: red;
+        .cm-header-icon{
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            font-size: 2.4rem;
+            color: #fff;
+            width: 50px;
+            height: 56px;
+            line-height: 56px;
+            &:active{
+                color: red;
+            }
         }
+    }
+
+    .meunwrap-header{
+        z-index: 960;
+        background: #fff;
+        min-height: 56px;
+        font-size: 1.3rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        .logo {
+            background: #fff;
+            display: inline-block;
+            text-decoration: none;
+            width: 125px;
+            height: 56px;
+            display: inline-block;
+            float: left;
+            position: relative;
+            font-size: 2.2rem;
+            color: red;
+            text-align: center;
+            line-height: 56px;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-bottom: 56px solid transparent;
+                border-left: 23px solid #fff;
+                right: -23px;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .guwen{
+            position: relative;
+            left: 20px;
+        }
+        .icon-shoe-hollow-left,.icon-shoe-left{
+            font-size: 18px;
+        }
+        .cm-header-icon{
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            font-size: 2.4rem;
+            color: #000;
+            width: 50px;
+            height: 56px;
+            line-height: 56px;
+            &:active{
+                color: red;
+            }
+        }
+    }
+    .menuicon{
+        background-color: #000;
+        color: #FFF!important;
     }
 }
 
@@ -91,6 +152,8 @@
     display: none;
     ul{
         padding: 0 15px;
+        display: inline-block;
+        width: 92%;
     }
     li{
         color: #fff;
@@ -120,6 +183,7 @@
     .childrenul{
         padding: 0;
         display: none;
+        width: 100%;
         li{
             text-indent: 1em;
             padding-bottom: 0px;
@@ -128,6 +192,7 @@
     .childrenulshoes{
         padding: 0;
         display: none;
+        width: 100%;
         li{
             text-indent: 2em;
             padding-bottom: 0px;
@@ -136,6 +201,7 @@
     .childrenulpos{
         padding: 0;
         display: none;
+        width: 100%;
         li{
             text-indent: 3em;
             padding-bottom: 0px;
@@ -146,4 +212,66 @@
     }
 
 
+}
+
+.search-box {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 56px;
+    text-align: center;
+    height: 56px;
+    z-index: 959;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: .2px;
+    .search-container {
+        display: inline-block;
+        width: 100%;
+        background: black;
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        form {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        input {
+            border: none;
+            height: 36px;
+            margin: 10px 16px;
+            width: 100%;
+            padding-right: 66px;
+            padding-left: 0;
+            line-height: normal;
+            font-size: 13px;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: .2px;
+            color: #838383;
+            background: black;
+            -webkit-transition: none;
+            -moz-transition: none;
+            -o-transition: none;
+            transition: none;
+            outline: none;
+        }
+        button {
+            display: none;
+            position: absolute;
+            right: 15px;
+            top: 0;
+            height: 36px;
+            line-height: 36px;
+            padding: 0;
+            margin: 0;
+            border: none;
+            background: transparent;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+    }
 }
