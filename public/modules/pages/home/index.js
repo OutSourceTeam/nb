@@ -11,16 +11,23 @@ define([
         autoplay: 5000,
         pagination: '.swiper-pagination',
         paginationClickable: true,
-        paginationBulletRender: function (index, className) {
-            var iconName = "icon-polygon-active";
-            return '<span class="' + className +" "+ iconName + '"></span>';
-        }
+        createPagination: true,
+        // paginationBulletRender: function (index, className) {
+        //     var iconName = "icon-polygon-active";
+        //     return '<span class="' + className +" "+ iconName + '"></span>';
+        // }
       });
       var bottomNewsSwiper = new Swiper ('.bottomNewsSwiper', {
         loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        // nextButton: '.swiper-button-next',
+        // prevButton: '.swiper-button-prev',
       });
+    $('.swiper-button-prev').on('click', function(){
+        bottomNewsSwiper.swipePrev();
+    });
+    $('.swiper-button-next').on('click', function(){
+        bottomNewsSwiper.swipeNext();
+    });
     $('.weixin').on('click', function(ev){
         $('.pageCover').addClass('show');
         ev.stopPropagation();

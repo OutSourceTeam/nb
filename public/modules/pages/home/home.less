@@ -15,10 +15,17 @@ html,body{
 	    .swiper-slide{
 	    	background-position: center center;
 	    	background-repeat: no-repeat;
+	    	background-size: cover;
 	    }
 	    .swiper-pagination{
 	    	color: #fff;
-	    	.swiper-pagination-bullet{
+		    position: absolute;
+		    bottom: 20px;
+		    display: block;
+		    width: 100%;
+		    text-align: center;
+	    	.swiper-pagination-switch{
+	    		.fontIcomoon;
 	    		background-color: transparent;
 	    		opacity: 1;
 	    		width: auto;
@@ -28,7 +35,7 @@ html,body{
 	    			content: "\e614";
 	    		};
 	    	}
-	    	.swiper-pagination-bullet-active{
+	    	.swiper-active-switch{
 	    		background-color: transparent;
 	    		opacity: 1;
 	    		&:before{

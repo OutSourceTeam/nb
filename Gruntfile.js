@@ -50,7 +50,8 @@ module.exports = function (grunt) {
 			"clean:temp", 
 			"processhtml", 
 			"configSingleRequirejs", 
-			"requirejs"
+			"requirejs",
+			"requirejs:requirejsMobile"
 		]
 	);
 
@@ -96,7 +97,7 @@ module.exports = function (grunt) {
     	});
 
     	//pack all files 
-    	configObject.all = {
+    	configObject.compile = {
 			options:{    				
 				baseUrl: 'bin/dist',
                 map: {
@@ -122,11 +123,35 @@ module.exports = function (grunt) {
 			}
     	}
 
+    	configObject.compileMobile = {
+        	options:{    				
+				baseUrl: 'bin/dist',
+                map: {
+                    '*': {
+                        'less': 'packages/require-less/0.1.5/less' // path to less
+                    }
+                },
+			    paths: {
+			        'jquery' : 'packages/jquery/jquery-1.11.3.min',
+        			'vector' : 'packages/vector/svgvml',
+			        'swiper':'packages/swiper/swiper.min',
+			        'browser' : 'packages/browser/check',
+        			'poly' : EMPTY,
+			    	'less': 'packages/require-less/0.1.5/less',
+			        'text': 'packages/require-text/2.0.14/text',
+			        'selectric':'packages/selectric/jquery.selectric'
+			    },
+				out:  'bin/dist/modules/mixm.built.js',
+				include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
+							.concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
+				optimize: "none"
+			}
+        }
+
         //start to config less task
         grunt.config.merge({
             requirejs: configObject
         });
-
     });
 
 	// Project configuration.

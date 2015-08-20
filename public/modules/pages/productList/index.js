@@ -26,7 +26,10 @@ define([
             //do something
         }
     });
-    
+    var popeBannerSwiper,
+        popebigBannerSwiper;
+
+
     $('.product').each(function (index, item) {
         var $item = $(item);
         var prevHeight = $item.height();
@@ -68,6 +71,10 @@ define([
                     ispropopeshou = false;
                     var timing = 200;
                     $propope.animate({height: 0},timing,function(){
+                        $('#infoSwiper .swiper-button-prev').off();
+                        $('#infoSwiper .swiper-button-next').off();
+                        $('#imageSwiper .swiper-button-prev').off();
+                        $('#imageSwiper .swiper-button-next').off();
                         $propope.remove();
                     });
                     $this.animate({'height': prevHeight}, timing);
@@ -97,18 +104,18 @@ define([
                     '../../../images/paginationImg01.png',
                     '../../../images/paginationImg01.png',
                 ]
-                var popeBannerSwiper = new Swiper('#infoSwiper', {
+                popeBannerSwiper = new Swiper('#infoSwiper', {
                     loop: true,
                     speed: 300,
                     pagination: '#infoSwiper .swiper-pagination',
                     paginationClickable: true,
                     nextButton: '#infoSwiper .swiper-button-next',
                     prevButton: '#infoSwiper .swiper-button-prev',
-                    paginationBulletRender: function (index, className) {
-                        return '<span class="' + className + '" style="background-image: url(' + paginationImages[index]+ ')"></span>';
-                    },
+                    // paginationBulletRender: function (index, className) {
+                    //     return '<span class="' + className + '" style="background-image: url(' + paginationImages[index]+ ')"></span>';
+                    // },
                 });
-                var popebigBannerSwiper = new Swiper('#imageSwiper', {
+                popebigBannerSwiper = new Swiper('#imageSwiper', {
                     loop: true,
                     speed: 300,
                     pagination: '#imageSwiper .swiper-pagination',
@@ -119,6 +126,26 @@ define([
                     },
                     nextButton: '#imageSwiper .swiper-button-next',
                     prevButton: '#imageSwiper .swiper-button-prev'
+                });
+                $('#infoSwiper .swiper-pagination-switch').each(function(index, item){
+                    $(item).css('background-image', 'url('+paginationImages[index]+')');
+                });
+
+                // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
+                //     $(item).append('<span class="path1"></span><span class="path2"></span>');
+                // });
+                $('#infoSwiper .swiper-button-prev').on('click', function(){
+                    popeBannerSwiper.swipePrev();
+                });
+                $('#infoSwiper .swiper-button-next').on('click', function(){
+                    popeBannerSwiper.swipeNext();
+                });
+
+                $('#imageSwiper .swiper-button-prev').on('click', function(){
+                    popebigBannerSwiper.swipePrev();
+                });
+                $('#imageSwiper .swiper-button-next').on('click', function(){
+                    popebigBannerSwiper.swipeNext();
                 });
             }, 1000);
         });
