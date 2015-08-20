@@ -18,6 +18,7 @@ require.config({
         'vector' : 'packages/vector/svgvml',
         'jquery' : 'packages/jquery/jquery-1.11.3.min',
         'swiper':'packages/swiper/swiper.min',
+        'bxslider':'packages/bxslider/jquery.bxslider.min',
         'browser' : 'packages/browser/check',
         'poly' : 'packages/poly/poly.0.5.1.min',
         'less' : 'packages/less/1.7.0/less.min',

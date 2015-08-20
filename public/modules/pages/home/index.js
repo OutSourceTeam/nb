@@ -1,6 +1,7 @@
 define([
     'jquery',
     'swiper',
+    'bxslider',
     '../../common/header/index',
     '../../common/footer/index',
     'less!./home'
