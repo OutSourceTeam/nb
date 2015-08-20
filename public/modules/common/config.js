@@ -8,7 +8,7 @@ var _baseUrl = _thisScript.getAttribute('baseUrl');
 require.config({
     baseUrl: _baseUrl,
     waitSeconds: 0,
-    deps:['poly', 'jquery', 'vector','classList'].concat(globalDeps),
+    deps:['poly', 'jquery', 'vector'].concat(globalDeps),
     shim:{
         "less" : {
             deps : ["poly"]
@@ -17,14 +17,12 @@ require.config({
     paths: {
         'vector' : 'packages/vector/svgvml',
         'jquery' : 'packages/jquery/jquery-1.11.3.min',
-        'swiper':'packages/swiper/swiper.min',
-        'bxslider':'packages/bxslider/jquery.bxslider.min',
+        'swiper':'packages/swiper/idangerous.swiper.min',
         'browser' : 'packages/browser/check',
         'poly' : 'packages/poly/poly.0.5.1.min',
         'less' : 'packages/less/1.7.0/less.min',
         'text': 'packages/require-text/2.0.14/text',
         'selectric':'packages/selectric/jquery.selectric',
-        'classList':'packages/classList/classList.min',
         'pagination': 'packages/pagination/jquery.twbsPagination.min'
     },
     map: {

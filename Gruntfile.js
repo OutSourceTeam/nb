@@ -107,18 +107,16 @@ module.exports = function (grunt) {
 			    paths: {
 			        'jquery' : 'packages/jquery/jquery-1.11.3.min',
         			'vector' : 'packages/vector/svgvml',
-			        'swiper':'packages/swiper/swiper.min',
+			        'swiper':'packages/swiper/idangerous.swiper.min',
 			        'browser' : 'packages/browser/check',
         			'poly' : EMPTY,
-					'bxslider':'packages/bxslider/jquery.bxslider.min',
 			    	'less': 'packages/require-less/0.1.5/less',
 			        'text': 'packages/require-text/2.0.14/text',
-			        'selectric':'packages/selectric/jquery.selectric',
-        			'classList':'packages/classList/classList.min'
+			        'selectric':'packages/selectric/jquery.selectric'
 			    },
 				out:  'bin/dist/modules/mix.built.js',
 				include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
-							.concat(['jquery', 'swiper', 'less', 'vector', 'browser','classList','bxslider']),
+							.concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
 				optimize: "none"
 			}
     	}
