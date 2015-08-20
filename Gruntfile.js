@@ -110,6 +110,7 @@ module.exports = function (grunt) {
 			        'swiper':'packages/swiper/swiper.min',
 			        'browser' : 'packages/browser/check',
         			'poly' : EMPTY,
+					'bxslider':'packages/bxslider/jquery.bxslider.min',
 			    	'less': 'packages/require-less/0.1.5/less',
 			        'text': 'packages/require-text/2.0.14/text',
 			        'selectric':'packages/selectric/jquery.selectric',
@@ -117,7 +118,7 @@ module.exports = function (grunt) {
 			    },
 				out:  'bin/dist/modules/mix.built.js',
 				include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
-							.concat(['jquery', 'swiper', 'less', 'vector', 'browser','classList']),
+							.concat(['jquery', 'swiper', 'less', 'vector', 'browser','classList','bxslider']),
 				optimize: "none"
 			}
     	}

@@ -1,12 +1,11 @@
 define([
     'jquery',
     'swiper',
-    'bxslider',
     '../../common/header/index',
     '../../common/footer/index',
     'less!./home'
 ], function($, Swiper) {
-    
+
 	var topBannerSwiper = new Swiper ('.topBannerSwiper', {
         loop: true,
         autoplay: 5000,

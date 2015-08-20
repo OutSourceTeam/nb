@@ -38,7 +38,7 @@ define([
         var innerHTML = '';
         if (!imgList) return;
         for (var i = 0; i < imgList.length; i++) {
-            innerHTML += '<div class="swiper-slide">' + '<img src="url(' + imgList[i] + '">' + '</div>';
+            innerHTML += '<div class="swiper-slide">' + '<img src="' + imgList[i] + '">' + '</div>';
         }
         topBannerSwiper.removeAllSlides();
         topBannerSwiper.appendSlide(innerHTML);
