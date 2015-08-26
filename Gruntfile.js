@@ -51,6 +51,7 @@ module.exports = function(grunt) {
             "clean:temp",
             "processhtml",
             "replace:css",
+            "replace:js",
             "configSingleRequirejs",
             "requirejs",
             "replace:path"
@@ -256,6 +257,14 @@ module.exports = function(grunt) {
             },
             css:{
                 src: ['bin/dist/**/*.less'],
+                overwrite:true,
+                replacements: [{
+                    from: '../../../',
+                    to: ''
+                }]
+            },
+            js:{
+                src: ['bin/dist/**/*.js'],
                 overwrite:true,
                 replacements: [{
                     from: '../../../',
