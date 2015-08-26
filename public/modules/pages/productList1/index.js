@@ -3,7 +3,7 @@ define([
     'swiper',
     '../../common/header/index',
     '../../common/footer/index',
-    'less!./productList1'
+    'less!./productList'
 ], function ($, Swiper) {
 
     $('#features').hover(function () {
