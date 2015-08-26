@@ -3,7 +3,7 @@ define([
     'swiper',
     '../../common/header/index',
     '../../common/footer/index',
-    'less!./productList'
+    'less!./productList1'
 ], function ($, Swiper) {
 
     $('#features').hover(function () {
@@ -171,7 +171,6 @@ define([
             '<div class="swiper-button-next icon-arrow-right"></div>' +
             '</div>' +
             '</div>' +
-            '<div><a class="buyingGuide" href="http://shoeadvisor.newbalance.com.cn" target="_blank">&nbsp;</a></div>' +
             '</div>' +
             '<div class="popeswiper right">' +
             '<div class="poperemark">' +
