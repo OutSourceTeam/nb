@@ -206,10 +206,10 @@ define([
         var popebananerhtml = '<div class="popebananer">' +
             '<div class="swiper-container popebigBannerSwiper" id="imageSwiper">' +
             '<div class="swiper-wrapper">' +
-            '<div class="swiper-slide" style="background-image:url(../../../images/popebananer.png);"></div>' +
-            '<div class="swiper-slide" style="background-image:url(../../../images/popebananer.png);"></div>' +
-            '<div class="swiper-slide" style="background-image:url(../../../images/popebananer.png);"></div>' +
-            '<div class="swiper-slide" style="background-image:url(../../../images/popebananer.png);"></div>' +
+            '<div class="swiper-slide"><img src="../../../images/popebananer.png" border="0" alt=""/></div>' +
+            '<div class="swiper-slide"><img src="../../../images/popebananer.png" border="0" alt=""/></div>' +
+            '<div class="swiper-slide"><img src="../../../images/popebananer.png" border="0" alt=""/></div>' +
+            '<div class="swiper-slide"><img src="../../../images/popebananer.png" border="0" alt=""/></div>' +
             '</div>' +
             '<div id="bigpagination" class="swiper-pagination"></div>' +
             '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>' +
