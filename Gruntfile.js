@@ -15,14 +15,14 @@ module.exports = function(grunt) {
         paths.forEach(function(path) {
             widgets = widgets.concat(grunt.file.expand(path).map(function(file) {
                 if (file.indexOf(".js") > -1) {
-                    return file.replace("bin/dist/", "").replace(".js", "");
+                    return file.replace("bin/dist/"+distPath, "").replace(".js", "");
                 }
                 if (file.indexOf(".svg") > -1) {
-                    return file.replace("bin/dist/", "text!");
+                    return file.replace("bin/dist/"+distPath, "text!");
                 }
 
                 if (file.indexOf(".vml") > -1) {
-                    return file.replace("bin/dist/", "text!");
+                    return file.replace("bin/dist/"+distPath, "text!");
                 }
 
             }));
@@ -51,25 +51,27 @@ module.exports = function(grunt) {
             "copy:ejs",
             "clean:temp",
             "processhtml",
-            "replace:css",
-            "replace:js",
             "configSingleRequirejs",
-            "requirejs"
+            "requirejs",
+            "replace:html",
+            "replace:css",
+            "replace:js"
         ]
     );
 
 
     grunt.registerTask("configSingleRequirejs", "config each requirejs config for index files", function(version) {
         var configObject = {};
-        var allIndexJsFiles = include("bin/dist/modules/**/index.js");
+        var allIndexJsFiles = include("bin/dist/"+distPath+"modules/**/index.js");
         allIndexJsFiles.forEach(function(indexFile, index) {
             var cloneFiles = Array.prototype.slice.call(allIndexJsFiles);
             var paths = {
-                'vector': EMPTY,
                 'swiper': EMPTY,
                 'browser': EMPTY,
                 'poly': EMPTY,
                 'jquery': EMPTY,
+                'selectric':EMPTY,
+                'pagination':EMPTY,
                 'less': 'packages/require-less/0.1.5/less',
                 'text': 'packages/require-text/2.0.14/text'
             };
@@ -92,7 +94,6 @@ module.exports = function(grunt) {
                     optimize: "none"
                 }
             }
-
         });
 
         //pack all files 
@@ -106,17 +107,17 @@ module.exports = function(grunt) {
                 },
                 paths: {
                     'jquery': 'packages/jquery/jquery-1.11.3.min',
-                    'vector': 'packages/vector/svgvml',
                     'swiper': 'packages/swiper/idangerous.swiper.min',
                     'browser': 'packages/browser/check',
                     'poly': EMPTY,
                     'less': 'packages/require-less/0.1.5/less',
                     'text': 'packages/require-text/2.0.14/text',
                     'selectric': 'packages/selectric/jquery.selectric',
+                    'pagination': 'packages/pagination/jquery.twbsPagination.min'
                 },
                 out: 'bin/dist/'+distPath+'modules/mix.built.js',
-                include: include(["bin/dist/"+distPath+"packages/icons/*.svg", "bin/dist/"+distPath+"packages/icons/*.vml"])
-                    .concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
+                include: include([])
+                    .concat(['jquery', 'swiper', 'less', 'browser']),
                 optimize: "none"
             }
         }
@@ -131,17 +132,17 @@ module.exports = function(grunt) {
                 },
                 paths: {
                     'jquery': 'packages/jquery/jquery-1.11.3.min',
-                    'vector': 'packages/vector/svgvml',
                     'swiper': 'packages/swiper/swiper.min',
                     'browser': 'packages/browser/check',
                     'poly': EMPTY,
                     'less': 'packages/require-less/0.1.5/less',
                     'text': 'packages/require-text/2.0.14/text',
-                    'selectric': 'packages/selectric/jquery.selectric'
+                    'selectric': 'packages/selectric/jquery.selectric',
+                    'pagination': 'packages/pagination/jquery.twbsPagination.min'
                 },
                 out: 'bin/dist/'+distPath+'modules/mixm.built.js',
-                include: include(["bin/dist/"+distPath+"packages/icons/*.svg", "bin/dist/"+distPath+"packages/icons/*.vml"])
-                    .concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
+                include: include([])
+                    .concat(['jquery', 'swiper', 'less', 'browser']),
                 optimize: "none"
             }
         }
@@ -246,7 +247,7 @@ module.exports = function(grunt) {
             }
         },
         replace: {
-            path: {
+            html: {
                 src: ['bin/dist/*.html'],
                 dest: 'bin/dist/',
                 replacements: [{

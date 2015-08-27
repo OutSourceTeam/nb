@@ -1,7 +1,7 @@
 define([
     'jquery',
-    '../../../packages/selectric/jquery.selectric',
-    '../../../packages/pagination/jquery.twbsPagination.min',
+    'selectric',
+    'pagination',
     '../../common/header/index',
     '../../common/footer/index',
     'less!./shopList'

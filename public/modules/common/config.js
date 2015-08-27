@@ -8,14 +8,13 @@ var _baseUrl = _thisScript.getAttribute('baseUrl');
 require.config({
     baseUrl: _baseUrl,
     waitSeconds: 0,
-    deps:['poly', 'jquery', 'vector'].concat(globalDeps),
+    deps:['poly', 'jquery'].concat(globalDeps),
     shim:{
         "less" : {
             deps : ["poly"]
         }
     },
     paths: {
-        'vector' : 'packages/vector/svgvml',
         'jquery' : 'packages/jquery/jquery-1.11.3.min',
         'swiper':'packages/swiper/idangerous.swiper.min',
         'browser' : 'packages/browser/check',
@@ -30,11 +29,10 @@ require.config({
             'less': 'packages/require-less/0.1.5/less' // path to less
         }
     },
-    callback:function(poly, $, vector){
+    callback:function(poly, $){
         $(function(){
             //start up init module
             require(_main, function(){
-                vector();
             });
 
         });
