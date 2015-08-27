@@ -17,7 +17,9 @@
 </head>
 <!--[if IE 8]>
 <style type="text/css">
-
+    body{
+        behavior:url(../../../packages/borderradius/PIE.htc);
+    }
     .pageMain .productListBox .productList .product .propope .protitle .popeswiper.left .buyingGuide{
         position: absolute;
         right: 50px;
@@ -29,16 +31,7 @@
         background-position: center;
     }
 </style>
-<script type="text/javascript" src="../../../packages/borderradius/PIE.js"></script>
-<script>
-$(function() {
-    if (window.PIE) {
-        $('.rounded').each(function() {
-            PIE.attach(this);
-        });
-    }
-});
-</script>
+
 <![endif]-->
 <body>
 <%- include('../../common/header/index') %>
