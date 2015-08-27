@@ -128,7 +128,7 @@ define([
                     prevButton: '#imageSwiper .swiper-button-prev'
                 });
                 $('#infoSwiper .swiper-pagination-switch').each(function(index, item){
-                    $(item).css('background-image', 'url('+paginationImages[index]+')');
+                    //$(item).css('background-image', 'url('+paginationImages[index]+')');
                 });
 
                 // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
