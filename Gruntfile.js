@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
     "use strict";
 
+    var distPath = 'Public/Home/';
     var path = require('path');
 
     var EMPTY = "empty:";
@@ -53,8 +54,7 @@ module.exports = function(grunt) {
             "replace:css",
             "replace:js",
             "configSingleRequirejs",
-            "requirejs",
-            "replace:path"
+            "requirejs"
         ]
     );
 
@@ -79,14 +79,14 @@ module.exports = function(grunt) {
             });
             configObject[indexFile] = {
                 options: {
-                    baseUrl: 'bin/dist',
+                    baseUrl: 'bin/dist/'+distPath,
                     map: {
                         '*': {
                             'less': 'packages/require-less/0.1.5/less' // path to less
                         }
                     },
                     paths: paths,
-                    out: path.join('bin/dist', indexFile, "../built.js"),
+                    out: path.join('bin/dist/'+distPath, indexFile, "../built.js"),
                     include: [indexFile],
                     exclude: ['text', 'less'],
                     optimize: "none"
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         //pack all files 
         configObject.compile = {
             options: {
-                baseUrl: 'bin/dist',
+                baseUrl: 'bin/dist/'+distPath,
                 map: {
                     '*': {
                         'less': 'packages/require-less/0.1.5/less' // path to less
@@ -115,8 +115,8 @@ module.exports = function(grunt) {
                     'selectric': 'packages/selectric/jquery.selectric',
                     'classList': 'packages/classList/classList.min'
                 },
-                out: 'bin/dist/modules/mix.built.js',
-                include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
+                out: 'bin/dist/'+distPath+'modules/mix.built.js',
+                include: include(["bin/dist/"+distPath+"packages/icons/*.svg", "bin/dist/"+distPath+"packages/icons/*.vml"])
                     .concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
                 optimize: "none"
             }
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 
         configObject.compileMobile = {
             options: {
-                baseUrl: 'bin/dist',
+                baseUrl: 'bin/dist/'+distPath,
                 map: {
                     '*': {
                         'less': 'packages/require-less/0.1.5/less' // path to less
@@ -140,8 +140,8 @@ module.exports = function(grunt) {
                     'text': 'packages/require-text/2.0.14/text',
                     'selectric': 'packages/selectric/jquery.selectric'
                 },
-                out: 'bin/dist/modules/mixm.built.js',
-                include: include(["bin/dist/packages/icons/*.svg", "bin/dist/packages/icons/*.vml"])
+                out: 'bin/dist/'+distPath+'modules/mixm.built.js',
+                include: include(["bin/dist/"+distPath+"packages/icons/*.svg", "bin/dist/"+distPath+"packages/icons/*.vml"])
                     .concat(['jquery', 'swiper', 'less', 'vector', 'browser']),
                 optimize: "none"
             }
@@ -178,7 +178,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: "public/",
                     src: "**",
-                    dest: "bin/dist/"
+                    dest: "bin/dist/"+distPath
                 }]
             },
             ejs: {
@@ -252,7 +252,7 @@ module.exports = function(grunt) {
                 dest: 'bin/dist/',
                 replacements: [{
                     from: '../../../',
-                    to: ''
+                    to: distPath
                 }]
             },
             css:{
@@ -260,7 +260,7 @@ module.exports = function(grunt) {
                 overwrite:true,
                 replacements: [{
                     from: '../../../',
-                    to: ''
+                    to: distPath
                 }]
             },
             js:{
@@ -268,7 +268,7 @@ module.exports = function(grunt) {
                 overwrite:true,
                 replacements: [{
                     from: '../../../',
-                    to: ''
+                    to: distPath
                 }]
             }
         }
