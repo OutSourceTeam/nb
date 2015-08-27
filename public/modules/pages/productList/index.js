@@ -37,7 +37,7 @@ define([
         $item.on('click', {prevHeight : prevHeight}, function (e) {
             var prevHeight = e.data.prevHeight;
 
-            if(ispropopeshou && e.target.className == 'buyingGuide'){
+            if(ispropopeshou && (e.target.className == 'buyingGuide' || e.target.className=='ablack')){
                 return true;
             } else if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1) {
                 return false;
@@ -128,7 +128,7 @@ define([
                     prevButton: '#imageSwiper .swiper-button-prev'
                 });
                 $('#infoSwiper .swiper-pagination-switch').each(function(index, item){
-                    $(item).css('background-image', 'url('+paginationImages[index]+')');
+                    //$(item).css('background-image', 'url('+paginationImages[index]+')');
                 });
 
                 // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
@@ -184,15 +184,15 @@ define([
             '</div>' +
             '<hr/>' +
             '<div class="remarkmore">' +
-            '<a href="javascript:;">更多详情＞</a>' +
+            '<a class="ablack" href="http://shoeadvisor.newbalance.com.cn" target="_blank">更多详情＞</a>' +
             '<span>' +
-            '<a href="javascript:;"><img src="../../../images/tianmao.png" border="0" alt=""/></a>' +
+            '<a href="http://shoeadvisor.newbalance.com.cn" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a>' +
             '</span>' +
             '<span>' +
-            '<a href="javascript:;"><img src="../../../images/jd.png" border="0" alt=""/></a>' +
+            '<a  href="http://shoeadvisor.newbalance.com.cn" target="_blank"><img class="ablack" src="../../../images/jd.png" border="0" alt=""/></a>' +
             '</span>' +
             '<span>' +
-            '<a href="javascript:;"><img src="../../../images/yhd.png" border="0" alt=""/></a>' +
+            '<a href="http://shoeadvisor.newbalance.com.cn" target="_blank"><img class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a>' +
             '</span>' +
             '</div>' +
             '</div>' +

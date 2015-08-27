@@ -113,7 +113,6 @@ module.exports = function(grunt) {
                     'less': 'packages/require-less/0.1.5/less',
                     'text': 'packages/require-text/2.0.14/text',
                     'selectric': 'packages/selectric/jquery.selectric',
-                    'classList': 'packages/classList/classList.min'
                 },
                 out: 'bin/dist/'+distPath+'modules/mix.built.js',
                 include: include(["bin/dist/"+distPath+"packages/icons/*.svg", "bin/dist/"+distPath+"packages/icons/*.vml"])
