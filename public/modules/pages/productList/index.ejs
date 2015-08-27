@@ -29,6 +29,16 @@
         background-position: center;
     }
 </style>
+<script type="text/javascript" src="../../../packages/borderradius/PIE.js"></script>
+<script>
+$(function() {
+    if (window.PIE) {
+        $('.rounded').each(function() {
+            PIE.attach(this);
+        });
+    }
+});
+</script>
 <![endif]-->
 <body>
 <%- include('../../common/header/index') %>
