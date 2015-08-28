@@ -23,6 +23,10 @@ router.get('/productList1', function(req, res) {
     res.render('modules/pages/productList1/index');
 });
 
+router.get('/productSearchList', function(req, res) {
+    res.render('modules/pages/productSearchList/index');
+});
+
 router.get('/contactus', function(req, res) {
     res.render('modules/pages/contactus/index');
 });
