@@ -39,8 +39,8 @@
 <body>
 <%- include('../../common/header/index') %>
 <div class="pageMain">
-    <div class="topimg" style="background-image:url(../../../images/vazee_hero_banner.jpg);">
-    </div>
+    <div class="topimg" style="background-image:url(../../../images/vazee_hero_banner.jpg);"></div>
+    <%if(!searchList){ %>
     <div class="inmeun">
         <div class="chilemeun">
             <ul>
@@ -58,8 +58,16 @@
             </ul>
         </div>
     </div>
+    <% }else{ %>
+        <div class="searchBar">
+            <div>
+                <p>“MKL980”的搜索结果</p>
+            </div>
+        </div>
+    <% } %>
     <div class="productListBox">
         <ul class="productList">
+            <% if(!searchList){ %>
             <li class="product adcell">
                 <div class="maiginbtn">
                     <div class="imgpos">
@@ -67,6 +75,7 @@
                     </div>
                 </div>
             </li>
+            <% } %>
             <li class="product" >
                 <div class="maiginbtn">
                     <div class="imgpos">

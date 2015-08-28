@@ -16,15 +16,15 @@ router.get('/shopList', function(req, res) {
 });
 
 router.get('/productList', function(req, res) {
-    res.render('modules/pages/productList/index');
+    res.render('modules/pages/productList/index',{searchList:false});
 });
 
 router.get('/productList1', function(req, res) {
     res.render('modules/pages/productList1/index');
 });
 
-router.get('/productSearchList', function(req, res) {
-    res.render('modules/pages/productSearchList/index');
+router.get('/productSearchList', function(req, res,next) {
+    res.render('modules/pages/productList/index',{searchList:true});
 });
 
 router.get('/contactus', function(req, res) {
