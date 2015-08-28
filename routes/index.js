@@ -16,7 +16,7 @@ router.get('/shopList', function(req, res) {
 });
 
 router.get('/productList', function(req, res) {
-    res.render('modules/pages/productList/index',{searchList:false});
+    res.render('modules/pages/productList/index');
 });
 
 router.get('/productList1', function(req, res) {
@@ -24,7 +24,7 @@ router.get('/productList1', function(req, res) {
 });
 
 router.get('/productSearchList', function(req, res,next) {
-    res.render('modules/pages/productList/index',{searchList:true});
+    res.render('modules/pages/productSearchList/index');
 });
 
 router.get('/contactus', function(req, res) {
