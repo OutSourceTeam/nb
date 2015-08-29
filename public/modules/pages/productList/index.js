@@ -183,7 +183,7 @@ define([
             '</div>' +
             '</div>';
 
-        if (data.colorImgList == null || data.colorImgList == undefined || (data.colorImgList.length && data.colorImgList.length == 0)) {
+        if (data.colorImgList == null || data.colorImgList == undefined) {
             popebananerhtml = "";
         }
 
@@ -228,7 +228,7 @@ define([
                 prevButton: '#infoSwiper .swiper-button-prev',
                 paginationBulletRender: function (index, className) {
                     var colorimg  = ""
-                    if (data.colorImgList == null || data.colorImgList == undefined || (data.colorImgList.length && data.colorImgList.length == 0)) {
+                    if (data.colorList == null || data.colorList == undefined) {
                         return false
                     }
                     if(data.colorList[index] && data.colorList[index].color_img){
@@ -237,9 +237,12 @@ define([
                     return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>;';
                 },
                 onSlideChangeEnd:function(swiper){
-                    var curindex  = swiper.activeLoopIndex;
-                    var datas=  data.colorList[curindex];
-                    changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
+                    if (data.colorImgList != null || data.colorImgList != undefined) {
+                        var curindex  = swiper.activeLoopIndex;
+                        var datas=  data.colorList[curindex];
+                        changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
+                    }
+
                 }
             });
            var  popebigBannerSwiper = new Swiper('#imageSwiper', {
@@ -256,7 +259,7 @@ define([
             });
             $('#infoSwiper .swiper-pagination-switch').each(function (index, item) {
                 var colorimg  = ""
-                if (data.colorImgList == null || data.colorImgList == undefined || (data.colorImgList.length && data.colorImgList.length == 0)) {
+                if (data.colorList == null || data.colorList == undefined) {
                    return false
                 }
                 if(data.colorList[index] && data.colorList[index].color_img){
@@ -292,11 +295,7 @@ define([
         $('.shoeSize').text(data.sizes);
 
         popebigBannerSwiper.removeAllSlides();
-
-
-
         var imghtml = ''
-
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
                 var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:auto" src="'+imgpath + item.img+'"/>','swiper-slide','div');
