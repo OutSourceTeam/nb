@@ -164,6 +164,7 @@ define([
             setShopList(data);
         });
     }
+
     function setShopList(data){
         var $shopList = $('.shopList');
         var listData = data.data || [];
