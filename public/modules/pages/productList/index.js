@@ -206,7 +206,7 @@ define([
 
             $("body, html").animate({scrollTop: offsetTop}, timing);
 
-            $this.animate({'height': prevHeight + 200}, timing).addClass('active');
+            $this.animate({'height': prevHeight + popedone.height()+ 40}, timing).addClass('active');
             $propope.animate({'height': 200}, timing);
 
         }
@@ -237,10 +237,12 @@ define([
                     return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>;';
                 },
                 onSlideChangeEnd:function(swiper){
+                    var curindex  = swiper.activeLoopIndex;
                     if (data.colorImgList != null || data.colorImgList != undefined) {
-                        var curindex  = swiper.activeLoopIndex;
                         var datas=  data.colorList[curindex];
                         changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
+                    }else if(data.colorList && data.colorList.length && data.colorList.length>0){
+                        $('.shoeSize').text(data.colorList[curindex].sizes);
                     }
 
                 }
@@ -298,7 +300,7 @@ define([
         var imghtml = ''
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:auto" src="'+imgpath + item.img+'"/>','swiper-slide','div');
+                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:100%" src="'+imgpath + item.img+'"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
 
             })
