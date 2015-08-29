@@ -238,7 +238,7 @@ define([
                     if(data.colorList[index] && data.colorList[index].color_img){
                         colorimg = data.colorList[index].color_img;
                     }
-                    return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>';
+                    return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>;';
                 },
                 onSlideNext: function(swiper){
                     console.log(swiper)
@@ -275,7 +275,9 @@ define([
                 if(data.colorList[index] && data.colorList[index].color_img){
                     colorimg = data.colorList[index].color_img;
                 }
-                $(item).css('background-image', 'url(' + imgpath+colorimg + ')');
+                $(item).css({
+                    'background-image': 'url(' + imgpath+colorimg + ')'
+                });
             });
 
             // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
@@ -310,7 +312,7 @@ define([
 
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = popebigBannerSwiper.createSlide('<div   style="background-image:url(' + imgpath + item.img + ');"></div>','swiper-slide','div');
+                var newSlide = popebigBannerSwiper.createSlide('<img src="'+imgpath + item.img+'"/>','swiper-slide','div');
                 //imghtml += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.img + ');"></div>'
                 newSlide.append(); //加到slides的最后
 
