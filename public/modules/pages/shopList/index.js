@@ -132,6 +132,7 @@ define([
                 $provincecity.append(city_html);
                 $provincecity.selectric('refresh');
                 searchObj.province = $(this).val();
+                searchObj.city = '';
             });
             $provincecity.on('change', function() {
                 searchObj.city = $(this).val();
