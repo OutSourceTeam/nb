@@ -57,7 +57,9 @@ define([
             return false;
         }
         var proid = $this.data('id');
-
+         if(proid==undefined || proid ==null || proid == ""){
+             return false;
+         }
         var phtml = '<div class="propope">' +
             '<div class="quickview-arrow"></div>' +
             '<div class="popeclosed icon-close-thin"></div>' +
