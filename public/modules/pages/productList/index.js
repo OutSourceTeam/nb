@@ -240,19 +240,10 @@ define([
                     }
                     return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>;';
                 },
-                onSlideNext: function(swiper){
-                    console.log(swiper)
-                    var curindex  = swiper.activeLoopIndex;
-                   var datas=  data.colorList[curindex];
-                    changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
-                },
-                onSlidePrev: function(swiper){
+                onSlideChangeEnd:function(swiper){
                     var curindex  = swiper.activeLoopIndex;
                     var datas=  data.colorList[curindex];
                     changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
-                },
-                onSlideChangeEnd:function(){
-                    alert(1)
                 }
             });
            var  popebigBannerSwiper = new Swiper('#imageSwiper', {
@@ -312,8 +303,7 @@ define([
 
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = popebigBannerSwiper.createSlide('<img src="'+imgpath + item.img+'"/>','swiper-slide','div');
-                //imghtml += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.img + ');"></div>'
+                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:100%" src="'+imgpath + item.img+'"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
 
             })
