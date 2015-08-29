@@ -104,11 +104,9 @@ define([
             method: "GET",
             url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + id
         }).done(function (msg) {
-            console.log(msg)
             popeloading.hide();
             shouPope(msg, $this, prevHeight, e)
         }).fail(function (msg) {
-            console.log(msg)
         });
     }
 
@@ -136,7 +134,7 @@ define([
             buyingGuide = '<div><a class="buyingGuide" href="http://shoeadvisor.newbalance.com.cn" target="_blank">&nbsp;</a></div>';
         }
         if (data.isShowPrice == "1") {
-            isShowPrice = '<span>￥' + data.price + '</span>';
+            isShowPrice = '<span class="shoePrice">￥' + data.price + '</span>';
         }
         if (data.tianMaoLink && data.tianMaoLink != "") {
             tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
@@ -147,7 +145,6 @@ define([
         if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
             yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
         }
-
         var protitlehtml = '<div class="protitle">' +
             '<div class="prolistcontainer">' +
             '<div class="row">' +
@@ -162,9 +159,9 @@ define([
             '</div>' + '</div>' + buyingGuide + '</div>' +
             '<div class="popeswiper right">' +
             '<div class="poperemark">' +
-            '<div class="remarktitle">' + data.model + data.seriesSize + data.name + isShowPrice + '</div>' +
+            '<div class="remarktitle"><span class="shoeSize">' + data.seriesSize + '</span>' + isShowPrice + '</div>' +
             '<hr/>' +
-            '<div class="remarkcontent">' + data.introduction + '</div>' +
+            '<div class="remarkcontent">' + ((data.introduction === '' || !data.introduction) ? data.name : data.introduction) + '</div>' +
             '<hr/>' +
             '<div class="remarkmore">' +
             '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>' + tianmaolin + jinDongLink + yiHaoDianLink +
@@ -222,7 +219,6 @@ define([
                 ispopedone = false
                 popedone.fadeOut();
             }
-
             popeBannerSwiper = new Swiper('#infoSwiper', {
                 loop: true,
                 speed: 300,
@@ -292,8 +288,8 @@ define([
 
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
 
-
         var Oimg = $('#imageSwiper');
+        $('.shoeSize').text(data.sizes);
 
         popebigBannerSwiper.removeAllSlides();
 
@@ -303,7 +299,7 @@ define([
 
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:100%" src="'+imgpath + item.img+'"/>','swiper-slide','div');
+                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:auto" src="'+imgpath + item.img+'"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
 
             })
