@@ -13,7 +13,8 @@ define([
         'typeHouse' : 1,
         'typeKids' : 1,
         'page' : 1,
-        'pageSize' : 8
+        'pageSize' : 8,
+        'totalPages':0
     };
     var oldPageNum = 0;
     $('.typeLink').each(function(index, item){
@@ -164,6 +165,7 @@ define([
             setShopList(data);
         });
     }
+
     function setShopList(data){
         var $shopList = $('.shopList');
         var listData = data.data || [];
@@ -196,9 +198,9 @@ define([
         showPagination(data);
     }
     function showPagination(data){
-        var totalPages = data.pageNum,
+        var totalPages = data.pageCount,
             startPage = data.currPage,
-            pageCount = data.pageCount;
+            pageCount = data.pageNum;
         if (oldPageNum === totalPages) return;
         oldPageNum = totalPages;
         $('.paginationBox').find('.count').text(pageCount);
