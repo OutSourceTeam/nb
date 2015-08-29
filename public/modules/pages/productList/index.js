@@ -250,6 +250,9 @@ define([
                     var curindex  = swiper.activeLoopIndex;
                     var datas=  data.colorList[curindex];
                     changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
+                },
+                onSlideChangeEnd:function(){
+                    alert(1)
                 }
             });
            var  popebigBannerSwiper = new Swiper('#imageSwiper', {
