@@ -45,4 +45,5 @@
 <glyph unicode="&#xe623;" glyph-name="villa" horiz-adv-x="1690" d="M1561.613 960h-1305.633l-255.981-409.585 255.981-25.575v-588.84h128.029v588.764h332.783v-588.84h819.246v614.415h153.604l-128.029 409.661zM1337.659 80.004h-393.61v367.958h393.61v-367.958z" />
 <glyph unicode="&#xe624;" glyph-name="triangle-thin-left" horiz-adv-x="654" d="M654.051-64v1024l-654.051-512z" />
 <glyph unicode="&#xe625;" glyph-name="down" horiz-adv-x="669" d="M334.399-64l334.4 355.437v201.081l-267.504-284.366v751.847h-133.713v-751.847l-267.583 284.366v-201.081z" />
+<glyph unicode="&#xe626;" glyph-name="checkmark" d="M864 832l-480-480-224 224-160-160 384-384 640 640z" />
 </font></defs></svg>

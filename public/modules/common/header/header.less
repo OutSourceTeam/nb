@@ -239,6 +239,7 @@
         background-size: 200px 200px;
         display: table;
         margin: 0 auto;
+        padding-bottom: 20px;
     }
     .row {
         display: table-row;
@@ -247,7 +248,6 @@
     .cell {
         display: table-cell;
         width: 152px;
-        height: 268px;
         padding-top: 20px;
         hr {
             .margin_btm;
@@ -310,6 +310,20 @@
     }
     .cellp {
         width: 70px!important;
+    }
+    .titleBox{
+        padding: 0;
+        margin: 0;
+        height: auto;
+        .cell , .cellp {
+            height: auto;
+            padding: 0;
+            margin: 0;
+            vertical-align:top;
+            .title{
+                padding: 0;
+            }
+        }
     }
 }
 
