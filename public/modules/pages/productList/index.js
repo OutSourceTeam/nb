@@ -82,7 +82,7 @@ define([
     function getProductinfo(id,$this,prevHeight,e,popeloading) {
         $.ajax({
             method: "GET",
-            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + 3
+            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/'+id
         }).done(function (msg) {
             console.log(msg)
             popeloading.hide();
