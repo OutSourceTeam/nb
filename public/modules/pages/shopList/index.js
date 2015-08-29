@@ -124,6 +124,15 @@ define([
             $province.selectric('refresh');
 
             $province.on('change', function() {
+                var value = $province.val();
+                if (parseInt(value) == -1){
+                    var city_html='<option value="-1">城市</option>';
+                    $provincecity.empty().append(city_html);
+                    $provincecity.selectric('refresh');
+                    searchObj.province = '';
+                    searchObj.city = '';
+                    return;
+                }
                 var prov_id=$province.get(0).selectedIndex-1;
                 $provincecity.empty();
                 var city_html="<option value='0'>全部</option>";
@@ -133,6 +142,7 @@ define([
                 $provincecity.append(city_html);
                 $provincecity.selectric('refresh');
                 searchObj.province = $(this).val();
+                searchObj.city = '';
             });
             $provincecity.on('change', function() {
                 searchObj.city = $(this).val();
@@ -169,7 +179,6 @@ define([
         var $shopList = $('.shopList');
         var listData = data.data || [];
         var html = '';
-        
         listData.forEach(function(item){
             var iconClass='';
             switch(String(item.type)){
@@ -194,12 +203,22 @@ define([
                     '</li>';
         })
         $shopList.empty().append(html);
+        if(!listData || parseInt(data.pageNum) == 0){
+            $shopList.append('<li class="noData">对不起，暂无专卖店数据</li>');
+        }
         showPagination(data);
     }
     function showPagination(data){
         var totalPages = data.pageCount,
             startPage = data.currPage,
             pageCount = data.pageNum;
+        if (parseInt(pageCount) == 0){
+            // $('.paginationBox').find('.count').text(pageCount);
+            // $('.pageNumList').remove();
+            $('.paginationBox').hide();
+            return;
+        }
+        $('.paginationBox').show();
         if (oldPageNum === totalPages) return;
         oldPageNum = totalPages;
         $('.paginationBox').find('.count').text(pageCount);
