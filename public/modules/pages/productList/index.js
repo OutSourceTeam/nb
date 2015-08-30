@@ -119,7 +119,7 @@ define([
         var data = data.data;
 
 
-        var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '',spbtn='',tspbtn='';
+        var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '',spbtn='',tspbtn='',mainProductsLink='';
         if (data.colorList) {
             $.each(data.colorList, function (n, item) {
                 titeimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.big_img + ');"></div>'
@@ -151,6 +151,9 @@ define([
         if(data.colorImgList && data.colorImgList.length>1){
             tspbtn= '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>'+'<div id="bignext" class="swiper-button-next icon-arrow-right"></div>'
         }
+        if(data.mainProductsLink!=""){
+            mainProductsLink= '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>'
+        }
         var protitlehtml = '<div class="protitle">' +
             '<div class="prolistcontainer">' +
             '<div class="row">' +
@@ -168,7 +171,7 @@ define([
             '<div class="remarkcontent">' + ((data.introduction === '' || !data.introduction) ? data.name : data.introduction) + '</div>' +
             '<hr/>' +
             '<div class="remarkmore">' +
-            '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>' + tianmaolin + jinDongLink + yiHaoDianLink +
+            mainProductsLink+ tianmaolin + jinDongLink + yiHaoDianLink +
             '</div>' +
             '</div>' +
             '</div>' +
