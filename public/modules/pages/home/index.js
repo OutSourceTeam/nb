@@ -20,17 +20,23 @@ define([
         });
     };
 
-    var bottomNewsSwiper = new Swiper('.bottomNewsSwiper', {
-        loop: true,
-        // nextButton: '.swiper-button-next',
-        // prevButton: '.swiper-button-prev',
-    });
-    $('.swiper-button-prev').on('click', function() {
-        bottomNewsSwiper.swipePrev();
-    });
-    $('.swiper-button-next').on('click', function() {
-        bottomNewsSwiper.swipeNext();
-    });
+    if ($('.bottomNewsSwiper .swiper-wrapper .swiper-slide').length > 1) {
+        var bottomNewsSwiper = new Swiper('.bottomNewsSwiper', {
+            loop: true,
+            // nextButton: '.swiper-button-next',
+            // prevButton: '.swiper-button-prev',
+        });
+        $('.swiper-button-prev').on('click', function() {
+            bottomNewsSwiper.swipePrev();
+        });
+        $('.swiper-button-next').on('click', function() {
+            bottomNewsSwiper.swipeNext();
+        });
+    }else{
+        $('.swiper-button-prev').hide();
+        $('.swiper-button-next').hide();
+    }
+
     $('.weixin').on('click', function(ev) {
         $('.pageCover').addClass('show');
         ev.stopPropagation();
