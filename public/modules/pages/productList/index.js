@@ -300,7 +300,7 @@ define([
         var imghtml = ''
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = popebigBannerSwiper.createSlide('<img style="background-size: cover;background-position: center center;background-repeat: no-repeat;width:100%;height:100%" src="'+imgpath + item.img+'"/>','swiper-slide','div');
+                var newSlide = popebigBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.img+')"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
 
             })
