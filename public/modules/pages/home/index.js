@@ -9,7 +9,7 @@ define([
     if ($('.topBannerSwiper .swiper-wrapper .swiper-slide').length > 1) {
         var topBannerSwiper = new Swiper('.topBannerSwiper', {
             loop: true,
-            autoplay: 5000,
+            autoplay: 3000,
             pagination: '.swiper-pagination',
             paginationClickable: true,
             createPagination: true,
