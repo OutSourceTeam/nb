@@ -303,17 +303,16 @@ define([
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
 
         $('.shoeSize').text(data.sizes);
+        // popebigBannerSwiper.swipeTo(0,0,false);
 
-        popebigBannerSwiper.swipeTo(0,0,function(){
-            popebigBannerSwiper.removeAllSlides();
-            var imghtml = ''
-            if (data.colorImgList) {
-                $.each(data.colorImgList, function (n, item) {
-                    var newSlide = popebigBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.img+')"/>','swiper-slide','div');
-                    newSlide.append(); //加到slides的最后
-                })
-            }
-        });
+        popebigBannerSwiper.removeAllSlides();
+        if (data.colorImgList) {
+            $.each(data.colorImgList, function (n, item) {
+                var newSlide = popebigBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.img+')"/>','swiper-slide','div');
+                newSlide.append(); //加到slides的最后
+            })
+        }
+        popebigBannerSwiper.swipeTo(0,0,false);
     }
 
 
