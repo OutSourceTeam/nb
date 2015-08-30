@@ -266,10 +266,7 @@ define([
                 }
                 if(data.colorList[index] && data.colorList[index].color_img){
                     colorimg = data.colorList[index].color_img;
-                    console.log(colorimg)
                     if((index+1)<=data.colorList.length){
-                        console.log(index+1)
-                        console.log(data.colorList.length)
                         $(item).css({
                             'background-image': 'url(' + imgpath+colorimg + ')'
                         });
