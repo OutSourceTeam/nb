@@ -119,7 +119,7 @@ define([
         var data = data.data;
 
 
-        var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '';
+        var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '',spbtn='',tspbtn='';
         if (data.colorList) {
             $.each(data.colorList, function (n, item) {
                 titeimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.big_img + ');"></div>'
@@ -145,6 +145,12 @@ define([
         if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
             yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
         }
+        if(data.colorList && data.colorList.length>1){
+            spbtn= '<div class="swiper-button-prev icon-arrow-left"></div>'+'<div class="swiper-button-next icon-arrow-right"></div>'
+        }
+        if(data.colorImgList && data.colorImgList.length>1){
+            tspbtn= '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>'+'<div id="bignext" class="swiper-button-next icon-arrow-right"></div>'
+        }
         var protitlehtml = '<div class="protitle">' +
             '<div class="prolistcontainer">' +
             '<div class="row">' +
@@ -153,9 +159,7 @@ define([
             '<div class="popBannerBox">' +
             '<div class="swiper-container popeBannerSwiper" id="infoSwiper">' +
             '<div class="swiper-wrapper">' + titeimg + '</div>' +
-            '<div class="swiper-pagination"></div>' +
-            '<div class="swiper-button-prev icon-arrow-left"></div>' +
-            '<div class="swiper-button-next icon-arrow-right"></div>' +
+            '<div class="swiper-pagination"></div>'+ spbtn +
             '</div>' + '</div>' + buyingGuide + '</div>' +
             '<div class="popeswiper right">' +
             '<div class="poperemark">' +
@@ -177,9 +181,7 @@ define([
         var popebananerhtml = '<div class="popebananer">' +
             '<div class="swiper-container popebigBannerSwiper" id="imageSwiper">' +
             '<div class="swiper-wrapper">' + bigimg + '</div>' +
-            '<div id="bigpagination" class="swiper-pagination"></div>' +
-            '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>' +
-            '<div id="bignext" class="swiper-button-next icon-arrow-right"></div>' +
+            '<div id="bigpagination" class="swiper-pagination"></div>' + tspbtn +
             '</div>' +
             '</div>';
 
@@ -219,7 +221,7 @@ define([
                 ispopedone = false
                 popedone.fadeOut();
             }
-            popeBannerSwiper = new Swiper('#infoSwiper', {
+           var popeBannerSwiper = new Swiper('#infoSwiper', {
                 loop: true,
                 speed: 300,
                 pagination: '#infoSwiper .swiper-pagination',
@@ -266,10 +268,14 @@ define([
                 }
                 if(data.colorList[index] && data.colorList[index].color_img){
                     colorimg = data.colorList[index].color_img;
+                    if((index+1)<=data.colorList.length){
+                        $(item).css({
+                            'background-image': 'url(' + imgpath+colorimg + ')'
+                        });
+                    }
                 }
-                $(item).css({
-                    'background-image': 'url(' + imgpath+colorimg + ')'
-                });
+
+
             });
 
             // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
@@ -288,7 +294,7 @@ define([
             $('#imageSwiper .swiper-button-next').on('click', function () {
                 popebigBannerSwiper.swipeNext();
             });
-        }, 100);
+        }, 300);
     }
 
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
@@ -306,7 +312,7 @@ define([
             })
         }
 
-
+        popebigBannerSwiper.swipeTo(0, 1, false);
     }
 
 
