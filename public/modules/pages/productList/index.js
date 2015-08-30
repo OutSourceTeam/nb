@@ -219,7 +219,7 @@ define([
                 ispopedone = false
                 popedone.fadeOut();
             }
-            popeBannerSwiper = new Swiper('#infoSwiper', {
+           var popeBannerSwiper = new Swiper('#infoSwiper', {
                 loop: true,
                 speed: 300,
                 pagination: '#infoSwiper .swiper-pagination',
@@ -266,10 +266,17 @@ define([
                 }
                 if(data.colorList[index] && data.colorList[index].color_img){
                     colorimg = data.colorList[index].color_img;
+                    console.log(colorimg)
+                    if((index+1)<=data.colorList.length){
+                        console.log(index+1)
+                        console.log(data.colorList.length)
+                        $(item).css({
+                            'background-image': 'url(' + imgpath+colorimg + ')'
+                        });
+                    }
                 }
-                $(item).css({
-                    'background-image': 'url(' + imgpath+colorimg + ')'
-                });
+
+
             });
 
             // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
@@ -288,7 +295,7 @@ define([
             $('#imageSwiper .swiper-button-next').on('click', function () {
                 popebigBannerSwiper.swipeNext();
             });
-        }, 100);
+        }, 300);
     }
 
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
