@@ -20,18 +20,30 @@
 
 		}
 		.swiper-pagination{
-			.swiper-pagination-bullet{
-				width: 8px;
-				height: 8px;
-				margin: 0 5px;
-				background-color: #fff;
-				opacity: 1;
-				vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: absolute;
+			text-align: center;
+			bottom: 10px;
+			font-size: 13px;
+			.swiper-pagination-switch{
+			  opacity: 1;
+			  width: auto;
+			  height: auto;
+			  margin: 0 0 0 5px;
+			  display: inline-block;
+			  width: 12px;
+			  height: 12px;
+			  border-radius: 50%;
+			  background-color: #fff;
+			  border: 1px solid rgb(67, 67, 67);
 			}
-			.swiper-pagination-bullet-active{
-				background-color: #000;
-				border: 1px solid #fff;
-				opacity: 1;
+			.swiper-active-switch{
+			  background-color: rgb(0, 0, 0);
+			  opacity: 1;
+			  border: 1px solid rgb(67, 67, 67);
+			  border-radius: 50%;
+			  behavior: url(../../../packages/borderradius/PIE.htc);
 			}
 		}
 	}
