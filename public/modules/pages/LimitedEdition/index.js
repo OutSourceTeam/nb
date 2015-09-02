@@ -10,11 +10,10 @@ define([
 
     var deviceWidth = $(window).width();
     var deviceHeight = $(window).height()-56;
-    var bannerMarginTop = 0 - (deviceWidth * 1080 / 1920 - deviceHeight) / 2;
     var banner = $('#limitedEdition-banner');
     banner.find('a.btn').height(deviceHeight);
-    banner.find('div').height(deviceWidth / 1920 * 1080);
-    banner.find('img').css('width', deviceWidth).height(deviceWidth / 1920 * 1080);
+    banner.find('div').height(deviceWidth / deviceWidth * deviceHeight);
+    banner.find('img').css('width', deviceWidth).height(deviceWidth / deviceWidth * deviceHeight);
     $('#empty').height(deviceHeight);
     banner.height(deviceHeight);
     var blueIsshow = false,redIsshow=false;
@@ -43,6 +42,7 @@ define([
     $('#limitedEdition-banner a.btn_red').click(function () {
         if(blueIsshow) return false
         if(redIsshow==false){
+            $('body, html').css('overflow','auto')
             $('#limitedEdition-banner div.red').stop(true).animate({
                 width: '100%'
             }, 500)
@@ -53,7 +53,7 @@ define([
             banner.hide();
             $('body, html').stop(true).animate({
                 scrollTop: deviceHeight
-            }, 500, function () {
+            },0, function () {
                 $('#empty').hide();
                 $('body, html').scrollTop(0);
             });
@@ -66,6 +66,7 @@ define([
                 width: '0%'
             }, 500)
             $('#red').hide();
+            $('body,html').css('overflow','hidden')
             banner.show();
             redIsshow=false;
         }
@@ -81,5 +82,18 @@ define([
         $(this).css('opacity',0);
     })
 
+
+
+    $(window).on('resize', function (){
+        var deviceWidth = $(window).width();
+        var deviceHeight = $(window).height()-56;
+        var banner = $('#limitedEdition-banner');
+        banner.find('a.btn').height(deviceHeight);
+        banner.find('div').height(deviceWidth / deviceWidth * deviceHeight);
+        banner.find('img').css('width', deviceWidth).height(deviceWidth / deviceWidth * deviceHeight);
+        $('#empty').height(deviceHeight);
+        banner.height(deviceHeight);
+
+    })
 
 });
