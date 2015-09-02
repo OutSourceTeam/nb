@@ -9,7 +9,7 @@ define([
 
 
     var deviceWidth = $(window).width();
-    var deviceHeight = $(window).height();
+    var deviceHeight = $(window).height()-56;
     var bannerMarginTop = 0 - (deviceWidth * 1080 / 1920 - deviceHeight) / 2;
     var banner = $('#limitedEdition-banner');
     banner.find('a.btn').height(deviceHeight);
@@ -27,6 +27,7 @@ define([
                  width: 0
              }, 500)
              blueIsshow=true
+             $(this).css('opacity',0);
          }else{
              $('#limitedEdition-banner div.red').stop(true).animate({
                  width: '100%'
@@ -73,6 +74,12 @@ define([
         });
 
 
+    $('#limitedEdition-banner a').hover(function () {
+        if(blueIsshow) return false
+        $(this).css('opacity',.05)
+    }, function () {
+        $(this).css('opacity',0);
+    })
 
 
 });
