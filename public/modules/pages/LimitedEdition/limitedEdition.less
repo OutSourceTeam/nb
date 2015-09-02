@@ -15,11 +15,10 @@
   font-style: normal;
 }
 
-
 html, body {
   font-size: 12px;
   width: 100%;
-  a:hover{
+  a:hover {
     text-decoration: none;
   }
   height: 100%;
@@ -39,80 +38,89 @@ html, body {
     display: table-cell;
   }
 }
-#limitedEdition-banner{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: block;
-  a.btn {
-    position: absolute;
-    width: 50%;
-    top: 0;
-    background-color: #fff;
-    opacity: 0;
-    outline: none;
-    z-index: 3;
-  }
-  a.btn_red {
-    right: 0;
-  }
-  div {
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-  }
-  .red {
-    right: 0;
-    width: 100%;
-  }
-  .blue{
 
-    width: 0%;
-  }
-  img {
-    margin-bottom: -5px;
-  }
-  .red img {
+#limitedEdition-banner {
+  .layer{
     position: absolute;
-    right: 0;
-    top: 0;
+    height: 100%;
+    width: 50%;
+    background: #fff;
+    opacity: 0;
+    &:hover{
+      opacity: .05;
+    }
+  }
+  .half-pic-bj,.full-pic-bj{
+    width: 100%;
+    height: auto;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .bnt{
+    height: 20px;
+    width: 155px;
+    background: url("../../../images/lebj.jpg") repeat-x center;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 10px;
+    display: inline-block;
+    position: absolute;
+    line-height: 20px;
+    z-index: 10;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .left-panle{
+    float: left;
+    width: 50%;
+    height: 100%;
+  }
+  .right-panle{
+    float: right;
+    width: 50%;
+    height: 100%;
   }
 
 }
-#red{
+
+#red {
   display: none;
 }
-.red_bg{
+
+.red_bg {
   width: 100%;
   height: 600px;
   padding: 135px 0 0 100px;
   color: #fff;
-  .time{
+  .time {
     font-size: 24px;
-    .icon{
+    .icon {
       width: 23px;
       height: 23px;
-      background:url("../../../images/titleicon.png") no-repeat center;
+      background: url("../../../images/titleicon.png") no-repeat center;
       display: inline-block;
       margin-right: 5px;
     }
   }
-  .info{
+  .info {
     width: 600px;
     margin-top: 10px;
-    font-family:'ITCAvantGardeStd-Demi';
+    font-family: 'ITCAvantGardeStd-Demi';
     font-size: 40px;
   }
-  .sub-info{
+  .sub-info {
     font-size: 14px;
     width: 445px;
     margin: 30px 0;
     line-height: 22px;
   }
-  .infolist{
+  .infolist {
     padding-left: 15px;
-    li{
+    li {
       list-style: square;
       color: #fff;
       width: 420px;
@@ -122,59 +130,52 @@ html, body {
   }
 }
 
-.red_right{
+.red_right {
   padding-left: 57%;
 }
 
-.limitedEdition01{
+.limitedEdition01 {
   background: url("../../../images/limitedEdition01.jpg") no-repeat center;
 }
-.limitedEdition02{
+
+.limitedEdition02 {
   background: url("../../../images/limitedEdition02.jpg") no-repeat center;
 }
-.limitedEdition03{
+
+.limitedEdition03 {
   background: url("../../../images/limitedEdition03.jpg") no-repeat center;
 }
-.limitedEdition04{
+
+.limitedEdition04 {
   background: url("../../../images/limitedEdition04.jpg") no-repeat center;
 }
-.limitedEdition05{
+
+.limitedEdition05 {
   background: url("../../../images/limitedEdition05.jpg") no-repeat center;
 }
-.limitedEdition06{
+
+.limitedEdition06 {
   background: url("../../../images/limitedEdition06.jpg") no-repeat center;
 }
-.limitedEdition07{
+
+.limitedEdition07 {
   background: url("../../../images/limitedEdition07.jpg") no-repeat center;
 }
-.limitedEdition08{
+
+.limitedEdition08 {
   background: url("../../../images/limitedEdition08.jpg") no-repeat center;
 }
-.limitedEdition09{
+
+.limitedEdition09 {
   background: url("../../../images/limitedEdition09.jpg") no-repeat center;
 }
-.limitedEdition10{
+
+.limitedEdition10 {
   background: url("../../../images/limitedEdition10.jpg") no-repeat center;
 }
-.top-btn{
-  display: block;
-  width: 57px;
-  text-align: center;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-  text-decoration: none;
-  span{
-    display: block;
-    height: 57px;
-    background: #fff url(../../../images/top_icon.png) center center no-repeat;
-    margin-bottom: 5px;
-  }
-  b {
-    font-weight: normal;
-    color: #fff;
-    font-size: 12px;
-  }
-}
+
+
+
+
+
 
