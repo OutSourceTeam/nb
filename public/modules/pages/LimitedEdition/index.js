@@ -17,48 +17,37 @@ define([
     banner.find('img').css('width', deviceWidth).height(deviceWidth / 1920 * 1080);
     $('#empty').height(deviceHeight);
     banner.height(deviceHeight);
-
-    $('#limitedEdition-banner a.btn_blue').hover(function () {
-        $('#limitedEdition-banner div.blue').stop(true).animate({
-            width: '100%'
-        }, 500)
-        $('#limitedEdition-banner div.red').stop(true).animate({
-            width: 0
-        }, 500)
-    }, function () {
-        $('#limitedEdition-banner div.red').stop(true).animate({
-            width: '100%'
-        }, 500)
-        $('#limitedEdition-banner div.blue').stop(true).animate({
-            width: '0%'
-        }, 500)
-    }).click(function () {
-        //$('#red').hide();
-        //$('#blue').show();
-        $('body, html').stop(true).animate({
-            scrollTop: deviceHeight
-        }, 500, function () {
-            $('#empty').hide();
-            $('body, html').scrollTop(0);
-        });
+    var blueIsshow = false,redIsshow=false;
+    $('#limitedEdition-banner a.btn_blue').click(function () {
+         if(blueIsshow==false){
+             $('#limitedEdition-banner div.blue').stop(true).animate({
+                 width: '100%'
+             }, 500)
+             $('#limitedEdition-banner div.red').stop(true).animate({
+                 width: 0
+             }, 500)
+             blueIsshow=true
+         }else{
+             $('#limitedEdition-banner div.red').stop(true).animate({
+                 width: '100%'
+             }, 500)
+             $('#limitedEdition-banner div.blue').stop(true).animate({
+                 width: '0%'
+             }, 500)
+             blueIsshow=false
+         }
 
     });
 
-    $('#limitedEdition-banner a.btn_red').hover(function () {
-        $('#limitedEdition-banner div.red').stop(true).animate({
-            width: '100%'
-        }, 500)
-        $('#limitedEdition-banner div.blue').stop(true).animate({
-            width: 0
-        }, 500)
-    }, function () {
-        $('#limitedEdition-banner div.red').stop(true).animate({
-            width: '100%'
-        }, 500)
-        $('#limitedEdition-banner div.blue').stop(true).animate({
-            width: '0%'
-        }, 500)
-    }).click(function () {
+    $('#limitedEdition-banner a.btn_red').click(function () {
+        if(blueIsshow) return false
+        if(redIsshow==false){
+            $('#limitedEdition-banner div.red').stop(true).animate({
+                width: '100%'
+            }, 500)
+            $('#limitedEdition-banner div.blue').stop(true).animate({
+                width: 0
+            }, 500)
             $('#red').show();
             banner.hide();
             $('body, html').stop(true).animate({
@@ -67,6 +56,20 @@ define([
                 $('#empty').hide();
                 $('body, html').scrollTop(0);
             });
+            redIsshow=true;
+        }else{
+            $('#limitedEdition-banner div.red').stop(true).animate({
+                width: '100%'
+            }, 500)
+            $('#limitedEdition-banner div.blue').stop(true).animate({
+                width: '0%'
+            }, 500)
+            $('#red').hide();
+            banner.show();
+            redIsshow=false;
+        }
+
+
         });
 
 
