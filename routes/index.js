@@ -42,4 +42,7 @@ router.get('/mproductList', function(req, res) {
 router.get('/mproductDetail', function(req, res) {
     res.render('modules/pages/mproductDetail/index');
 });
+router.get('/limitedEdition', function(req, res) {
+    res.render('modules/pages/limitedEdition/index');
+});
 module.exports = router;
