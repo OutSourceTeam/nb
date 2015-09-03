@@ -40,6 +40,7 @@ html, body {
 }
 
 #limitedEdition-banner {
+  position: absolute;
   .layer{
     position: absolute;
     height: 100%;
@@ -57,6 +58,9 @@ html, body {
       width: 100%;
       height: auto;
     }
+  }
+  .full-pic-bj{
+    display: none;
   }
   .bnt{
     height: 41px;
@@ -89,6 +93,7 @@ html, body {
 
 #red {
   display: none;
+  overflow: auto;
 }
 
 .red_bg {
@@ -176,6 +181,26 @@ html, body {
 
 
 
-
+.top-btn {
+  display: none;
+  width: 57px;
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  text-decoration: none;
+  span {
+    display: block;
+    height: 57px;
+    background: #fff url(../../../images/top_icon.png) center center no-repeat;
+    margin-bottom: 5px;
+  }
+  b {
+    font-weight: normal;
+    color: #fff;
+    font-size: 12px;
+  }
+}
 
 
