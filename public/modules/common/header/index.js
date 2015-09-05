@@ -32,13 +32,13 @@ define(['less!./header'],function() {
                 return;
             };
             headerTapShown = true;
-            $('.header-tab').animate({'top':'0'});
+            $('.header-tab').animate({'top':'56'});
         }else{
             if (!headerTapShown) {
                 return;
             };
             headerTapShown = false;
-            $('.header-tab').animate({'top':'-34px'});
+            $('.header-tab').animate({'top':'22px'});
         }
     }
 

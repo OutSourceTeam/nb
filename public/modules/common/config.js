@@ -2,7 +2,8 @@ var globalDeps = globalDeps || [];
 
 var _allScripts = document.getElementsByTagName('script');
 var _thisScript = _allScripts[_allScripts.length - 1];
-var _main = _thisScript.getAttribute('main').split(';');
+var _main = _thisScript.getAttribute('main');
+_main = _main && _main.split(';')
 var _baseUrl = _thisScript.getAttribute('baseUrl');
 
 require.config({

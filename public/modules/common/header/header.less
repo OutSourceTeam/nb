@@ -1,4 +1,6 @@
-//@import '../global';
+@import '../../common/global';
+@import '../../common/font';
+
 @headerbackground: #232323;
 @hover_meun: #e7e7e7;
 @hover_childmeun: #f7f7f7;
@@ -17,7 +19,11 @@
     background: @headerbackground;
     height: 56px;
     font-size: 13px;
-    position: relative;
+    position: fixed;
+    width:100%;
+    min-width:1027px;
+    z-index:100;
+    top:0;
     .logo {
         background: @logobc;
         display: inline-block;
@@ -336,7 +342,7 @@ hr {
 
 .header-tab {
     position: fixed;
-    top: -34px;
+    top: 22px;
     width: 100%;
     z-index: 99;
     -ms-pointer-events: none;

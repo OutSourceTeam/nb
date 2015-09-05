@@ -1,5 +1,4 @@
-@import '../../common/global';
-@import '../../common/font';
+
 @bgcolor: #232323;
 @probgcolor: #efefef;
 @borderColor: #ccc;
@@ -24,6 +23,7 @@ body {
 .pageMain {
     background-color: @probgcolor;
     position: relative;
+    padding-top:56px;
     .topimg {
         overflow: hidden;
         height: 350px;
@@ -54,6 +54,9 @@ body {
                 &:hover {
                     color: red;
                 }
+            }
+            &:nth-child(1){
+                display:none;
             }
         }
         .gonnemeun {
@@ -387,26 +390,26 @@ body {
                                 }
                             }
                             .swiper-button-prev {
-                                width: 37px;
-                                height: 58px;
+                                width: 57px;
+                                height: 78px;
                                 background-image: none;
                                 &:before {
-                                    font-size: 22px;
+                                    font-size: 36px;
                                     color: #000;
                                     position: absolute;
-                                    left: 10px;
+                                    left: 30px;
                                     top: 18px;
                                 }
                             }
                             .swiper-button-next {
-                                width: 37px;
-                                height: 58px;
+                                width: 57px;
+                                height: 78px;
                                 background-image: none;
                                 &:before {
                                     color: #000;
-                                    font-size: 22px;
+                                    font-size: 36px;
                                     position: absolute;
-                                    right: 10px;
+                                    right: 30px;
                                     top: 18px;
                                 }
                             }

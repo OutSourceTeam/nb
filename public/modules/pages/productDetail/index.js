@@ -3,116 +3,38 @@ define([
     'swiper',
     '../../common/header/index',
     '../../common/footer/index',
-    'less!./productList'
+    'less!./productDetail'
 ], function ($, Swiper) {
 
-    $('#features').hover(function () {
-        $(this).find('.gonnemeun').show();
-    }, function () {
-        $(this).find('.gonnemeun').hide();
-    });
+    //根据 url 的名字 获得 值
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
 
-    var ispropopeshou = false,
-        ispopeloading = false,
-        ispopedone = false,
-        prevTop;
-    $('.chilemeun li').on('click', function () {
-        var $icon = $(this).find('.iconSort');
-        if ($icon.hasClass('icon-up')) {
-            $icon.removeClass('icon-up').addClass('icon-down');
-            //do something
-        } else {
-            $icon.removeClass('icon-down').addClass('icon-up');
-            //do something
-        }
-    });
+    var prevTop;
+    
     var popeBannerSwiper,
         popebigBannerSwiper;
+    
+    getProductinfo();
 
-    $('.product').on('click', function (e) {
-        var $item = $(this);
-
-        if (ispropopeshou && e.target.className.indexOf('popeclosed') != -1) {
-            removePope();
-            return false;
-        }
-
-
-        if (ispropopeshou && (e.target.className == 'buyingGuide' || e.target.className == 'ablack')) {
-            return true;
-        } else if (ispropopeshou && (e.target.className=='maiginbtn'
-            || e.target.className=='imgpos'
-            || e.target.className=='prono'
-            || e.target.className=='pro'
-        )) {
-            removePope();
-            addPope($item,e);
-            return true;
-        }else if (ispropopeshou && e.target.className.indexOf('popeclosed') == -1) {
-            return false;
-        }
-
-        addPope($item,e);
-    })
-    function addPope($item,e) {
-        var $this = $item;
-        var prevHeight = $this.height();
-        var proid = $this.data('id');
-        if (proid == undefined || proid == null || proid == "") {
-            return false;
-        }
-        var phtml = '<div class="propope">' +
-            '<div class="quickview-arrow"></div>' +
-            '<div class="popeclosed icon-close-thin"></div>' +
-            '<div class="popeloading"><span></span></div>' +
-            '<div class="popedone"></div></div>';
-
-        $this.append(phtml);
-
-        var pos = $this.offset();
-        pos = $this.width() / 2 + pos.left;
-        var $propope = $this.find('.propope');
-        var quickview = $propope.find('.quickview-arrow');
-        var popeloading = $propope.find('.popeloading');
-        quickview.css('left', pos);
-        $propope.show();
-        popeloading.show();
-
-        getProductinfo(proid, $this, prevHeight, e, popeloading);
-    }
-
-
-    function removePope(){
-        var $propope = $('.product').find('.propope');
-        ispropopeshou = false
-        ispopeloading = false
-        ispopedone = false
-        var timing = 200;
-        $propope.animate({height: 0}, timing, function () {
-            $('#infoSwiper .swiper-button-prev').off();
-            $('#infoSwiper .swiper-button-next').off();
-            $('#imageSwiper .swiper-button-prev').off();
-            $('#imageSwiper .swiper-button-next').off();
-            $propope.remove();
-        });
-        $propope.parent('li').animate({'height': 284}, timing).removeClass('active');
-        $("body, html").animate({scrollTop: prevTop}, timing);
-    }
-    function getProductinfo(id, $this, prevHeight, e, popeloading) {
+    function getProductinfo() {
+        var id = getQueryString('pid') || 3;
         $.ajax({
             method: "GET",
             url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + id
         }).done(function (msg) {
-            popeloading.hide();
-            shouPope(msg, $this, prevHeight, e)
+            shouPope(msg)
         }).fail(function (msg) {
         });
     }
 
+    function shouPope(data) {
 
-    function shouPope(data, $this, prevHeight, e) {
-
-        var popedone = $this.find('.popedone');
+        var popedone = $('.popedone');
         var imgpath = data.imgpath;
 
         var data = data.data;
@@ -193,38 +115,17 @@ define([
 
         popedone.append(protitlehtml + popebananerhtml);
 
-        showProdectinfo($this, data, prevHeight, e, imgpath)
-        isFirst = false;
+        showProdectinfo(data,imgpath)
     }
 
 
-    function showProdectinfo($this, data, prevHeight, e, imgpath) {
-        var $propope = $this.find('.propope');
-        var popedone = $this.find('.popedone');
-        var popeclosed = $this.find('.popeclosed');
-        if (!ispropopeshou) {
-            ispropopeshou = true;
-            prevTop = $(window).scrollTop();
-            $propope.css('display', 'block');
-            var offsetTop = Math.abs($propope.offset().top - 120);
-            var timing = 300;
-            if(!isFirst){
-                $("body, html").animate({scrollTop: offsetTop}, timing);
-            }
-
-            $this.animate({'height': prevHeight + popedone.height()+ 40}, timing).addClass('active');
-            $propope.animate({'height': 200}, timing);
-
-        }
+    function showProdectinfo(data,imgpath) {
+        
+        var popedone = $('.popedone');
+        
+        
         setTimeout(function () {
-            if (!ispopedone) {
-                ispopedone = true
-                popedone.fadeIn();
-                $this.css('height', prevHeight + popedone.height() + 40);
-            } else {
-                ispopedone = false
-                popedone.fadeOut();
-            }
+            
            var popeBannerSwiper = new Swiper('#infoSwiper', {
                 loop: true,
                 speed: 300,
@@ -282,9 +183,6 @@ define([
 
             });
 
-            // $('#imageSwiper .swiper-pagination-switch').each(function(index, item){
-            //     $(item).append('<span class="path1"></span><span class="path2"></span>');
-            // });
             $('#infoSwiper .swiper-button-prev').on('click', function () {
                 popeBannerSwiper.swipePrev();
             });
@@ -304,8 +202,6 @@ define([
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
 
         $('.shoeSize').text(data.sizes);
-        // popebigBannerSwiper.swipeTo(0,0,false);
-
         popebigBannerSwiper.removeAllSlides();
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
@@ -315,6 +211,4 @@ define([
         }
         popebigBannerSwiper.swipeTo(0,0,false);
     }
-
-
 });

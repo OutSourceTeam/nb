@@ -19,8 +19,8 @@ router.get('/productList', function(req, res) {
     res.render('modules/pages/productList/index');
 });
 
-router.get('/productList1', function(req, res) {
-    res.render('modules/pages/productList1/index');
+router.get('/productDetail', function(req, res) {
+    res.render('modules/pages/productDetail/index');
 });
 
 router.get('/productSearchList', function(req, res,next) {
