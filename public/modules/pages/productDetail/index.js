@@ -22,10 +22,14 @@ define([
     getProductinfo();
 
     function getProductinfo() {
-        var id = getQueryString('pid') || 3;
+        var id = getQueryString('seriesSize');
+        if(!id){
+            alert('Error！参数错误！');
+            return false;
+        }
         $.ajax({
             method: "GET",
-            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + id
+            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxsearchproductinfo/seriesSize/' + id
         }).done(function (msg) {
             shouPope(msg)
         }).fail(function (msg) {
