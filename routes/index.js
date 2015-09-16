@@ -45,4 +45,7 @@ router.get('/mproductDetail', function(req, res) {
 router.get('/limitedEdition', function(req, res) {
     res.render('modules/pages/limitedEdition/index');
 });
+router.get('/mlimitedEdition', function(req, res) {
+    res.render('modules/pages/mlimitedEdition/index');
+});
 module.exports = router;

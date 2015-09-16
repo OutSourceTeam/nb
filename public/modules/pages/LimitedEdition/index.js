@@ -30,14 +30,22 @@ define([
         })
 
         leftBtn.hover(function () {
-            leftlayer.css('opacity',.05)
+            if(leftIsshow==false){
+                leftlayer.css('opacity',.05)
+            }
         }, function () {
-            leftlayer.css('opacity',0)
+            if(leftIsshow==false){
+                leftlayer.css('opacity',0)
+            }
         })
         leftlayer.hover(function () {
-            leftlayer.css('opacity',.05)
+            if(leftIsshow==false){
+                leftlayer.css('opacity',.05)
+            }
         }, function () {
-            leftlayer.css('opacity',0)
+            if(leftIsshow==false){
+                leftlayer.css('opacity',0)
+            }
         })
 
 
@@ -90,9 +98,9 @@ define([
             left.find('.half-pic-bj').hide()
             leftBtn.hide()
             left.css('width','100%')
-            leftlayer.stop(true).animate({width: '100%'}, 500)
             right.hide()
             left.find('.full-pic-bj').show()
+            leftlayer.css({'width':'0%','opacity':.05}).stop(true).animate({width: '100%'},500)
             leftIsshow=true
             toTopCahng('showleftpanle','btn')
         }else if(type=='layer'){
@@ -101,7 +109,7 @@ define([
             left.find('.half-pic-bj').show()
             leftBtn.show()
             left.css('width','50%')
-            leftlayer.stop(true).animate({width: '50%'}, 500)
+            //leftlayer.stop(true).animate({width: '50%'}, 500)
             right.show()
             left.find('.full-pic-bj').hide()
             leftIsshow=false
