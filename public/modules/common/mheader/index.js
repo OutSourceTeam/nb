@@ -4,16 +4,14 @@ define(['less!./mheader'], function () {
     var pDiv = $('.header-menu');
     var psearchBox = $('.search-box');
     var pUl = pDiv.find('.header-ul');
-    var manLi = pDiv.find('.man');
-    var girlLi = pDiv.find('.girl');
-    var childli = pDiv.find('.child');
+    var manLi = pUl.children('li:eq(0)');
+    var girlLi = pUl.children('li:eq(1)');
+    var childli = pUl.children('li:eq(2)');
+    
     $('.shoumenu').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
-        var manLiheight = manLi.height();
-        var girlLiheight = girlLi.height();
-        var childliheight = childli.height();
-        pUl.css('height', manLiheight + girlLiheight + childliheight + 350);
+
         var $icon = $this.children('i');
         if ($icon.hasClass('icon-triangle-hollow-right')) {
             $this.next('ul').show()
@@ -22,6 +20,10 @@ define(['less!./mheader'], function () {
             $this.next('ul').hide()
             $icon.removeClass('icon-triangle-hollow-down').addClass('icon-triangle-hollow-right');
         }
+        var manLiheight = manLi.outerHeight();
+        var girlLiheight = girlLi.outerHeight();
+        var childliheight = childli.outerHeight();
+        pUl.css('height', Math.max(manLiheight + girlLiheight + childliheight + 56 ,350));
     })
 
     var ismenushouw = false, issearchshow = false;

@@ -8,7 +8,7 @@ define([
 
     //根据 url 的名字 获得 值
     function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var reg = new RegExp("(^|\/)" + name + "\/([^\/]*)(\/|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null)return unescape(r[2]);
         return null;
@@ -22,7 +22,7 @@ define([
     getProductinfo();
 
     function getProductinfo() {
-        var id = getQueryString('seriesSize');
+        var id = getQueryString('keyword');
         if(!id){
             alert('Error！参数错误！');
             return false;
@@ -41,89 +41,90 @@ define([
         var popedone = $('.popedone');
         var imgpath = data.imgpath;
 
-        var data = data.data;
+        var datas = data.data;
+
+        if(datas.length != 0){
+            var data = datas[0];
+            var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '',spbtn='',tspbtn='',mainProductsLink='';
+            if (data) {
+                $.each(datas, function (n, item) {
+                    titeimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.image + ');"></div>'
+                })
+            }
+            if (data.colorImgList) {
+                $.each(data.colorImgList, function (n, item) {
+                    bigimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.img + ');"></div>'
+                })
+            }
+            if (data.isSelectionShoes == "1") {
+                buyingGuide = '<div><a class="buyingGuide" href="http://shoeadvisor.newbalance.com.cn" target="_blank">&nbsp;</a></div>';
+            }
+            if (data.isShowPrice == "1") {
+                isShowPrice = '<span class="shoePrice">￥' + data.price + '</span>';
+            }
+            if (data.tianMaoLink && data.tianMaoLink != "") {
+                tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
+            }
+            if (data.jinDongLink && data.jinDongLink != "") {
+                jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank"><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
+            }
+            if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
+                yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
+            }
+            if(datas && datas.length>1){
+                spbtn= '<div class="swiper-button-prev icon-arrow-left"></div>'+'<div class="swiper-button-next icon-arrow-right"></div>'
+            }
+            if(data.colorImgList && data.colorImgList.length>1){
+                tspbtn= '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>'+'<div id="bignext" class="swiper-button-next icon-arrow-right"></div>'
+            }
+            if(data.mainProductsLink!=""){
+                mainProductsLink= '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>'
+            }
+            var protitlehtml = '<div class="protitle">' +
+                '<div class="prolistcontainer">' +
+                '<div class="row">' +
+                '<div class="marigntoppope">' +
+                '<div class="popeswiper left">' +
+                '<div class="popBannerBox">' +
+                '<div class="swiper-container popeBannerSwiper" id="infoSwiper">' +
+                '<div class="swiper-wrapper">' + titeimg + '</div>' +
+                '<div class="swiper-pagination"></div>'+ spbtn +
+                '</div>' + '</div>' + buyingGuide + '</div>' +
+                '<div class="popeswiper right">' +
+                '<div class="poperemark">' +
+                '<div class="remarktitle"><span class="shoeSize">' + data.model + '</span>' + isShowPrice + '</div>' +
+                '<hr/>' +
+                '<div class="remarkcontent">' + ((data.introduction === '' || !data.introduction) ? data.name : data.introduction) + '</div>' +
+                '<hr/>' +
+                '<div class="remarkmore">' +
+                mainProductsLink+ tianmaolin + jinDongLink + yiHaoDianLink +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
 
 
-        var titeimg = '', bigimg = '', buyingGuide = '', isShowPrice = '', tianmaolin = '', jinDongLink = '', yiHaoDianLink = '',spbtn='',tspbtn='',mainProductsLink='';
-        if (data.colorList) {
-            $.each(data.colorList, function (n, item) {
-                titeimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.big_img + ');"></div>'
-            })
-        }
-        if (data.colorImgList) {
-            $.each(data.colorImgList, function (n, item) {
-                bigimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.img + ');"></div>'
-            })
-        }
-        if (data.isSelectionShoes == "1") {
-            buyingGuide = '<div><a class="buyingGuide" href="http://shoeadvisor.newbalance.com.cn" target="_blank">&nbsp;</a></div>';
-        }
-        if (data.isShowPrice == "1") {
-            isShowPrice = '<span class="shoePrice">￥' + data.price + '</span>';
-        }
-        if (data.tianMaoLink && data.tianMaoLink != "") {
-            tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
-        }
-        if (data.jinDongLink && data.jinDongLink != "") {
-            jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank"><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
-        }
-        if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
-            yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
-        }
-        if(data.colorList && data.colorList.length>1){
-            spbtn= '<div class="swiper-button-prev icon-arrow-left"></div>'+'<div class="swiper-button-next icon-arrow-right"></div>'
-        }
-        if(data.colorImgList && data.colorImgList.length>1){
-            tspbtn= '<div id="bigprev" class="swiper-button-prev icon-arrow-left"></div>'+'<div id="bignext" class="swiper-button-next icon-arrow-right"></div>'
-        }
-        if(data.mainProductsLink!=""){
-            mainProductsLink= '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>'
-        }
-        var protitlehtml = '<div class="protitle">' +
-            '<div class="prolistcontainer">' +
-            '<div class="row">' +
-            '<div class="marigntoppope">' +
-            '<div class="popeswiper left">' +
-            '<div class="popBannerBox">' +
-            '<div class="swiper-container popeBannerSwiper" id="infoSwiper">' +
-            '<div class="swiper-wrapper">' + titeimg + '</div>' +
-            '<div class="swiper-pagination"></div>'+ spbtn +
-            '</div>' + '</div>' + buyingGuide + '</div>' +
-            '<div class="popeswiper right">' +
-            '<div class="poperemark">' +
-            '<div class="remarktitle"><span class="shoeSize">' + data.model + '</span>' + isShowPrice + '</div>' +
-            '<hr/>' +
-            '<div class="remarkcontent">' + ((data.introduction === '' || !data.introduction) ? data.name : data.introduction) + '</div>' +
-            '<hr/>' +
-            '<div class="remarkmore">' +
-            mainProductsLink+ tianmaolin + jinDongLink + yiHaoDianLink +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>';
+            var popebananerhtml = '<div class="popebananer">' +
+                '<div class="swiper-container popebigBannerSwiper" id="imageSwiper">' +
+                '<div class="swiper-wrapper">' + bigimg + '</div>' +
+                '<div id="bigpagination" class="swiper-pagination"></div>' + tspbtn +
+                '</div>' +
+                '</div>';
 
+            if (data.colorImgList == null || data.colorImgList == undefined) {
+                popebananerhtml = "";
+            }
 
-        var popebananerhtml = '<div class="popebananer">' +
-            '<div class="swiper-container popebigBannerSwiper" id="imageSwiper">' +
-            '<div class="swiper-wrapper">' + bigimg + '</div>' +
-            '<div id="bigpagination" class="swiper-pagination"></div>' + tspbtn +
-            '</div>' +
-            '</div>';
-
-        if (data.colorImgList == null || data.colorImgList == undefined) {
-            popebananerhtml = "";
+            popedone.append(protitlehtml + popebananerhtml);
+            showProdectinfo(datas,imgpath)
         }
-
-        popedone.append(protitlehtml + popebananerhtml);
-
-        showProdectinfo(data,imgpath)
     }
 
 
-    function showProdectinfo(data,imgpath) {
+    function showProdectinfo(datas,imgpath) {
         
         var popedone = $('.popedone');
         
@@ -139,23 +140,37 @@ define([
                 prevButton: '#infoSwiper .swiper-button-prev',
                 paginationBulletRender: function (index, className) {
                     var colorimg  = ""
-                    if (data.colorList == null || data.colorList == undefined) {
-                        return false
+                    if(datas[index] && datas[index].color_image){
+                        colorimg = datas[index].color_image;
                     }
-                    if(data.colorList[index] && data.colorList[index].color_img){
-                        colorimg = data.colorList[index].color_img;
-                    }
-                    return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>;';
+                    return '<span class="' + className + '" style="background-image: url(' + imgpath +colorimg+ ')"></span>';
                 },
                 onSlideChangeEnd:function(swiper){
                     var curindex  = swiper.activeLoopIndex;
-                    if (data.colorImgList != null || data.colorImgList != undefined) {
-                        var datas=  data.colorList[curindex];
-                        changeSwiperBigImg(datas,imgpath,popebigBannerSwiper)
-                    }else if(data.colorList && data.colorList.length && data.colorList.length>0){
-                        $('.shoeSize').text(data.colorList[curindex].sizes);
+                    var data = datas[curindex];
+                    var tianmaolin = "",jinDongLink = "",yiHaoDianLink = "",mainProductsLink = "";
+                    if (data.colorImgList != undefined) {
+                        var datas1=  data.colorImgList;
+                        changeSwiperBigImg(datas1,imgpath,popebigBannerSwiper)
+                    }if(data && data.model){
+                        $('.shoeSize').text(data.model);
                     }
-
+                    if(data && data.price){
+                        $('.shoePrice').text(data.price);
+                    }
+                    if(data && data.tianMaoLink && data.tianMaoLink != ""){
+                        tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
+                    }
+                    if (data.jinDongLink && data.jinDongLink != "") {
+                        jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank"><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
+                    }
+                    if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
+                        yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
+                    }
+                    if(data.mainProductsLink!=""){
+                        mainProductsLink= '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>'
+                    }
+                    $('.remarkmore').html(mainProductsLink + tianmaolin + jinDongLink + yiHaoDianLink);
                 }
             });
            var  popebigBannerSwiper = new Swiper('#imageSwiper', {
@@ -172,19 +187,17 @@ define([
             });
             $('#infoSwiper .swiper-pagination-switch').each(function (index, item) {
                 var colorimg  = ""
-                if (data.colorList == null || data.colorList == undefined) {
+                if (datas[index].color_image == null || datas[index].color_image == null) {
                    return false
                 }
-                if(data.colorList[index] && data.colorList[index].color_img){
-                    colorimg = data.colorList[index].color_img;
-                    if((index+1)<=data.colorList.length){
+                if(datas[index].color_image){
+                    colorimg = datas[index].color_image;
+                    if((index+1)<=datas.length){
                         $(item).css({
                             'background-image': 'url(' + imgpath+colorimg + ')'
                         });
                     }
                 }
-
-
             });
 
             $('#infoSwiper .swiper-button-prev').on('click', function () {
@@ -207,8 +220,8 @@ define([
 
         $('.shoeSize').text(data.sizes);
         popebigBannerSwiper.removeAllSlides();
-        if (data.colorImgList) {
-            $.each(data.colorImgList, function (n, item) {
+        if (data) {
+            $.each(data, function (n, item) {
                 var newSlide = popebigBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.img+')"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
             })

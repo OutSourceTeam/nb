@@ -46,12 +46,25 @@ html, body {
   .layer{
     position: absolute;
     height: 100%;
-    width: 50%;
-    background: #fff;
-    opacity: 0;
+    width: 100%;
+    background: #000;
+    opacity: .5;
     z-index: 9;
+    .transition(opacity .5s ease);
     &:hover{
-      opacity: .05;
+      opacity: 0;
+    }
+  }
+  .ttl{
+    position: absolute;
+    width: 40%;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -20%;
+    z-index: 10;
+    img{
+      width: 100%;
+      height: auto;
     }
   }
   .half-pic-bj,.full-pic-bj{
@@ -73,17 +86,17 @@ html, body {
     display: none;
   }
   .bnt{
-    height: 41px;
-    width: 177px;
-    background: url("../../../images/lebj.jpg") repeat-x center;
-    color: #000;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 10px;
-    display: inline-block;
+    display: block;
+    width: 24%;
     position: absolute;
-    line-height: 41px;
+    left: 50%;
+    top: 50%;
+    margin: 60px 0 0 -12%;
     z-index: 10;
+    img{
+      width: 100%;
+      height: auto;
+    }
     &:hover{
       cursor: pointer;
     }
@@ -92,11 +105,13 @@ html, body {
     float: left;
     width: 50%;
     height: 100%;
+    position: relative;
   }
   .right-panle{
     float: right;
     width: 50%;
     height: 100%;
+    position: relative;
   }
 
 }
@@ -196,9 +211,9 @@ html, body {
   background: url("../../../images/limitedEdition10.jpg") no-repeat center;
 }
 .limitedEdition11 {
-  background: url("../../../images/limitedEditionjijiangfashouall.png") no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background: url("../../../images/limited_home_left_full_bg.jpg") no-repeat;
+  background-size: 100% auto;
+  background-position: left top;
 }
 
 

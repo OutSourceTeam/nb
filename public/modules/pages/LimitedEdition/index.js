@@ -7,7 +7,8 @@ define([
     var leftIsshow = false,rightIsshow=false;
     var banner = $('#limitedEdition-banner');
     var toTop = $('.top-btn');
-    var isshowPanle = parseInt(getQueryString('isshowPanle'))|| 2;
+    //var isshowPanle = parseInt(getQueryString('isshowPanle'))|| 2;
+    var isshowPanle = 2;  //2为显示即将发售 其他为不显示
     var left = banner.find('.left-panle')
     var leftBtn = left.find('.bnt')
     var leftlayer = left.find('.layer')
@@ -26,25 +27,15 @@ define([
     function showPanle(){
         leftBtn.on('click',function () {
             hasleftpanle('btn')
-
         })
 
-        leftBtn.hover(function () {
-            if(leftIsshow==false){
-                leftlayer.css('opacity',.05)
-            }
-        }, function () {
+        left.hover(function () {
             if(leftIsshow==false){
                 leftlayer.css('opacity',0)
             }
-        })
-        leftlayer.hover(function () {
-            if(leftIsshow==false){
-                leftlayer.css('opacity',.05)
-            }
         }, function () {
             if(leftIsshow==false){
-                leftlayer.css('opacity',0)
+                leftlayer.css('opacity',.5)
             }
         })
 
@@ -53,41 +44,10 @@ define([
             hasrightpanle('have')
         })
 
-
-
-
-        righttBtn.hover(function () {
-            rightlayer.css('opacity',.05)
-        }, function () {
+        right.hover(function () {
             rightlayer.css('opacity',0)
-        })
-        rightlayer.hover(function () {
-            rightlayer.css('opacity',.05)
         }, function () {
-            rightlayer.css('opacity',0)
-        })
-
-
-        setBtnPos(banner)
-
-        $(window).on('resize', function () {
-            setBtnPos(banner)
-
-        })
-    }
-
-    function setBtnPos(banner) {
-        var h = banner.find('.half-pic-bj').height();
-        var bh = leftBtn.height();
-        var w = banner.find('.half-pic-bj').width();
-        leftBtn.css({
-            left: (w / 2.8),
-            top: (h / 1.4 - bh)
-        })
-        var w = banner.find('.right-panle .half-pic-bj').width();
-        righttBtn.css({
-            left: w + w / 2.7,
-            top: (h / 1.4 - bh)
+            rightlayer.css('opacity',.5)
         })
     }
 
@@ -96,22 +56,24 @@ define([
             if(leftIsshow) return false
             var $this = $(this);
             left.find('.half-pic-bj').hide()
+            left.find('.ttl').hide();
             leftBtn.hide()
             left.css('width','100%')
             right.hide()
-            left.find('.full-pic-bj').show()
-            leftlayer.css({'width':'0%','opacity':.05}).stop(true).animate({width: '100%'},500)
+            left.find('.full-pic-bj').fadeIn();
+            leftlayer.hide();
             leftIsshow=true
             toTopCahng('showleftpanle','btn')
         }else if(type=='layer'){
             if(!leftIsshow) return false
             var $this = $(this);
-            left.find('.half-pic-bj').show()
-            leftBtn.show()
+            left.find('.half-pic-bj').fadeIn()
+            left.find('.ttl').fadeIn()
+            leftBtn.fadeIn()
             left.css('width','50%')
-            //leftlayer.stop(true).animate({width: '50%'}, 500)
-            right.show()
-            left.find('.full-pic-bj').hide()
+            leftlayer.show();
+            right.fadeIn()
+            left.find('.full-pic-bj').fadeOut()
             leftIsshow=false
         }else if(type=='have'){
             $('body, html').css('overflow','auto')
