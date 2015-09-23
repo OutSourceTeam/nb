@@ -8,9 +8,9 @@ define([
 
     //根据 url 的名字 获得 值
     function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var reg = new RegExp("(^|\/)" + name + "\/([^\/]*)(\/|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null)return unescape(r[2].replace('.html',''));
         return null;
     }
 
@@ -24,41 +24,57 @@ define([
         $knewMore = $productDetailPage.find('.knewMore'),
         $linkList = $productDetailPage.find('.linkList');
 
+    var pid = getQueryString('id');
+    // if(pid == null){
+    //     alert('参数错误');
+    //     window.location.href = '/';
+    // }
 
-    var pid = getQueryString('id') || 3;
-
+    var fromType = getQueryString('from');
+    var keyword = getQueryString('keyword');
+    var ajaxUrl = '/index.php?s=/Home/Index/ajaxproductinfo/device/mobile/id/' + pid;
+    if(fromType == 'home' && keyword != null){
+        ajaxUrl = '/index.php?s=/Home/Index/ajaxsearchproductinfo/device/mobile/seriesSize/' + keyword;
+    }
 
     $.ajax({
         method: "GET",
-        url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + pid
+        url: ajaxUrl
     }).done(function (msg) {
-        showProductDetail(msg)
+        showProductDetail(msg,pid)
     }).fail(function (msg) {
     });
 
-
-    function showProductDetail(data) {
-
-        var imgpath = data.imgpath;
-
-        var data = data.data;
-
-        addswiperslide(imgpath,data);
-
-        addColorImg(imgpath,data);
-
-        setEnTitle(data)
-
-        setOtherInfo(data)
-
-
+    function getProductColorIndex(id,data){
+        var rid = -1;
+        if(data.length != 0){
+            $.each(data,function(i){
+                if(id == data[i]['id']){
+                    rid = i;
+                    return false
+                }
+            });
+            return rid;
+        }
+        return rid;
     }
 
+    function showProductDetail(data,id) {
+        var imgpath = data.imgpath;
+        var datas = data.data;
+        var colorIndex = getProductColorIndex(id,datas);
+        if(fromType != null) colorIndex = 0;
+        addswiperslide(imgpath,datas,colorIndex);
+        addColorImg(imgpath,datas,colorIndex);
+        setEnTitle(datas,colorIndex);
+        setOtherInfo(datas,colorIndex)
+    }
 
-    function addswiperslide(imgpath,data){
-        if(data.colorList==null || data.colorList==undefined) return false;
+    function addswiperslide(imgpath,datas,colorIndex){
+        var data = datas[colorIndex];
+        if(data == null || data == undefined) return false;
         var swiperslide = '';
-        if (data.colorList) {
+        if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
                 swiperslide += '<div class="swiper-slide"><img src="'+imgpath + item.phoneImg +'"/></div>'
             })
@@ -67,19 +83,18 @@ define([
 
         topBannerSwiper = new Swiper('.topBannerSwiper', {
             loop: true,
-            autoplay: 3000,
             initialSlide: 0,
             pagination: '.topBannerSwiper .swiper-pagination',
             paginationClickable: true,
         });
-
     }
 
-    function setEnTitle(data){
-        $enTitle.text(data.seriesSize || data.sizes)
+    function setEnTitle(datas,colorIndex){
+        $enTitle.text(datas[colorIndex]['model']);
     }
-    function setOtherInfo(data){
 
+    function setOtherInfo(datas,colorIndex){
+        var data = datas[colorIndex];
         $chTitle.text(data.name)
 
         if (data.isShowPrice == "1") {
@@ -87,7 +102,7 @@ define([
         }else{
             $price.remove();
         }
-        $infos.text(data.introduction)
+        $infos.html(data.introduction)
 
         if(data.mainProductsLink!=""){
             $knewMore.attr('href',data.mainProductsLink);
@@ -106,19 +121,19 @@ define([
         if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
             links+= '<li class="link"><a href="' + data.yiHaoDianLink + '" target="_blank"><img src="../../../images/yhd.png" border="0" alt=""/></a></li>'
         }
-        $linkList.append(links)
-
-
+        $linkList.empty().append(links)
+        if(!data.tianMaoLink && !data.jinDongLink && !data.yiHaoDianLink){
+            $('.buyLinkBox .text').hide();
+        }
     }
 
-    function addColorImg(imgpath,data){
-        if(data.colorList==null || data.colorList==undefined) return false;
+    function addColorImg(imgpath,datas,colorIndex){
         var licolorimg = '';
-        $.each(data.colorList, function (n, item) {
-            if(n==0) {
-                licolorimg += '<li class="colorPagination active" data-code="' + n + '" style="background-image:url(' + imgpath + item.color_img + ')"></li>'
+        $.each(datas, function (n, item) {
+            if(n==colorIndex) {
+                licolorimg += '<li class="colorPagination active" data-code="' + n + '" style="background-image:url(' + imgpath + item.color_image + ')"></li>'
             }else{
-                licolorimg += '<li class="colorPagination" data-code="'+n+'" style="background-image:url(' + imgpath + item.color_img + ')"></li>'
+                licolorimg += '<li class="colorPagination" data-code="'+n+'" style="background-image:url(' + imgpath + item.color_image + ')"></li>'
             }
         })
 
@@ -128,59 +143,23 @@ define([
             $('.colorPagination').removeClass('active');
             $(this).addClass('active');
             var key = $(this).attr('data-code');
-            key =parseInt(key);
-            changeSwiperBigImg(data,imgpath,key)
+            key = parseInt(key);
+            changeSwiperBigImg(datas,imgpath,key);
+            setEnTitle(datas,key);
+            setOtherInfo(datas,key);
         });
-
     }
 
-
-
-    function changeSwiperBigImg(data,imgpath,key){
-        data=  data.colorList[key];
-        setEnTitle(data);
+    function changeSwiperBigImg(datas,imgpath,key){
+        var data =  datas[key];
+        setEnTitle(datas,key);
         topBannerSwiper.removeAllSlides();
         if (data.colorImgList) {
             $.each(data.colorImgList, function (n, item) {
-                var newSlide = topBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.phoneImg+')"/>','swiper-slide','div');
-                newSlide.append();
+                topBannerSwiper.appendSlide('<div class="swiper-slide"><img src="'+imgpath + item.phoneImg+'" /></div>');
+                
             })
         }
-        topBannerSwiper.swipeTo(0,0,false);
+        topBannerSwiper.slideTo(1,0,false);
     }
-
-
-    //var imgObj = {
-    //    '1': [
-    //        '../../../images/m_banner.png',
-    //        '../../../images/m_detailBanner01.png'
-    //    ],
-    //    '2': [
-    //        '../../../images/m_detailBanner01.png',
-    //        '../../../images/m_detailBanner01.png'
-    //    ],
-    //    '3': [
-    //        '../../../images/m_banner.png',
-    //        '../../../images/m_banner.png'
-    //    ],
-    //};
-    //$('.colorPagination').on('click', function () {
-    //    $('.colorPagination').removeClass('active');
-    //    $(this).addClass('active');
-    //    var key = $(this).attr('data-code');
-    //    console.log(key);
-    //    refreshSwiper(imgObj[key]);
-    //});
-    //
-    //function refreshSwiper(imgList) {
-    //    var innerHTML = '';
-    //    if (!imgList) return;
-    //    for (var i = 0; i < imgList.length; i++) {
-    //        innerHTML += '<div class="swiper-slide">' + '<img src="' + imgList[i] + '">' + '</div>';
-    //    }
-    //    topBannerSwiper.removeAllSlides();
-    //    topBannerSwiper.appendSlide(innerHTML);
-    //    topBannerSwiper.swipeTo(0, 0, false);
-    //    //topBannerSwiper.startAutoplay();
-    //}
 });

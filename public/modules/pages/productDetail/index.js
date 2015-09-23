@@ -29,7 +29,7 @@ define([
         }
         $.ajax({
             method: "GET",
-            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxsearchproductinfo/seriesSize/' + id
+            url: '/index.php?s=/Home/Index/ajaxsearchproductinfo/seriesSize/' + id
         }).done(function (msg) {
             shouPope(msg)
         }).fail(function (msg) {
@@ -156,7 +156,7 @@ define([
                         $('.shoeSize').text(data.model);
                     }
                     if(data && data.price){
-                        $('.shoePrice').text(data.price);
+                        $('.shoePrice').text('￥' + data.price);
                     }
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
                         tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'

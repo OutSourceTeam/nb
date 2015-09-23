@@ -150,7 +150,7 @@ define([
         });
     }
     function getShopData(){
-        var baseUrl = 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxshoplist',
+        var baseUrl = '/index.php?s=/Home/Index/ajaxshoplist',
             params = '',
             ajaxUrl = '';
         for (var key in searchObj) {

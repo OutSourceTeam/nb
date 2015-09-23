@@ -101,7 +101,7 @@ define([
     function getProductinfo(id, $this, prevHeight, e, popeloading) {
         $.ajax({
             method: "GET",
-            url: 'http://test.newbalance.com.cn/index.php?s=/Home/Index/ajaxproductinfo/id/' + id
+            url: '/index.php?s=/Home/Index/ajaxproductinfo/id/' + id
         }).done(function (msg) {
             popeloading.hide();
             shouPope(msg, $this, prevHeight,id, e)
@@ -142,6 +142,7 @@ define([
             }
             if (data.colorImgList) {
                 $.each(data.colorImgList, function (n, item) {
+                    if(item.img)
                     bigimg += '<div class="swiper-slide" style="background-image:url(' + imgpath + item.img + ');"></div>'
                 })
             }
@@ -203,7 +204,7 @@ define([
                 '</div>' +
                 '</div>';
 
-            if (data.colorImgList == null || data.colorImgList == undefined) {
+            if (data.colorImgList == null || data.colorImgList == undefined || bigimg == '') {
                 popebananerhtml = "";
             }
 
@@ -264,7 +265,7 @@ define([
                         $('.shoeSize').text(data.model);
                     }
                     if(data && data.price){
-                        $('.shoePrice').text(data.price);
+                        $('.shoePrice').text('￥' + data.price);
                     }
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
                         tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
