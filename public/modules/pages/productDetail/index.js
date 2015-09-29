@@ -29,7 +29,7 @@ define([
         }
         $.ajax({
             method: "GET",
-            url: '/index.php?s=/Home/Index/ajaxsearchproductinfo/seriesSize/' + id
+            url: '/index.php?s=/Home/Index/ajaxsearchproductinfo/device/pc/seriesSize/' + id
         }).done(function (msg) {
             shouPope(msg)
         }).fail(function (msg) {
