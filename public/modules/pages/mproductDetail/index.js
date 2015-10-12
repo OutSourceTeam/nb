@@ -113,17 +113,20 @@ define([
         var links="";
 
         if (data.tianMaoLink && data.tianMaoLink != "") {
-            links+= '<li class="link"><a href="' + data.tianMaoLink + '" target="_blank"><img src="../../../images/tianmao.png" border="0" alt=""/></a></li>'
+            links+= '<li class="link"><a href="' + data.tianMaoLink + '" target="_blank" onclick=\'' + data.tianMaoTracking + '\'><img src="../../../images/tianmao.png" border="0" alt=""/></a></li>'
         }
         if (data.jinDongLink && data.jinDongLink != "") {
-            links+= '<li class="link"><a href="' + data.jinDongLink + '" target="_blank"><img src="../../../images/jd.png" border="0" alt=""/></a></li>'
+            links+= '<li class="link"><a href="' + data.jinDongLink + '" target="_blank" onclick=\'' + data.jinDongTracking + '\'><img src="../../../images/jd.png" border="0" alt=""/></a></li>'
         }
         if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
-            links+= '<li class="link"><a href="' + data.yiHaoDianLink + '" target="_blank"><img src="../../../images/yhd.png" border="0" alt=""/></a></li>'
+            links+= '<li class="link"><a href="' + data.yiHaoDianLink + '" target="_blank" onclick=\'' + data.yiHaoDianTracking + '\'><img src="../../../images/yhd.png" border="0" alt=""/></a></li>'
         }
         $linkList.empty().append(links)
         if(!data.tianMaoLink && !data.jinDongLink && !data.yiHaoDianLink){
             $('.buyLinkBox .text').hide();
+        }
+        else{
+            $('.buyLinkBox .text').show();
         }
     }
 
