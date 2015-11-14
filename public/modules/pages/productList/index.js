@@ -153,13 +153,13 @@ define([
                 isShowPrice = '<span class="shoePrice">￥' + data.price + '</span>';
             }
             if (data.tianMaoLink && data.tianMaoLink != "") {
-                tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank" onclick=\'' + data.tianMaoTracking + '\'><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
+                tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank" onclick="' + data.tianMaoTracking + '"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
             }
             if (data.jinDongLink && data.jinDongLink != "") {
-                jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank" onclick=\'' + data.jinDongTracking + '\'><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
+                jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank" onclick="' + data.jinDongTracking + '"><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
             }
             if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
-                yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank" onclick=\'' + data.yiHaoDianTracking + '\'><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
+                yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank" onclick="' + data.yiHaoDianTracking + '"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
             }
             if(datas && datas.length>1){
                 spbtn= '<div class="swiper-button-prev icon-arrow-left"></div>'+'<div class="swiper-button-next icon-arrow-right"></div>'
@@ -267,18 +267,23 @@ define([
                     if(data && data.price){
                         $('.shoePrice').text('￥' + data.price);
                     }
+                    if(data && data.introduction){
+                        $('.remarkcontent').text(((data.introduction === '' || !data.introduction) ? data.name : data.introduction));
+                    }
+
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
-                        tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank" onclick=\'' + data.tianMaoTracking + '\'><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
+                        tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank" onclick="' + data.tianMaoTracking + '"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
                     }
                     if (data.jinDongLink && data.jinDongLink != "") {
-                        jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank" onclick=\'' + data.jinDongTracking + '\'><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
+                        jinDongLink = '<span><a href="' + data.jinDongLink + '" target="_blank" onclick="' + data.jinDongTracking + '"><img  class="ablack" src="../../../images/jd.png" border="0" alt=""/></a></span>'
                     }
                     if (data.yiHaoDianLink && data.yiHaoDianLink != "") {
-                        yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank" onclick=\'' + data.yiHaoDianTracking + '\'><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
+                        yiHaoDianLink = '<span><a href="' + data.yiHaoDianLink + '" target="_blank" onclick="' + data.yiHaoDianTracking + '"><img  class="ablack" src="../../../images/yhd.png" border="0" alt=""/></a></span>'
                     }
                     if(data.mainProductsLink!=""){
                         mainProductsLink= '<a class="ablack" href="' + data.mainProductsLink + '" target="_blank">更多详情＞</a>'
                     }
+
                     $('.remarkmore').html(mainProductsLink + tianmaolin + jinDongLink + yiHaoDianLink);
                 }
             });
