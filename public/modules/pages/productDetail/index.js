@@ -158,6 +158,9 @@ define([
                     if(data && data.price){
                         $('.shoePrice').text('￥' + data.price);
                     }
+                    if(data && data.introduction){
+                        $('.remarkcontent').html(((data.introduction === '' || !data.introduction) ? data.name : data.introduction));
+                    }
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
                         tianmaolin = '<span><a href="' + data.tianMaoLink + '" target="_blank" onclick="' + data.tianMaoTracking + '"><img  class="ablack" src="../../../images/tianmao.png" border="0" alt=""/></a></span>'
                     }

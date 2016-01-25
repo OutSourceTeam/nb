@@ -268,7 +268,7 @@ define([
                         $('.shoePrice').text('￥' + data.price);
                     }
                     if(data && data.introduction){
-                        $('.remarkcontent').text(((data.introduction === '' || !data.introduction) ? data.name : data.introduction));
+                        $('.remarkcontent').html(((data.introduction === '' || !data.introduction) ? data.name : data.introduction));
                     }
 
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
