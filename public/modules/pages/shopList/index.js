@@ -155,7 +155,7 @@ define([
             ajaxUrl = '';
         for (var key in searchObj) {
           if (searchObj.hasOwnProperty(key) && searchObj[key]) {
-            params += '/' + key + '/' + searchObj[key];
+            params += '/' + key + '/' + encodeURIComponent(searchObj[key]);
           }
         }
         ajaxUrl = baseUrl + params;
