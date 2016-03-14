@@ -114,7 +114,7 @@ define([
         var $province = $('#province'),$provincecity= $('#provincecity');
             $province.selectric();
             $provincecity.selectric();
-        $.getJSON('../../../packages/selectric/city.min.js',function(json){
+        $.getJSON('../../../packages/selectric/city.min.js?v1',function(json){
             city_json=json;
             var temp_html='';
             $.each(city_json.citylist,function(i,prov){
