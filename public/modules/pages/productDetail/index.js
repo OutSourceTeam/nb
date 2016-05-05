@@ -115,11 +115,14 @@ define([
                 '</div>';
 
             if (data.colorImgList == null || data.colorImgList == undefined) {
-                popebananerhtml = "";
+                
             }
 
             popedone.append(protitlehtml + popebananerhtml);
             showProdectinfo(datas,imgpath)
+            if (data.colorImgList == null || data.colorImgList == undefined) {
+               $('.popebananer').hide(); 
+            }
         }
     }
 
@@ -149,10 +152,9 @@ define([
                     var curindex  = swiper.activeLoopIndex;
                     var data = datas[curindex];
                     var tianmaolin = "",jinDongLink = "",yiHaoDianLink = "",mainProductsLink = "";
-                    if (data.colorImgList != undefined) {
-                        var datas1=  data.colorImgList;
-                        changeSwiperBigImg(datas1,imgpath,popebigBannerSwiper)
-                    }if(data && data.model){
+                    var datas1=  data.colorImgList;
+                    changeSwiperBigImg(datas1,imgpath,popebigBannerSwiper)
+                    if(data && data.model){
                         $('.shoeSize').text(data.model);
                     }
                     if(data && data.price){
@@ -176,7 +178,7 @@ define([
                     $('.remarkmore').html(mainProductsLink + tianmaolin + jinDongLink + yiHaoDianLink);
                 }
             });
-           var  popebigBannerSwiper = new Swiper('#imageSwiper', {
+           popebigBannerSwiper = new Swiper('#imageSwiper', {
                 loop: true,
                 speed: 300,
                 pagination: '#imageSwiper .swiper-pagination',
@@ -220,14 +222,17 @@ define([
     }
 
     function changeSwiperBigImg(data,imgpath,popebigBannerSwiper){
-
-        $('.shoeSize').text(data.sizes);
-        popebigBannerSwiper.removeAllSlides();
+        
         if (data) {
+            popebigBannerSwiper.removeAllSlides();
+            $('.popebananer').show(); 
             $.each(data, function (n, item) {
                 var newSlide = popebigBannerSwiper.createSlide('<div style="background-position: center center;background-repeat: no-repeat;width:100%;height:100%;background-image:url('+imgpath + item.img+')"/>','swiper-slide','div');
                 newSlide.append(); //加到slides的最后
             })
+        }
+        else{
+            $('.popebananer').hide(); 
         }
         popebigBannerSwiper.swipeTo(0,0,false);
     }

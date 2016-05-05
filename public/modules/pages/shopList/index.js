@@ -110,45 +110,117 @@ define([
     }
 
 
+    // function selectCity(){
+    //     var $province = $('#province'),$provincecity= $('#provincecity');
+    //         $province.selectric();
+    //         $provincecity.selectric();
+    //     $.getJSON('../../../packages/selectric/city.min.js?v1',function(json){
+    //         city_json=json;
+    //         var temp_html='';
+    //         $.each(city_json.citylist,function(i,prov){
+    //             temp_html+="<option value='"+prov.p+"'>"+prov.p+"</option>";
+    //         });
+    //         $province.append(temp_html)
+    //         $province.selectric('refresh');
+
+    //         $province.on('change', function() {
+    //             var value = $province.val();
+    //             if (parseInt(value) == -1){
+    //                 var city_html='<option value="-1">城市</option>';
+    //                 $provincecity.empty().append(city_html);
+    //                 $provincecity.selectric('refresh');
+    //                 searchObj.province = '';
+    //                 searchObj.city = '';
+    //                 return;
+    //             }
+    //             var prov_id=$province.get(0).selectedIndex-1;
+    //             $provincecity.empty();
+    //             var city_html="<option value='0'>全部</option>";
+    //             $.each(city_json.citylist[prov_id].c,function(i,city){
+    //                 city_html+="<option value='"+city.n+"'>"+city.n+"</option>";
+    //             });
+    //             $provincecity.append(city_html);
+    //             $provincecity.selectric('refresh');
+    //             searchObj.province = $(this).val();
+    //             searchObj.city = '';
+    //         });
+    //         $provincecity.on('change', function() {
+    //             searchObj.city = $(this).val();
+    //         });
+    //     });
+    // }
+
     function selectCity(){
         var $province = $('#province'),$provincecity= $('#provincecity');
             $province.selectric();
             $provincecity.selectric();
-        $.getJSON('../../../packages/selectric/city.min.js?v1',function(json){
-            city_json=json;
-            var temp_html='';
-            $.each(city_json.citylist,function(i,prov){
-                temp_html+="<option value='"+prov.p+"'>"+prov.p+"</option>";
-            });
-            $province.append(temp_html)
-            $province.selectric('refresh');
-
-            $province.on('change', function() {
-                var value = $province.val();
-                if (parseInt(value) == -1){
-                    var city_html='<option value="-1">城市</option>';
-                    $provincecity.empty().append(city_html);
-                    $provincecity.selectric('refresh');
-                    searchObj.province = '';
-                    searchObj.city = '';
-                    return;
+        
+        $.ajax({
+            type : "get",
+            async : false,
+            url : "/index.php?s=Home/Api/ajaxInfo&action=province",
+            dataType : "json",
+            success : function(json){
+                console.log(json);
+                if(json.msg != undefined && json.msg == 0){
+                    //alert(json.msgbox);  
+                    //异常
                 }
-                var prov_id=$province.get(0).selectedIndex-1;
-                $provincecity.empty();
-                var city_html="<option value='0'>全部</option>";
-                $.each(city_json.citylist[prov_id].c,function(i,city){
-                    city_html+="<option value='"+city.n+"'>"+city.n+"</option>";
-                });
-                $provincecity.append(city_html);
-                $provincecity.selectric('refresh');
-                searchObj.province = $(this).val();
-                searchObj.city = '';
-            });
-            $provincecity.on('change', function() {
-                searchObj.city = $(this).val();
-            });
+                else{
+                    console.log(json);
+                    var temp_html='';
+                    $.each(json,function(i,prov){
+                        temp_html+="<option value='"+json[i]["province"]+"'>"+json[i]["province"]+"</option>";
+                    });
+                    $province.append(temp_html)
+                    $province.selectric('refresh');
+
+                    $province.on('change', function() {
+                        var value = $province.val();
+                        if (parseInt(value) == -1){
+                            var city_html='<option value="-1">城市</option>';
+                            $provincecity.empty().append(city_html);
+                            $provincecity.selectric('refresh');
+                            searchObj.province = '';
+                            searchObj.city = '';
+                            return;
+                        }
+                        var prov_id=$province.get(0).selectedIndex-1;
+                        $provincecity.empty();
+
+                        var city_html="<option value='0'>全部</option>";
+
+                        $.ajax({
+                            type : "get",
+                            async : false,
+                            url : "/index.php?s=Home/Api/ajaxInfo&action=city&province=" + encodeURIComponent(value),
+                            dataType : "json",
+                            success : function(city_json){
+                                if(city_json.msg != undefined && city_json.msg == 0){
+                                    
+                                }
+                                else{
+                                    $.each(city_json,function(i,city){
+                                        city_html+="<option value='"+city_json[i].city+"'>"+city_json[i].city+"</option>";
+                                    });
+                                    $provincecity.append(city_html);
+                                    $provincecity.selectric('refresh');
+                                    searchObj.province = value;
+                                    selectedProvince = value;
+                                    searchObj.city = '';
+                                }
+                            }
+                        });
+                    });
+
+                    $provincecity.on('change', function() {
+                        searchObj.city = $(this).val();
+                    });
+                }
+            }
         });
     }
+
     function getShopData(){
         var baseUrl = '/index.php?s=/Home/Index/ajaxshoplist',
             params = '',
