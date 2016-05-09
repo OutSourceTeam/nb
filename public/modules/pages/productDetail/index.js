@@ -160,7 +160,7 @@ define([
                     if(data && data.price){
                         $('.shoePrice').text('￥' + data.price);
                     }
-                    if(data && data.introduction){
+                    if(data){
                         $('.remarkcontent').html(((data.introduction === '' || !data.introduction) ? data.name : data.introduction));
                     }
                     if(data && data.tianMaoLink && data.tianMaoLink != ""){
